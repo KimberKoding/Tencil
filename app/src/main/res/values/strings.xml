@@ -1,4 +1,19 @@
 <resources>
-    <string name="app_name">Tencil</string>
-    <string name="input_hint">Enter text here</string>
+    <string name="app_name">TENCIL</string>
+
+
+    <string name="swipe_left_for_register">Swipe Left for Register</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="e_mail">Email</string>
+    <string name="tag">Register Today &amp; Control Your Future</string>
+    <string name="swipe_right_for_login">Swipe Right for Login</string>
+    <string name="register">Register</string>
+    <string name="re_type_password">Re-type Password</string>
+    <string name="your_name">Full Name</string>
+    <string name="title_activity_login">Test</string>
+    <string name="prompt_email" />
+    <string name="prompt_password" />
+    <string name="action_sign_in_short" />
+    <string name="action_sign_in" />
 </resources>
