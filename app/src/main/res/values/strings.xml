@@ -57,21 +57,122 @@
 
     </string-array>
 
+    <string-array name="hobbies">
+        <item>Sports</item>
+        <item>Social Media</item>
+        <item>Music</item>
+        <item>Gaming</item>
+        <item>Technology</item>
+        <item>Arts and Design</item>
+        <item>Other</item>
+
+    </string-array>
+    <string-array name="sports">
+        <item>Rugby</item>
+        <item>Football</item>
+        <item>Cricket</item>
+        <item>Golf</item>
+        <item>Hiking</item>
+        <item>Swimming</item>
+        <item>Ballet</item>
+        <item>Other</item>
+
+    </string-array>
+    <string-array name="smedia">
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>TikTok</item>
+        <item>Instagram</item>
+        <item>Snapchat</item>
+        <item>Youtube</item>
+        <item>Linkedin</item>
+        <item>Other</item>
+
+    </string-array>
+    <string-array name="genre">
+        <item>Hip Hop</item>
+        <item>Pop Music</item>
+        <item>House Music</item>
+        <item>Techno</item>
+        <item>Jazz</item>
+        <item>Rock</item>
+        <item>Heavy Metal</item>
+        <item>Other</item>
+
+    </string-array>
+    <string-array name="console">
+        <item>Playstation</item>
+        <item>Xbox</item>
+        <item>PC (No RTX 3070's here)</item>
+        <item>Nintendo</item>
+        <item>Other</item>
+        <item>None</item>
+
+
+    </string-array>
+    <string-array name="statement">
+        <item>I Am Passionate About My Work.</item>
+        <item>I Am Highly Organised.</item>
+        <item>I Am Ambitious And Driven</item>
+        <item>I am a People- Person</item>
+        <item>I'm a Natural Leader</item>
+        <item>I am Results Orientated</item>
+
+
+    </string-array>
+    <string-array name="school">
+        <item>University</item>
+        <item>Apprenticeship </item>
+        <item>Full-Time Work</item>
+        <item>Part-Time Work</item>
+        <item>Travelling</item>
+        <item>Other</item>
+
+    </string-array>
+
+    <string-array name="career">
+        <item>Marketing</item>
+        <item>Law</item>
+        <item>Finance</item>
+        <item>Real-Estate</item>
+        <item>Coding</item>
+        <item>Other</item>
+
+
+    </string-array>
+
     <string name="tencil">TENCIL</string>
     <string name="textview">TextView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">NEXT</string>
     <string name="question_1">Question 1</string>
-    <string name="where_do_you_live">Where Do You Live?</string>
     <string name="question_2">Question 2</string>
-    <string name="how_old_are_you">How Old Are You?</string>
-    <string name="question_3">Question 3 </string>
-    <string name="what_gender_are_you">What Gender Are You?</string>
-    <string name="question_4">Question 4 </string>
-    <string name="what_ethnic_group_best_describes_you">What Ethic Group Best Describes You? </string>
+    <string name="question_3">Question 3</string>
+    <string name="question_4">Question 4</string>
     <string name="question_5">Question 5</string>
-    <string name="what_are_your_favourite_subjects">What Are Your Favourite Subjects</string>
+    <string name="question_6">Question 6</string>
+    <string name="question_7">Question 7</string>
+    <string name="question_8">Question 8</string>
+    <string name="question_9">Question 9</string>
+    <string name="question_10">Question 10</string>
+    <string name="question_11">Question 11</string>
+    <string name="question_12">Question 12</string>
+    <string name="question_13">Question 13</string>
+
+    <string name="where_do_you_live">Where Do You Live?</string>
+    <string name="how_old_are_you">How Old Are You?</string>
+    <string name="what_gender_are_you">What Gender Are You?</string>
+    <string name="what_ethnic_group_best_describes_you">What Ethic Group Best Describes You? </string>
+    <string name="what_is_your_favourite_subjects">What Is Your Favourite Subjects</string>
+    <string name="what_is_your_hobbies">What Is Your Favourite Hobby?</string>
+    <string name="what_is_your_sport">What Is Your Favourite Sport?</string>
+    <string name="what_is_your_social_media">What Is Your Favourite Social Media?</string>
+    <string name="what_is_your_genre">What Is Your Favourite Music Genre?</string>
+    <string name="what_is_your_console">What Is Your Favourite Console?</string>
+    <string name="what_is_your_statement">What statement best describes you?</string>
+    <string name="what_is_your_school">What do you want to do after you leave school?</string>
+    <string name="what_is_your_career">What Career Are You Most Interested In?</string>
 
 
 </resources>
