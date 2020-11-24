@@ -48,10 +48,30 @@
 
     </string-array>
 
+    <string-array name="subjects">
+        <item>Humanities</item>
+        <item>Sciences</item>
+        <item>Social Sciences</item>
+        <item>Languages</item>
+        <item>Mathematics</item>
+
+    </string-array>
+
     <string name="tencil">TENCIL</string>
     <string name="textview">TextView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">NEXT</string>
+    <string name="question_1">Question 1</string>
+    <string name="where_do_you_live">Where Do You Live?</string>
+    <string name="question_2">Question 2</string>
+    <string name="how_old_are_you">How Old Are You?</string>
+    <string name="question_3">Question 3 </string>
+    <string name="what_gender_are_you">What Gender Are You?</string>
+    <string name="question_4">Question 4 </string>
+    <string name="what_ethnic_group_best_describes_you">What Ethic Group Best Describes You? </string>
+    <string name="question_5">Question 5</string>
+    <string name="what_are_your_favourite_subjects">What Are Your Favourite Subjects</string>
 
 
 </resources>

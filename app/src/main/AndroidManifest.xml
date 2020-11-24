@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
-        <activity android:name=".questionone"></activity>
+        <activity android:name=".questions" />
         <activity android:name=".dashboard" />
         <activity android:name=".MainActivity">
             <intent-filter>
