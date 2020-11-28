@@ -26,10 +26,11 @@
 
 
     <string-array name="age">
-    <item>14 – 15</item>
-    <item>15 – 16</item>
-    <item>16 – 17</item>
-    <item>18+</item>
+        <item>14 – 15</item>
+        <item>15 – 16</item>
+        <item>16 – 17</item>
+        <item>18+</item>
+        <item>Prefer Not To Say</item>
     </string-array>
     <string-array name="gender">
         <item>Male</item>
@@ -103,7 +104,7 @@
     <string-array name="console">
         <item>Playstation</item>
         <item>Xbox</item>
-        <item>PC (No RTX 3070's here)</item>
+        <item>PC (No RTX 3070 here)</item>
         <item>Nintendo</item>
         <item>Other</item>
         <item>None</item>
@@ -114,8 +115,8 @@
         <item>I Am Passionate About My Work.</item>
         <item>I Am Highly Organised.</item>
         <item>I Am Ambitious And Driven</item>
-        <item>I am a People- Person</item>
-        <item>I'm a Natural Leader</item>
+        <item>I am a People Person</item>
+        <item>Im a Natural Leader</item>
         <item>I am Results Orientated</item>
 
 
@@ -173,6 +174,25 @@
     <string name="what_is_your_statement">What statement best describes you?</string>
     <string name="what_is_your_school">What do you want to do after you leave school?</string>
     <string name="what_is_your_career">What Career Are You Most Interested In?</string>
+    <string name="hello_world">Hello World</string>
+    <string name="discoverimg">discoverimg</string>
+    <string name="welcome_to_tencil">Dashboard</string>
+    <string name="category_1">Category 1</string>
+    <string name="category_2">Category 2</string>
+    <string name="category_3">Category 3</string>
+    <string name="todo">TODO</string>
+    <string name="category_6">Category 6</string>
+    <string name="category_one">Category One</string>
+    <string name="category_two">Category Two</string>
+    <string name="category_three">Category Three</string>
+    <string name="category_four">Category Four</string>
+    <string name="category_five">Category Five</string>
+    <string name="category_six">Category Six</string>
+    <string name="category_seven">Category Seven</string>
+    <string name="category_eight">Category Eight</string>
+    <string name="category_nine">Category Nine</string>
+    <string name="category_ten">Category Ten</string>
+    <string name="company1">Company1</string>
 
 
 </resources>
