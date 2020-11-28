@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-abstract class Dashboard extends AppCompatActivity implements View.OnClickListener {
+abstract class openDash extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,4 +24,7 @@ abstract class Dashboard extends AppCompatActivity implements View.OnClickListen
         Intent intent = new Intent ( this, industry.class );
         startActivity ( intent );
     }
+
+
 }
+
