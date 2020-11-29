@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
+
         <activity android:name=".AllCategories"></activity>
         <activity android:name=".company" />
         <activity android:name=".industry" />

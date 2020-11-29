@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/nav_industries"
+            android:icon="@drawable/general_search_icon"
+            android:title="@string/industries" />
+    </group>
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/settings"
+                    android:title="@string/settings" />
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/general_back_icon"
+                    android:title="@string/logout" />
+            </group>
+
+
+        </menu>
+
+    </item>
+    <item android:title="@string/share">
+        <menu>
+            <group android:checkableBehavior="none">
+
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/shar"
+                    android:title="@string/share" />
+
+                <item
+                    android:id="@+id/nav_rateus"
+                    android:icon="@drawable/rateus"
+                    android:title="@string/rateus" />
+            </group>
+
+
+        </menu>
+
+    </item>
+
+</menu>
