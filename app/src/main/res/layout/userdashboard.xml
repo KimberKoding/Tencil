@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:id="@+id/drawer_layout"
     android:background="@color/colorPrimary"
-    tools:context=".dashboard">
+    tools:context=".User.UserDashboard">
 
 
     <com.google.android.material.navigation.NavigationView

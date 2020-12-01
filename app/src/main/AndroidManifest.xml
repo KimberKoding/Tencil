@@ -14,7 +14,7 @@
         <activity android:name=".company" />
         <activity android:name=".industry" />
         <activity android:name=".questions" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Common.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
