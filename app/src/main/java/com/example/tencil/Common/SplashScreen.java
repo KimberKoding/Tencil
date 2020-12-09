@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tencil.R;
-import com.example.tencil.User.UserDashboard;
+import com.example.tencil.login;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -44,7 +44,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler ( Looper.getMainLooper () ).postDelayed ( new Runnable () {
             @Override
             public void run() {
-                Intent intent = new Intent ( getApplicationContext (), UserDashboard.class );
+                Intent intent = new Intent ( getApplicationContext (), login.class );
                 startActivity ( intent );
             }
         }, SPLASH_TIMER );

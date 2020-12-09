@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".login">
 
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingClass" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -35,13 +40,13 @@
         android:layout_above="@id/et_password"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/et_custom"
+        android:autofillHints=""
 
+        android:background="@drawable/et_custom"
         android:fontFamily="@font/roboto_regular"
         android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
         android:padding="15dp"
-        android:autofillHints=""
         android:textSize="15sp" />
 
     <EditText
@@ -55,9 +60,9 @@
         android:background="@drawable/et_custom"
         android:fontFamily="@font/roboto_regular"
         android:hint="@string/password"
+        android:importantForAutofill="no"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:importantForAutofill="no"
         android:textSize="15sp" />
 
     <Button

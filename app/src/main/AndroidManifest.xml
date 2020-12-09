@@ -9,11 +9,24 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
-
-        <activity android:name=".AllCategories"></activity>
+        <activity android:name=".login" />
+        <activity android:name=".questionthirteen" />
+        <activity android:name=".questiontwelve" />
+        <activity android:name=".questioneleven" />
+        <activity android:name=".questionten" />
+        <activity android:name=".questionnine" />
+        <activity android:name=".questioneight" />
+        <activity android:name=".questionseven" />
+        <activity android:name=".questionsix" />
+        <activity android:name=".questionfive" />
+        <activity android:name=".questionfour" />
+        <activity android:name=".questionthree" />
+        <activity android:name=".questiontwo" />
+        <activity android:name=".questionone" />
+        <activity android:name=".AllCategories" />
         <activity android:name=".company" />
         <activity android:name=".industry" />
-        <activity android:name=".questions" />
+        <activity android:name=".User.UserDashboard" />
         <activity android:name=".Common.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

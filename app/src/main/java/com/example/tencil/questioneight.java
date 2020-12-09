@@ -7,18 +7,20 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class login extends AppCompatActivity implements View.OnClickListener {
+public class questioneight extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_login );
-        Button btn_login = findViewById ( R.id.btn_login );
-        btn_login.setOnClickListener ( this );
+        setContentView ( R.layout.activity_questioneight );
+        Button btn8 = findViewById ( R.id.btn8 );
+
+        btn8.setOnClickListener ( this );
     }
+
 
     @Override
     public void onClick(View v) {
-        login.this.startActivity ( new Intent ( login.this, questionone.class ) );
+        questioneight.this.startActivity ( new Intent ( questioneight.this, questionnine.class ) );
     }
 }

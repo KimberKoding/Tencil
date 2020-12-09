@@ -1,17 +1,19 @@
 package com.example.tencil.User;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.tencil.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class UserDashboard extends AppCompatActivity {
+public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //Variables
     ImageView menuIcon;
@@ -35,6 +37,15 @@ public class UserDashboard extends AppCompatActivity {
         drawerLayout = findViewById ( R.id.drawer_layout );
         navigationView = findViewById ( R.id.navigation_view );
 
+        //Navigation Drawer
+        navigationView.bringToFront ();
+        navigationView.setNavigationItemSelectedListener ( this );
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return true;
 
     }
 }

@@ -205,6 +205,13 @@
     <string name="share">Share</string>
     <string name="menu_slogan">Change Your Future</string>
     <string name="powered_by">Powered By Providence Web Services</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_to_explore_our_world">Login To Explore Our World</string>
+    <string name="finish">FINISH</string>
 
 
 </resources>
