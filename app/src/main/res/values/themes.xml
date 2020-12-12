@@ -16,7 +16,7 @@
     </style>
 
     <style name="navigationTheme">
-        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
     </style>
 
 

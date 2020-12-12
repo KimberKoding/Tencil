@@ -11,6 +11,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="10dp"
+        android:textColor="#fff"
         android:text="@string/menu_slogan" />
 
     <TextView
@@ -20,11 +21,9 @@
         android:layout_above="@id/menu_slogan"
         android:layout_marginLeft="15dp"
         android:fontFamily="@font/raleway_bold"
+        android:textColor="#fff"
         android:text="@string/tencil"
         android:textSize="24sp" />
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/tencilw" />
+
 </RelativeLayout>

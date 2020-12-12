@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
+        <activity android:name=".Common.OnBoarding" />
         <activity android:name=".login" />
         <activity android:name=".questionthirteen" />
         <activity android:name=".questiontwelve" />
