@@ -142,7 +142,7 @@
 
     </string-array>
 
-    <string name="tencil">TENCIL</string>
+    <string name="tencil">Welcome To Tencil</string>
     <string name="textview">TextView</string>
 
 
@@ -166,7 +166,7 @@
     <string name="next_btn">Next</string>
     <string name="let_get_started">Lets Get Started</string>
 
-
+    <!--Questions -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">NEXT</string>
     <string name="question_1">Question 1</string>
@@ -196,13 +196,15 @@
     <string name="what_is_your_statement">What statement best describes you?</string>
     <string name="what_is_your_school">What do you want to do after you leave school?</string>
     <string name="what_is_your_career">What Career Are You Most Interested In?</string>
+    <!--Questions END -->
     <string name="hello_world">Hello World</string>
     <string name="discoverimg">discoverimg</string>
     <string name="welcome_to_tencil">Dashboard</string>
+
+    <!-- Categories -->
     <string name="category_1">Category 1</string>
     <string name="category_2">Category 2</string>
     <string name="category_3">Category 3</string>
-    <string name="todo">TODO</string>
     <string name="category_6">Category 6</string>
     <string name="category_one">Category One</string>
     <string name="category_two">Category Two</string>
@@ -214,6 +216,7 @@
     <string name="category_eight">Category Eight</string>
     <string name="category_nine">Category Nine</string>
     <string name="category_ten">Category Ten</string>
+    <!-- END of Categories -->
     <string name="company1">Company1</string>
     <string name="expand_all">Expand All</string>
     <string name="providence_web_services">Providence Web Services</string>
@@ -235,6 +238,22 @@
     <string name="login_to_explore_our_world">Login To Explore Our World</string>
     <string name="finish">FINISH</string>
     <string name="skip">Skip</string>
+    <string name="click_to_register">Click Here to Register</string>
+    <string name="click_to_login">Click Here To Login</string>
 
 
+    <!-- Dashboard -->
+    <string name="tech">Tech Companies</string>
+    <string name="fintech">FinTech Companies</string>
+    <string name="finance">Finance Companies</string>
+    <string name="socialmedis">Social Media</string>
+
+    <!--Titles & Descriptions -->
+    <string name="featured_companies">All Featured Companies</string>
+    <string name="featured_companies_description">All the featured companies have a top demand in your area!</string>
+    <string name="most_viewed_companies">Most Viewed</string>
+    <string name="categories">Categories</string>
+    <string name="view_all">View all</string>
+    <string name="search_text">Search...</string>
+    <string name="See_More">See More</string>
 </resources>

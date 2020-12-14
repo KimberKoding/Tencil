@@ -1,9 +1,9 @@
 package com.example.tencil.User;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -11,9 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tencil.AllCategories;
+import com.example.tencil.HelperClasses.HomeAdapter.CategoriesAdapter;
+import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
+import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.tencil.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,6 +30,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     LinearLayout contentView;
     static final float END_SCALE = 0.7f;
     LinearLayout content;
+    RecyclerView featuredRecycler, categoriesRecycler;
+    RecyclerView.Adapter adapter;
+
 
     //Drawer Menu
     DrawerLayout drawerLayout;
@@ -30,12 +41,17 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        getWindow ().setFlags ( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
+
         setContentView ( R.layout.userdashboard );
 
         //Hooks
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
+        featuredRecycler = findViewById ( R.id.featured_recycler );
+        categoriesRecycler = findViewById ( R.id.categories_recycler );
+        featuredRecycler ();
+        categoriesRecycler ();
+
 
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
@@ -46,6 +62,42 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         navigationDrawer ();
     }
+
+    private void categoriesRecycler() {
+
+
+        ArrayList<CategoriesHelperClass> categoriesHelperClasses = new ArrayList<> ();
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.pwsb, "Social Media" ) );
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.piggy, "Finance Companies" ) );
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.categories_restaurant_icon, "Tech Companies" ) );
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.analysisw, "FinTech Companies" ) );
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.home, "Local" ) );
+
+
+        categoriesRecycler.setHasFixedSize ( true );
+        adapter = new CategoriesAdapter ( categoriesHelperClasses );
+        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        categoriesRecycler.setAdapter ( adapter );
+
+    }
+
+
+    //Setting Featured Recylcer design view
+    private void featuredRecycler() {
+
+        featuredRecycler.setHasFixedSize ( true );
+        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+
+        ArrayList<FeaturedHelperClass> featuredBusinesses = new ArrayList<> ();
+        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.pwsb, "Provide", "rtrgrrgesdsdsd assasasa asa asa" ) );
+        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.tencilw, "Tencil", "rtrgrrgesdsdsd assasasa asa asa" ) );
+        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.pwsb, "test3", "rgttgtefe assasasa asa asa" ) );
+
+        adapter = new FeaturedAdapter ( (featuredBusinesses) );
+        featuredRecycler.setAdapter ( adapter );
+
+    }
+
 
     // Navigation Drawer functions
     private void navigationDrawer() {
@@ -101,4 +153,22 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         return true;
 
     }
+
+    public void cardClicked1(View v) {
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+    }
+
+    public void cardClicked2(View v) {
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+    }
+
+    public void cardClicked3(View v) {
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+    }
+
+    public void cardClicked4(View v) {
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+    }
+
+
 }

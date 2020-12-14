@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.tencil.HelperClasses.SliderAdapter;
 import com.example.tencil.R;
-import com.example.tencil.User.UserDashboard;
+import com.example.tencil.login;
 
 
 public class OnBoarding extends AppCompatActivity {
@@ -75,16 +75,25 @@ public class OnBoarding extends AppCompatActivity {
         viewPager.setAdapter ( sliderAdapter );
         addDots ( 0 );
         viewPager.addOnPageChangeListener ( changeListener );
+
+
     }
 
     public void skip(View view) {
-        startActivity ( new Intent ( getApplicationContext (), UserDashboard.class ) );
+        startActivity ( new Intent ( getApplicationContext (), login.class ) );
         finish ();
     }
+
+    public void getStarted(View view) {
+        startActivity ( new Intent ( getApplicationContext (), login.class ) );
+        finish ();
+    }
+
 
     public void next(View view) {
         viewPager.setCurrentItem ( currentpos + 1 );
     }
+
 
     private void addDots(int position) {
 

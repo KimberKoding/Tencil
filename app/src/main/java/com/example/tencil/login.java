@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tencil.User.UserDashboard;
+
 public class login extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -19,6 +21,11 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        login.this.startActivity ( new Intent ( login.this, questionone.class ) );
+        login.this.startActivity ( new Intent ( login.this, UserDashboard.class ) );
+    }
+
+    public void register(View view) {
+        startActivity ( new Intent ( getApplicationContext (), register.class ) );
+        finish ();
     }
 }

@@ -49,6 +49,7 @@
             android:background="@color/colorPrimary"
             android:backgroundTint="@color/colorPrimary"
             android:text="@string/let_get_started"
+            android:onClick="getStarted"
             android:textColor="#fff"
             android:visibility="invisible" />
 

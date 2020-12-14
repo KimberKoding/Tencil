@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tencil">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/tencil"
@@ -9,6 +11,8 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
+        <activity android:name=".solo_company"></activity>
+        <activity android:name=".register" />
         <activity android:name=".Common.OnBoarding" />
         <activity android:name=".login" />
         <activity android:name=".questionthirteen" />
