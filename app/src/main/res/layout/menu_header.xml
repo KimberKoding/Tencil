@@ -23,7 +23,7 @@
         android:fontFamily="@font/raleway_bold"
         android:textColor="#fff"
         android:text="@string/tencil"
-        android:textSize="24sp" />
+        android:textSize="26sp" />
 
 
 </RelativeLayout>
