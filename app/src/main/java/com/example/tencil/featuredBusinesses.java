@@ -8,17 +8,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tencil.User.UserDashboard;
 
-
-public class AllCategories extends AppCompatActivity {
+public class featuredBusinesses extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_all_categories );
+        setContentView ( R.layout.activity_featured_businesses );
     }
 
     public void ryanNav(View v) {
-        AllCategories.this.startActivity ( new Intent ( AllCategories.this, UserDashboard.class ) );
+        featuredBusinesses.this.startActivity ( new Intent ( featuredBusinesses.this, UserDashboard.class ) );
         System.out.println ( "Going to NEW ACTIVITY" );
 
 
@@ -26,11 +25,8 @@ public class AllCategories extends AppCompatActivity {
 
 
     public void seemore1(View view) {
-        AllCategories.this.startActivity ( new Intent ( AllCategories.this, solo_company.class ) );
+        featuredBusinesses.this.startActivity ( new Intent ( featuredBusinesses.this, solo_company.class ) );
 
 
     }
-
-
 }
-

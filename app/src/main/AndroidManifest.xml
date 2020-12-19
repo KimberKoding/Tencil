@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
-        <activity android:name=".solo_company"></activity>
+        <activity android:name=".featuredBusinesses"></activity>
+        <activity android:name=".solo_company" />
         <activity android:name=".register" />
         <activity android:name=".Common.OnBoarding" />
         <activity android:name=".login" />
@@ -30,7 +31,6 @@
         <activity android:name=".questionone" />
         <activity android:name=".AllCategories" />
         <activity android:name=".company" />
-        <activity android:name=".industry" />
         <activity android:name=".User.UserDashboard" />
         <activity android:name=".Common.SplashScreen">
             <intent-filter>

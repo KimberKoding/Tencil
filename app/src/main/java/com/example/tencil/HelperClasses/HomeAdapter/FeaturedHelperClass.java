@@ -10,6 +10,7 @@ public class FeaturedHelperClass {
         this.image = image;
         this.title = title;
         this.description = description;
+
     }
 
     //GETTER

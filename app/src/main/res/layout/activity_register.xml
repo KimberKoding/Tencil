@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".RegisterFragment">
 
@@ -89,6 +90,23 @@
             android:fontFamily="@font/roboto_regular"
             android:text="@string/register"
             android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:fontFamily="@font/roboto_regular"
+            android:onClick="loginHere"
+            android:text="@string/click_to_login"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
 
 
     </RelativeLayout>
