@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tencil.AllCategories;
+import com.example.tencil.FeaturedBusiness;
 import com.example.tencil.HelperClasses.HomeAdapter.CategoriesAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
@@ -95,7 +96,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         adapter = new FeaturedAdapter ( (featuredBusinesses) );
         featuredRecycler.setAdapter ( adapter );
-
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, FeaturedBusiness.class ) );
     }
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".featuredBusinesses">
+    tools:context=".FeaturedBusiness">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -179,6 +179,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/raleway_bold"
+                android:textAlignment="center"
                 android:text="@string/want_to_be_a_featured_business"
                 android:textSize="38sp" />
 

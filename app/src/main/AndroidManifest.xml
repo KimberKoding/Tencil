@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
-        <activity android:name=".featuredBusinesses"></activity>
+        <activity android:name=".communicationCompanies"></activity>
+        <activity android:name=".codingCategory" />
+        <activity android:name=".FeaturedBusiness" />
         <activity android:name=".solo_company" />
         <activity android:name=".register" />
         <activity android:name=".Common.OnBoarding" />

@@ -281,5 +281,8 @@
     <string name="contact">Contact</string>
     <string name="want_to_be_a_featured_business">Want to be a featured Business?</string>
     <string name="contact_us">Contact Us</string>
+    <string name="BT">BT</string>
+    <string name="vodafone">Vodafone</string>
+    <string name="talk_talk">Talk Talk</string>
 
 </resources>
