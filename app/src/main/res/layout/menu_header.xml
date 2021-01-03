@@ -12,7 +12,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="10dp"
         android:textColor="#fff"
-        android:text="@string/menu_slogan" />
+        android:text="Control Your Future" />
 
     <TextView
         android:id="@+id/app_name"

@@ -4,10 +4,13 @@ public class CategoriesHelperClass {
     int image;
     String title;
 
+
     //SETTER
     public CategoriesHelperClass(int image, String title) {
         this.image = image;
         this.title = title;
+
+
     }
 
     //GETTER
@@ -20,4 +23,5 @@ public class CategoriesHelperClass {
     }
 
 }
+
 

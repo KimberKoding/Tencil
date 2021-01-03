@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tencil.User.UserDashboard;
 
+
 public class FeaturedBusiness extends AppCompatActivity {
 
     @Override
@@ -16,10 +17,10 @@ public class FeaturedBusiness extends AppCompatActivity {
         setContentView ( R.layout.activity_featured_businesses );
     }
 
-    public void ryanNav(View v) {
+    public void featuredNav(View v) {
         FeaturedBusiness.this.startActivity ( new Intent ( FeaturedBusiness.this, UserDashboard.class ) );
         System.out.println ( "Going to NEW ACTIVITY" );
-
+        finish ();
 
     }
 

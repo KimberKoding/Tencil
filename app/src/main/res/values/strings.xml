@@ -284,5 +284,15 @@
     <string name="BT">BT</string>
     <string name="vodafone">Vodafone</string>
     <string name="talk_talk">Talk Talk</string>
+    <string name="category_finance">Finance Category</string>
+    <string name="financecomp1">Finance Company #1</string>
+    <string name="financecomp2">Finance Company #2</string>
+    <string name="backnavigation">backnavigation</string>
+    <string name="socialmedia1">Social Media #1</string>
+    <string name="socialmedia2">Socal Media #2</string>
+    <string name="socialmediacategory">Social Media Category</string>
+    <string name="business_category">Business Category</string>
+    <string name="category_tech">Tech Category</string>
+    <string name="test">Test Company</string>
 
 </resources>

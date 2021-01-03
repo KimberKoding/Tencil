@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
-        <activity android:name=".communicationCompanies"></activity>
+        <activity android:name=".fintechCompany" />
+        <activity android:name=".techCompany" />
+        <activity android:name=".tech_company" />
+        <activity android:name=".businessActivity" />
+        <activity android:name=".socialMedia" />
+        <activity android:name=".soloCompanyFinance" />
+        <activity android:name=".financeCompany" />
+        <activity android:name=".communicationCompanies" />
         <activity android:name=".codingCategory" />
         <activity android:name=".FeaturedBusiness" />
         <activity android:name=".solo_company" />
@@ -32,8 +39,10 @@
         <activity android:name=".questiontwo" />
         <activity android:name=".questionone" />
         <activity android:name=".AllCategories" />
+        <activity android:name=".soloCompanyFinance2" />
         <activity android:name=".company" />
         <activity android:name=".User.UserDashboard" />
+        <activity android:name=".soloCompanysmedia1" />
         <activity android:name=".Common.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

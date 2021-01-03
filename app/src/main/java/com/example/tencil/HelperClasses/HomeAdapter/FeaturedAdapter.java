@@ -1,5 +1,6 @@
 package com.example.tencil.HelperClasses.HomeAdapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tencil.FeaturedBusiness;
 import com.example.tencil.R;
 
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
 
     @NonNull
     @Override
-    //Returns Feautured View Dynamically
+    //Returns Featured View Dynamically
     public FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from ( parent.getContext () ).inflate ( R.layout.featured_card_design, parent, false );
         FeaturedViewHolder featuredViewHolder = new FeaturedViewHolder ( view );
@@ -38,6 +40,18 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
         holder.image.setImageResource ( featuredHelperClass.getImage () );
         holder.title.setText ( featuredHelperClass.getTitle () );
         holder.desc.setText ( featuredHelperClass.getDescription () );
+        holder.itemView.setOnClickListener ( new View.OnClickListener () {
+
+            public void onClick(View v) {
+                System.out.println ( "THISISBORKED" );
+                Intent intent = new Intent ( v.getContext (), FeaturedBusiness.class );
+                v.getContext ().startActivity ( intent );
+                System.out.println ( "THIS WORKS" );
+
+
+            }
+
+        } );
 
     }
 
@@ -46,6 +60,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.Featur
 
         return featuredBusinesses.size ();
     }
+
 
     //HOLDS VIEWS
     public static class FeaturedViewHolder extends RecyclerView.ViewHolder {

@@ -9,11 +9,17 @@
 
     <RelativeLayout
 
-        android:id="@+id/background_gradient"
+        android:id="@+id/categories_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/card_3"
-        android:padding="15dp"></RelativeLayout>
+        android:padding="15dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categories_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
 
     <TextView
@@ -49,11 +55,6 @@
 
 
         </RelativeLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/categories_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
