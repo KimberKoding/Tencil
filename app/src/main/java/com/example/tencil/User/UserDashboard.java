@@ -15,22 +15,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tencil.AllCategories;
-import com.example.tencil.FeaturedBusiness;
 import com.example.tencil.HelperClasses.HomeAdapter.CategoriesAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.tencil.R;
+import com.example.tencil.financeCompany;
+import com.example.tencil.socialMedia;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final String TAG = "Started User Dashboard Successfully";
     //Variables
     ImageView menuIcon;
     LinearLayout contentView;
-    static final float END_SCALE = 0.7f;
-    LinearLayout content;
+    static float END_SCALE = 0.7f;
     RecyclerView featuredRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
 
@@ -43,13 +44,14 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
 
+
         setContentView ( R.layout.userdashboard );
 
         //Hooks
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
-        categoriesRecycler = findViewById ( R.id.categories_recycler );
+        categoriesRecycler = findViewById ( R.id.parentLayout );
         featuredRecycler ();
         categoriesRecycler ();
 
@@ -64,19 +66,25 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         navigationDrawer ();
     }
 
+
     private void categoriesRecycler() {
 
 
         ArrayList<CategoriesHelperClass> categoriesHelperClasses = new ArrayList<> ();
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.pwsb, "Social Media" ) );
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.tencilw, "Social Media" ) );
         categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.piggy, "Finance Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.categories_restaurant_icon, "Tech Companies" ) );
+        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.pws, "Tech Companies" ) );
         categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.analysisw, "FinTech Companies" ) );
         categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.home, "Local" ) );
 
 
         categoriesRecycler.setHasFixedSize ( true );
-        adapter = new CategoriesAdapter ( categoriesHelperClasses );
+        adapter = new CategoriesAdapter ( categoriesHelperClasses ) {
+
+            public void onClick(View v) {
+
+            }
+        };
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( adapter );
 
@@ -96,7 +104,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         adapter = new FeaturedAdapter ( (featuredBusinesses) );
         featuredRecycler.setAdapter ( adapter );
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, FeaturedBusiness.class ) );
+
     }
 
 
@@ -156,20 +164,23 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void cardClicked1(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, socialMedia.class ) );
     }
 
     public void cardClicked2(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
     }
 
     public void cardClicked3(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
     }
 
     public void cardClicked4(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
     }
 
 
+    public void viewAllClicked(View view) {
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+    }
 }

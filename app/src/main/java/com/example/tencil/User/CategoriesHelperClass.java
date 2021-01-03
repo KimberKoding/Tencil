@@ -2,19 +2,19 @@ package com.example.tencil.User;
 
 public class CategoriesHelperClass {
 
-    int image;
-    String title;
+    static int image;
+    static String title;
 
     public CategoriesHelperClass(int image, String title) {
-        this.image = image;
-        this.title = title;
+        CategoriesHelperClass.image = image;
+        CategoriesHelperClass.title = title;
     }
 
-    public String getTitle() {
+    public static String getTitle() {
         return title;
     }
 
-    public int getImage() {
+    public static int getImage() {
         return image;
     }
 }

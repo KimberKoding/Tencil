@@ -14,13 +14,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/back_dash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="ryanNav"
+                android:onClick="featuredNav"
                 android:padding="15dp"
                 android:src="@drawable/general_back_icon" />
 

@@ -1,23 +1,24 @@
 package com.example.tencil.HelperClasses.HomeAdapter;
 
 public class CategoriesHelperClass {
-    int image;
-    String title;
+    static int image;
+    static String title;
 
     //SETTER
     public CategoriesHelperClass(int image, String title) {
-        this.image = image;
-        this.title = title;
+        CategoriesHelperClass.image = image;
+        CategoriesHelperClass.title = title;
     }
 
     //GETTER
-    public int getImage() {
+    public static int getImage() {
         return image;
     }
 
-    public String getTitle() {
+    public static String getTitle() {
         return title;
     }
+
 
 }
 

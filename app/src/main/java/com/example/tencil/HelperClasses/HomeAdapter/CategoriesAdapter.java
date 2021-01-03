@@ -1,12 +1,15 @@
 package com.example.tencil.HelperClasses.HomeAdapter;
 
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tencil.R;
@@ -14,53 +17,69 @@ import com.example.tencil.User.CategoriesHelperClass;
 
 import java.util.ArrayList;
 
-public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.FeaturedViewHolder> {
+import static android.content.ContentValues.TAG;
+
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.ViewHolder> {
 
     ArrayList<CategoriesHelperClass> categories;
+    private ArrayList<CategoriesHelperClass> mTitle = new ArrayList<> ();
+    private ArrayList<CategoriesHelperClass> mImages = new ArrayList<> ();
+    private android.content.Context mcontext;
+
 
     public CategoriesAdapter(ArrayList<CategoriesHelperClass> categories) {
         this.categories = categories;
+        this.mTitle = mTitle;
+        this.mImages = mImages;
+        this.mcontext = mcontext;
     }
 
 
-    @NonNull
-    @Override
     //Returns Categories View Dynamically
-    public CategoriesAdapter.FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from ( parent.getContext () ).inflate ( R.layout.categories_card_design, parent, false );
-        return new FeaturedViewHolder ( view );
+        ViewHolder holder = new ViewHolder ( view );
+        return new ViewHolder ( view );
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
-        CategoriesHelperClass categoriesHelperClass = categories.get ( position );
+    public void onBindViewHolder(ViewHolder holder, int position) {
 
-        holder.image.setImageResource ( categoriesHelperClass.getImage () );
-        holder.title.setText ( categoriesHelperClass.getTitle () );
+        Log.d ( TAG, "OnBindViewHolder: Called." );
+        holder.image.setImageResource ( com.example.tencil.HelperClasses.HomeAdapter.CategoriesHelperClass.getImage () );
+        holder.title.setText ( com.example.tencil.HelperClasses.HomeAdapter.CategoriesHelperClass.getTitle () );
+        holder.parentLayout.setOnClickListener ( new View.OnClickListener () {
+
+            public void onClick(View v) {
+                Log.d ( TAG, "OnClick: Clicked on" + mImages.get ( position ) );
+                Toast.makeText ( mcontext, (CharSequence) mTitle.get ( position ), Toast.LENGTH_SHORT ).show ();
+            }
+        } );
 
 
     }
 
-    @Override
     public int getItemCount() {
 
         return categories.size ();
     }
 
     //HOLDS VIEWS
-    public static class FeaturedViewHolder extends RecyclerView.ViewHolder {
-
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title;
+        RelativeLayout parentLayout;
 
-        public FeaturedViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super ( itemView );
+
 
             //HOOKS
             image = itemView.findViewById ( R.id.categories_image );
             title = itemView.findViewById ( R.id.categories_title );
+            parentLayout = itemView.findViewById ( R.id.parentLayout );
+
+
         }
+
     }
-
-
 }
