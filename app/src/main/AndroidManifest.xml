@@ -11,11 +11,15 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
+<<<<<<< HEAD
         <activity android:name=".fintechCompany" />
         <activity android:name=".techCompany" />
         <activity android:name=".tech_company" />
         <activity android:name=".businessActivity" />
         <activity android:name=".socialMedia" />
+=======
+        <activity android:name=".socialMedia"></activity>
+>>>>>>> origin/master
         <activity android:name=".soloCompanyFinance" />
         <activity android:name=".financeCompany" />
         <activity android:name=".communicationCompanies" />

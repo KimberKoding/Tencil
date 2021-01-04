@@ -23,10 +23,14 @@ import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.tencil.R;
 import com.example.tencil.financeCompany;
+<<<<<<< HEAD
 import com.example.tencil.fintechCompany;
 import com.example.tencil.login;
 import com.example.tencil.socialMedia;
 import com.example.tencil.techCompany;
+=======
+import com.example.tencil.socialMedia;
+>>>>>>> origin/master
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -52,13 +56,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
         setContentView ( R.layout.userdashboard );
 
         //Hooks
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
-        categoriesRecycler = findViewById ( R.id.categories_recycler );
+        categoriesRecycler = findViewById ( R.id.parentLayout );
         featuredRecycler ();
         categoriesRecycler ();
 
@@ -86,7 +95,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
         categoriesRecycler.setHasFixedSize ( true );
+<<<<<<< HEAD
         adapter = new CategoriesAdapter ( categoriesHelperClasses, mContext );
+=======
+        adapter = new CategoriesAdapter ( categoriesHelperClasses ) {
+
+            public void onClick(View v) {
+
+            }
+        };
+>>>>>>> origin/master
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( adapter );
 
@@ -194,11 +212,19 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void cardClicked3(View v) {
+<<<<<<< HEAD
         UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, techCompany.class ) );
     }
 
     public void cardClicked4(View v) {
         UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, fintechCompany.class ) );
+=======
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
+    }
+
+    public void cardClicked4(View v) {
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
+>>>>>>> origin/master
     }
 
 

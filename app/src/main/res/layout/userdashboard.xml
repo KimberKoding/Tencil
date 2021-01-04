@@ -289,8 +289,8 @@
 
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/categories_recycler"
                         android:layout_width="match_parent"
+                        android:id="@+id/parentLayout"
                         android:layout_height="150dp" />
 
 
