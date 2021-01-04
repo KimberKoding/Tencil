@@ -291,8 +291,11 @@
     <string name="socialmedia1">Social Media #1</string>
     <string name="socialmedia2">Socal Media #2</string>
     <string name="socialmediacategory">Social Media Category</string>
+<<<<<<< HEAD
     <string name="business_category">Business Category</string>
     <string name="category_tech">Tech Category</string>
     <string name="test">Test Company</string>
+=======
+>>>>>>> origin/master
 
 </resources>
