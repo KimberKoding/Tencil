@@ -26,6 +26,7 @@ import com.example.tencil.financeCompany;
 import com.example.tencil.fintechCompany;
 import com.example.tencil.login;
 import com.example.tencil.socialMedia;
+import com.example.tencil.techCompany;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -197,7 +198,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     public void cardClicked3(View v) {
 
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, techCompany.class ) );
     }
 
 
