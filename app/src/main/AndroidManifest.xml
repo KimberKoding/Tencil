@@ -3,6 +3,8 @@
     package="com.example.tencil">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -12,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
 
-    <activity android:name=".fintechCompany" />
+        <activity android:name=".fintechCompany" />
         <activity android:name=".techCompany" />
         <activity android:name=".tech_company" />
         <activity android:name=".businessActivity" />
