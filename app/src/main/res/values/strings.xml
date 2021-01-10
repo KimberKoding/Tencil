@@ -295,5 +295,7 @@
     <string name="business_category">Business Category</string>
     <string name="category_tech">Tech Category</string>
     <string name="test">Test Company</string>
+    <string name="MoneyFarm">Money Farm</string>
+    <string name="moneyfarm_desc">"We are a pan-European digital wealth manager with 50,000 active investors and over £1 billion invested on our platform.</string>
 
 </resources>

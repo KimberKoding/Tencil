@@ -15,6 +15,7 @@
         android:theme="@style/Theme.Tencil">
 
         <activity android:name=".fintechCompany" />
+        <activity android:name=".soloCompanyFintech" />
         <activity android:name=".techCompany" />
         <activity android:name=".tech_company" />
         <activity android:name=".businessActivity" />

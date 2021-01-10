@@ -37,7 +37,7 @@
             android:id="@+id/dafyddtest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/raleway_bold"
             android:text="@string/fintech"
@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
-                    android:text="@string/test"
+                    android:text="@string/MoneyFarm"
                     android:textColor="#fff"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -82,63 +82,18 @@
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="88dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"
+                android:layout_alignParentEnd="false"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="20dp"
-                android:src="@drawable/pws" />
+                android:src="@drawable/moneyfarm" />
 
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="190dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/card_4">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:text="@string/test"
-                    android:textColor="#fff"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/see_more2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:background="#00000000"
-                    android:backgroundTint="#00000000"
-                    android:onClick="seemore1"
-                    android:padding="20dp"
-                    android:text="@string/See_More"
-                    android:textColor="#fff"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="88dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="20dp"
-                android:src="@drawable/pws" />
-
-
-        </RelativeLayout>
 
 
     </LinearLayout>

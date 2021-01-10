@@ -9,7 +9,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".solo_company">
+    tools:context=".soloCompanyFintech">
 
 
     <com.google.android.material.navigation.NavigationView
@@ -32,7 +32,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".solo_company">
+            tools:context=".soloCompanyFintech">
 
 
             <LinearLayout
@@ -62,7 +62,7 @@
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/raleway_bold"
                         android:paddingTop="8dp"
-                        android:text="@string/providence_web_services"
+                        android:text="@string/fintech"
                         android:textColor="@color/colorAccent"
                         android:textSize="23sp" />
 
@@ -93,7 +93,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:paddingTop="10dp"
-                            android:src="@drawable/pwsxmas"
+                            android:src="@drawable/moneyfarmlogo"
                             app:civ_border_color="#000"
                             app:civ_border_width="5dp" />
 
@@ -101,9 +101,9 @@
                             android:id="@+id/textbusiness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="130dp"
                             android:layout_marginTop="50dp"
-                            android:text="@string/providence_web_services"
+                            android:text="@string/MoneyFarm"
                             android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="25sp" />
@@ -111,9 +111,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="97dp"
-                            android:layout_marginStart="30dp"
+                            android:layout_marginStart="0dp"
                             android:layout_marginTop="20dp"
-                            android:text="@string/provide_desc"
+                            android:text="@string/moneyfarm_desc"
+                            android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="15sp" />
@@ -150,8 +151,8 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="5dp"
                                 android:backgroundTint="#056F98"
+                                android:onClick="website"
                                 android:text="@string/website"
-
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 

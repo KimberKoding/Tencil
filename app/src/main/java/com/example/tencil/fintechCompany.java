@@ -6,8 +6,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tencil.User.UserDashboard;
-
 import static com.example.tencil.R.layout.activity_fintech_company;
 
 public class fintechCompany extends AppCompatActivity {
@@ -19,7 +17,7 @@ public class fintechCompany extends AppCompatActivity {
     }
 
     public void ryanNav(View v) {
-        fintechCompany.this.startActivity ( new Intent ( fintechCompany.this, UserDashboard.class ) );
+        fintechCompany.this.startActivity ( new Intent ( fintechCompany.this, soloCompanyFintech.class ) );
         System.out.println ( "Going to NEW ACTIVITY" );
 
 
@@ -27,11 +25,11 @@ public class fintechCompany extends AppCompatActivity {
 
 
     public void seemore1(View view) {
-        fintechCompany.this.startActivity ( new Intent ( fintechCompany.this, UserDashboard.class ) );
+        fintechCompany.this.startActivity ( new Intent ( fintechCompany.this, soloCompanyFintech.class ) );
     }
 
     public void seemore2(View view) {
-        fintechCompany.this.startActivity ( new Intent ( fintechCompany.this, UserDashboard.class ) );
+        fintechCompany.this.startActivity ( new Intent ( fintechCompany.this, soloCompanyFintech.class ) );
     }
 
 }
