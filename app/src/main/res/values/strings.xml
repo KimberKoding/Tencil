@@ -297,5 +297,11 @@
     <string name="test">Test Company</string>
     <string name="MoneyFarm">Money Farm</string>
     <string name="moneyfarm_desc">"We are a pan-European digital wealth manager with 50,000 active investors and over £1 billion invested on our platform.</string>
+    <string name="forget_password_desc">Provide Your Account Email<br /> To Reset Your Password</string>
+    <string name="next_forgotten_password">Next</string>
+    <string name="verification_method">Please Select a <br />Method of Verification</string>
+    <string name="new_credentials">New Credentials</string>
+    <string name="new_credentials_detail">Your Identity Has Been Verified.<br /> Set Your New Password</string>
+    <string name="update">Update</string>
 
 </resources>

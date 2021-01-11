@@ -7,4 +7,5 @@
     <color name="card2">#000000</color>
     <color name="card3">#2196F3</color>
     <color name="card4">#FF9800</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
