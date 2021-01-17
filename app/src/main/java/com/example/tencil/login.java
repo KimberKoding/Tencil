@@ -62,13 +62,13 @@ public class login extends AppCompatActivity {
 
                     if(passMatch) {
 
-                        Toast.makeText(login.this, "Login Successful", Toast.LENGTH_LONG).show();
-                        new Handler().postDelayed(new Runnable() {
+                        Toast.makeText ( login.this, "Login Successful", Toast.LENGTH_LONG ).show ();
+                        new Handler ().postDelayed ( new Runnable () {
                             @Override
                             public void run() {
-                                startActivity(new Intent(login.this, UserDashboard.class));
+                                startActivity ( new Intent ( login.this, UserDashboard.class ) );
                             }
-                        }, 700);
+                        }, 400 );
                     } else {
                         Toast.makeText ( login.this, "Credentials are incorrect", Toast.LENGTH_LONG ).show ();
                     }

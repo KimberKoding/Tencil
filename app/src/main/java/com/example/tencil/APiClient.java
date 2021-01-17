@@ -2,11 +2,7 @@ package com.example.tencil;
 
 import android.os.Build;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -34,6 +30,7 @@ public class APiClient {
         try {
             IvParameterSpec iv = new IvParameterSpec ( initVector.getBytes ( StandardCharsets.UTF_8 ) );
             SecretKeySpec skeySpec = new SecretKeySpec ( key.getBytes ( StandardCharsets.UTF_8 ), "AES" );
+
 
             Cipher cipher = Cipher.getInstance ( "AES/CBC/PKCS5PADDING" );
             cipher.init ( Cipher.ENCRYPT_MODE, skeySpec, iv );
@@ -73,6 +70,7 @@ public class APiClient {
                 // Request customization: add request headers
                 Request.Builder requestBuilder = original.newBuilder ()
                         .header ( "X-API-IV", bytes.toString() ); // <-- this is the important line
+
                 Request request = requestBuilder.build ();
                 return chain.proceed ( request );
             }

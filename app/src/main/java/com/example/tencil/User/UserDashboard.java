@@ -3,6 +3,7 @@ package com.example.tencil.User;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tencil.APiClient;
 import com.example.tencil.AllCategories;
+import com.example.tencil.CategoriesResponse;
 import com.example.tencil.HelperClasses.HomeAdapter.CategoriesAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.CategoriesHelperClass;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
@@ -29,6 +32,11 @@ import com.example.tencil.techCompany;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -91,6 +99,22 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( adapter );
+
+        Call<List<CategoriesResponse>> categorieslist = APiClient.getUserService ().getAllCategories ();
+        categorieslist.enqueue ( new Callback<List<CategoriesResponse>> () {
+            @Override
+            public void onResponse(Call<List<CategoriesResponse>> call, Response<List<CategoriesResponse>> response) {
+                if (response.isSuccessful ()) {
+                    Log.e ( "success", response.body ().toString () );
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CategoriesResponse>> call, Throwable t) {
+                Log.e ( "failure", t.getLocalizedMessage () );
+
+            }
+        } );
 
 
     }

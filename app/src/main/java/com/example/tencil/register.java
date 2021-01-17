@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.annotations.SerializedName;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,6 +23,8 @@ public class register extends AppCompatActivity {
     EditText email, password, repassword;
     private Button btn_register;
     private ProgressBar loading;
+    @SerializedName("data")
+    private String data;
 
 
     @Override
@@ -41,7 +45,9 @@ public class register extends AppCompatActivity {
                 RegisterRequest registerRequest = new RegisterRequest ();
                 registerRequest.setEmail ( email.getText ().toString () );
                 registerRequest.setPassword ( password.getText ().toString () );
+                registerRequest.setData ( "data" );
                 registerUser ( registerRequest );
+                loading.setVisibility ( View.VISIBLE );
 
 
             }
@@ -58,11 +64,13 @@ public class register extends AppCompatActivity {
                 if (response.isSuccessful ()) {
                     Toast.makeText ( register.this, "Registered User Successful", Toast.LENGTH_LONG ).show ();
                     RegisterResponse registerResponse = response.body ();
+                    loading.setVisibility ( View.GONE );
                     startActivity ( new Intent ( register.this, login.class ) );
                 } else {
 
                     Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();
                     System.out.println ( "RESPONSE:" + response );
+                    loading.setVisibility ( View.GONE );
                 }
 
 
