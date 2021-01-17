@@ -1,6 +1,7 @@
 package com.example.tencil;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,28 +9,19 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class register extends AppCompatActivity {
 
-    private static final String URL_REGIST = "https://providencewebservices.co.uk/api-test/v1/test-suite/registration.php";
-    private EditText email, password, repassword;
+    EditText email, password, repassword;
     private Button btn_register;
     private ProgressBar loading;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,63 +35,52 @@ public class register extends AppCompatActivity {
 
 
         btn_register.setOnClickListener ( new View.OnClickListener () {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            public void onClick(View v) {
-                Regist ();
+            public void onClick(View view) {
+                RegisterRequest registerRequest = new RegisterRequest ();
+                registerRequest.setEmail ( email.getText ().toString () );
+                registerRequest.setPassword ( password.getText ().toString () );
+                registerUser ( registerRequest );
+
+
             }
         } );
 
     }
 
-    private void Regist() {
-        loading.setVisibility ( View.VISIBLE );
-        btn_register.setVisibility ( View.GONE );
-        final String email = this.email.getText ().toString ().trim ();
-        final String password = this.password.getText ().toString ().trim ();
-        final String repassword = this.repassword.getText ().toString ().trim ();
-        StringRequest stringRequest = new StringRequest ( Request.Method.POST, URL_REGIST,
-                new Response.Listener<String> () {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject ( response );
-                            String success = jsonObject.getString ( "Success" );
-                            if (success.equals ( "1" )) {
-                                Toast.makeText ( register.this, "Register Success!", Toast.LENGTH_SHORT ).show ();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace ();
-                            Toast.makeText ( register.this, "Register Error!" + e.toString (), Toast.LENGTH_SHORT ).show ();
-                            loading.setVisibility ( View.GONE );
-                            btn_register.setVisibility ( View.VISIBLE );
-                        }
-                    }
-                },
-                new Response.ErrorListener () {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText ( register.this, "Register Error!" + error.toString (), Toast.LENGTH_SHORT ).show ();
-                        loading.setVisibility ( View.GONE );
-                        btn_register.setVisibility ( View.VISIBLE );
-                    }
-                } ) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<> ();
-                params.put ( "email", email );
-                params.put ( "password", password );
-                params.put ( "repassword", repassword );
+    public void registerUser(RegisterRequest registerRequest) {
+        Call<RegisterResponse> registerResponseCall = APiClient.getUserService ().registerUsers ( registerRequest );
+        registerResponseCall.enqueue ( new Callback<RegisterResponse> () {
 
-                return params;
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+                if (response.isSuccessful ()) {
+                    Toast.makeText ( register.this, "Registered User Successful", Toast.LENGTH_LONG ).show ();
+                    RegisterResponse registerResponse = response.body ();
+                    startActivity ( new Intent ( register.this, login.class ) );
+                } else {
+
+                    Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();
+                    System.out.println ( "RESPONSE:" + response );
+                }
+
+
             }
-        };
-        RequestQueue requestQueue = Volley.newRequestQueue ( this );
-        requestQueue.add ( stringRequest );
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+                Toast.makeText ( register.this, "Throwable " + t.getLocalizedMessage (), Toast.LENGTH_LONG ).show ();
+
+            }
+        } );
     }
+
 
     public void loginHere(View view) {
         startActivity ( new Intent ( getApplicationContext (), login.class ) );
         finish ();
     }
+
 
 }

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
-        <activity android:name=".ForgetPasswordSuccessMessage"></activity>
+        <activity android:name=".ForgetPasswordSuccessMessage" />
         <activity android:name=".SetNewPassword" />
         <activity android:name=".MakeSelection" />
         <activity android:name=".ForgetPassword" />
@@ -30,7 +30,9 @@
         <activity android:name=".solo_company" />
         <activity android:name=".register" />
         <activity android:name=".Common.OnBoarding" />
-        <activity android:name=".login" />
+        <activity
+            android:name=".login"
+            android:theme="@style/Theme.Tencil" />
         <activity android:name=".questionthirteen" />
         <activity android:name=".questiontwelve" />
         <activity android:name=".questioneleven" />
@@ -49,7 +51,9 @@
         <activity android:name=".company" />
         <activity android:name=".User.UserDashboard" />
         <activity android:name=".soloCompanysmedia1" />
-        <activity android:name=".Common.SplashScreen">
+        <activity
+            android:name=".Common.SplashScreen"
+            android:theme="@style/Theme.Tencil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

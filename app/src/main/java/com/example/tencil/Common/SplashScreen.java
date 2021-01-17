@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tencil.MakeSelection;
 import com.example.tencil.R;
+import com.example.tencil.login;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -45,6 +45,8 @@ public class SplashScreen extends AppCompatActivity {
         backgroundImage.setAnimation ( sideAnim );
         backgroundImage.setAnimation ( bottomAnim );
 
+        System.out.println ( "WE HAVE ANIMS" );
+
         new Handler ( Looper.getMainLooper () ).postDelayed ( new Runnable () {
             @Override
             public void run() {
@@ -55,12 +57,12 @@ public class SplashScreen extends AppCompatActivity {
                     SharedPreferences.Editor editor = onBoardingScreen.edit ();
                     editor.putBoolean ( "firstTime", false );
                     editor.commit ();
-                    Intent intent = new Intent ( getApplicationContext (), MakeSelection.class );
+                    Intent intent = new Intent ( getApplicationContext (), login.class );
                     startActivity ( intent );
                     finish ();
 
                 } else {
-                    Intent intent = new Intent ( getApplicationContext (), MakeSelection.class );
+                    Intent intent = new Intent ( getApplicationContext (), login.class );
                     startActivity ( intent );
                     finish ();
                 }
