@@ -2,7 +2,11 @@ package com.example.tencil;
 
 import android.os.Build;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -68,7 +72,7 @@ public class APiClient {
 
                 // Request customization: add request headers
                 Request.Builder requestBuilder = original.newBuilder ()
-                        .header ( "X-API-IV", "bytes" ); // <-- this is the important line
+                        .header ( "X-API-IV", bytes.toString() ); // <-- this is the important line
                 Request request = requestBuilder.build ();
                 return chain.proceed ( request );
             }
@@ -83,7 +87,6 @@ public class APiClient {
 
         return retrofit;
     }
-
 
     public static UserService getUserService() {
         UserService userService = getRetrofit ().create ( UserService.class );
