@@ -1,10 +1,18 @@
 package com.example.tencil;
 
+import com.google.gson.annotations.SerializedName;
+
 public class LoginResponse {
 
+    @SerializedName("uid")
     private String email;
+    @SerializedName("pwd")
     private String password;
     private String auth;
+
+    public LoginResponse(){
+        //empty default constructor
+    }
 
     public String getAuth() {
         return auth;

@@ -34,7 +34,10 @@ public class login extends AppCompatActivity {
                     Toast.makeText ( login.this, "Email / Password Required", Toast.LENGTH_LONG ).show ();
                 } else {
                     //proceed to login
-                    login ();
+                    LoginResponse res = new LoginResponse();
+                    res.setEmail(email.getText().toString());
+                    res.setPassword(password.getText().toString());
+                    login (res);
                 }
 
             }
@@ -42,12 +45,12 @@ public class login extends AppCompatActivity {
     }
 
 
-    public void login() {
+    public void login(LoginResponse credentials) {
         LoginRequest loginRequest = new LoginRequest ();
         loginRequest.setEmail ( email.getText ().toString () );
         loginRequest.setPassword ( password.getText ().toString () );
 
-        Call<LoginResponse> loginResponseCall = APiClient.getUserService ().userLogin ();
+        Call<LoginResponse> loginResponseCall = APiClient.getUserService ().userLogin (credentials);
         loginResponseCall.enqueue ( new Callback<LoginResponse> () {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
