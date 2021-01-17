@@ -10,6 +10,10 @@ public class LoginResponse {
     private String password;
     private String auth;
 
+    //response variables
+    @SerializedName("passwordMatches")
+    private Boolean passMatch;
+
     public LoginResponse(){
         //empty default constructor
     }
@@ -36,5 +40,13 @@ public class LoginResponse {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getPassMatch() {
+        return passMatch;
+    }
+
+    public void setPassMatch(Boolean passMatch) {
+        this.passMatch = passMatch;
     }
 }

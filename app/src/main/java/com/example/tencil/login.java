@@ -56,16 +56,22 @@ public class login extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
                 if (response.isSuccessful ()) {
-                    Toast.makeText ( login.this, "Login Successful", Toast.LENGTH_LONG ).show ();
                     LoginResponse loginResponse = response.body ();
+                    String user = loginResponse.getEmail();
+                    Boolean passMatch = loginResponse.getPassMatch();
 
-                    new Handler ().postDelayed ( new Runnable () {
-                        @Override
-                        public void run() {
+                    if(passMatch) {
 
-                            startActivity ( new Intent ( login.this, UserDashboard.class ) );
-                        }
-                    }, 700 );
+                        Toast.makeText(login.this, "Login Successful", Toast.LENGTH_LONG).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(new Intent(login.this, UserDashboard.class));
+                            }
+                        }, 700);
+                    } else {
+                        Toast.makeText ( login.this, "Credentials are incorrect", Toast.LENGTH_LONG ).show ();
+                    }
 
                 } else {
                     Toast.makeText ( login.this, "Login Failed", Toast.LENGTH_LONG ).show ();
