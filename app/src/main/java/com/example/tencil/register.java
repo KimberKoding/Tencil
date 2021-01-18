@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.annotations.SerializedName;
-
 import org.jetbrains.annotations.NotNull;
 
 import retrofit2.Call;
@@ -19,10 +17,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class register extends AppCompatActivity {
-    EditText email, password, repassword;
+////  Imports of components
+EditText email, password, repassword;
     private Button btn_register;
     private ProgressBar loading;
-    @SerializedName("data")
     private String data;
 
 
@@ -36,16 +34,13 @@ public class register extends AppCompatActivity {
         repassword = findViewById ( R.id.repassword );
         btn_register = findViewById ( R.id.btn_register );
 
-
         btn_register.setOnClickListener ( view -> {
             RegisterRequest registerRequest = new RegisterRequest ();
             registerRequest.setEmail ( email.getText ().toString () );
             registerRequest.setPassword ( password.getText ().toString () );
-            registerRequest.setData ( "data" );
+            registerRequest.setData ( data );
             registerUser ( registerRequest );
             loading.setVisibility ( View.VISIBLE );
-
-
         } );
 
     }

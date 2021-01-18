@@ -10,7 +10,6 @@ public class RegisterRequest {
     @SerializedName("pwd")
     private String password;
 
-
     public String getEmail() {
         return email;
     }
@@ -27,9 +26,11 @@ public class RegisterRequest {
         this.password = password;
     }
 
+    public String getData() {
+        return data;
+    }
+
     public void setData(String data) {
         this.data = data;
     }
-
-
 }
