@@ -154,7 +154,6 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/see_more1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
