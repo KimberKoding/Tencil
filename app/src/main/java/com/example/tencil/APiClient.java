@@ -5,13 +5,8 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -23,31 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class APiClient {
-    private static final String key = "aesEncryptionKey";
-    private static final String initVector = "encryptionIntVec";
-
-    public static String encrypt(String value) {
-        try {
-            IvParameterSpec iv = new IvParameterSpec ( initVector.getBytes ( StandardCharsets.UTF_8 ) );
-            SecretKeySpec skeySpec = new SecretKeySpec ( key.getBytes ( StandardCharsets.UTF_8 ), "AES" );
-
-
-            Cipher cipher = Cipher.getInstance ( "AES/CBC/PKCS5PADDING" );
-            cipher.init ( Cipher.ENCRYPT_MODE, skeySpec, iv );
-
-        } catch (Exception ex) {
-            ex.printStackTrace ();
-        }
-        return null;
-    }
-
-
-    public static void main(String[] args) {
-        String originalString = "password";
-        System.out.println ( "Original String to encrypt - " + originalString );
-        String encryptedString = encrypt ( originalString );
-        System.out.println ( "Encrypted String - " + encryptedString );
-    }
 
     private static Retrofit getRetrofit() {
 
