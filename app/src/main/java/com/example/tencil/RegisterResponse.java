@@ -11,6 +11,7 @@ public class RegisterResponse {
     private String password;
 
 
+
     public String getEmail() {
         return email;
     }
@@ -27,8 +28,11 @@ public class RegisterResponse {
         this.password = password;
     }
 
+    public String getData() {
+        return data;
+    }
+
     public void setData(String data) {
         this.data = data;
     }
-
 }

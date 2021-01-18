@@ -22,6 +22,12 @@ public interface UserService {
             @Body RegisterRequest registerRequest
     );
 
+    @POST("registration.php?method=json")
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    Call<RegisterResponse> authData(
+            @Body RegisterRequest data
+    );
+
     @GET("index.php")
     Call<List<CategoriesResponse>> getAllCategories();
 }
