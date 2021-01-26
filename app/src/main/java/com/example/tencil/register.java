@@ -3,6 +3,7 @@ package com.example.tencil;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,8 +79,6 @@ public class register extends AppCompatActivity {
             RegisterRequest registerRequest = new RegisterRequest ();
             registerRequest.setEmail ( email.getText ().toString () );
             registerRequest.setPassword ( password.getText ().toString () );
-            data = encrypt ( dataSend );
-            registerRequest.setData ( data );
             registerUser ( registerRequest );
             loading.setVisibility ( View.VISIBLE );
         } );
@@ -102,6 +101,9 @@ public class register extends AppCompatActivity {
                     Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();
                     System.out.println ( "RESPONSE:" + response );
                     loading.setVisibility ( View.GONE );
+                }
+                if (TextUtils.isEmpty ( password.getText ().toString () ) || TextUtils.isEmpty ( repassword.getText ().toString () )) {
+                    Toast.makeText ( register.this, "Passwords Required", Toast.LENGTH_LONG ).show ();
                 }
 
 
