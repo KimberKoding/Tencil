@@ -17,16 +17,13 @@ public interface UserService {
     );
 
     @POST("registration.php?method=json")
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @Headers({"Content-Type: application/json", "Accept: application/json", "X-API-KEY: ee4183831d9c0fd8794c9161a25c36b6"})
     Call<RegisterResponse> registerUsers(
             @Body RegisterRequest registerRequest
     );
 
-    @POST("registration.php?method=json")
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
-    Call<RegisterResponse> authData(
-            @Body RegisterRequest data
-    );
+    @GET("ivgen.php")
+    Call<RegisterRequest> ivgen(@Body RegisterRequest ivgen);
 
     @GET("index.php")
     Call<List<CategoriesResponse>> getAllCategories();
