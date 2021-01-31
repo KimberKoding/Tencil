@@ -3,12 +3,12 @@ package com.example.tencil.User;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -16,14 +16,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tencil.APiClient;
 import com.example.tencil.AllCategories;
 import com.example.tencil.CategoriesResponse;
-import com.example.tencil.HelperClasses.HomeAdapter.CategoriesAdapter;
-import com.example.tencil.HelperClasses.HomeAdapter.CategoriesHelperClass;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
 import com.example.tencil.R;
+import com.example.tencil.UserService;
 import com.example.tencil.financeCompany;
 import com.example.tencil.fintechCompany;
 import com.example.tencil.login;
@@ -37,9 +35,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     private static final String TAG = "Started User Dashboard Successfully";
     //Variables
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
@@ -49,12 +48,11 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     static float END_SCALE = 0.7f;
     RecyclerView featuredRecycler, categoriesRecycler;
     RecyclerView.Adapter adapter;
-
-
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Context mContext;
+    ArrayList<CategoriesResponse> categoriesResponses = new ArrayList<> ();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +65,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
-        categoriesRecycler = findViewById ( R.id.parentLayout );
+        categoriesRecycler = findViewById ( R.id.categories_recycler );
         featuredRecycler ();
         categoriesRecycler ();
+        getCategoriesResponse ();
 
 
         //Menu Hooks
@@ -82,39 +81,35 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         navigationDrawer ();
     }
 
+    private void getCategoriesResponse() {
+        Retrofit retrofit = new Retrofit.Builder ()
+                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .addConverterFactory ( GsonConverterFactory.create () )
+                .build ();
 
-    private void categoriesRecycler() {
-
-
-        ArrayList<CategoriesHelperClass> categoriesHelperClasses = new ArrayList<> ();
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.tencilw, "Social Media" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.piggy, "Finance Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.pws, "Tech Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.analysisw, "FinTech Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.home, "Local" ) );
-
-
-        categoriesRecycler.setHasFixedSize ( true );
-        adapter = new CategoriesAdapter ( categoriesHelperClasses, mContext );
-
-        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
-        categoriesRecycler.setAdapter ( adapter );
-
-        Call<List<CategoriesResponse>> categorieslist = APiClient.getUserService ().getAllCategories ();
-        categorieslist.enqueue ( new Callback<List<CategoriesResponse>> () {
+        UserService userService = retrofit.create ( UserService.class );
+        Call<List<CategoriesResponse>> call = userService.getAllCategories ();
+        call.enqueue ( new Callback<List<CategoriesResponse>> () {
             @Override
             public void onResponse(Call<List<CategoriesResponse>> call, Response<List<CategoriesResponse>> response) {
-                if (response.isSuccessful ()) {
-                    Log.e ( "success", response.body ().toString () );
-                }
+                categoriesResponses = new ArrayList<> ( response.body () );
+                Toast.makeText ( UserDashboard.this, "Success", Toast.LENGTH_SHORT ).show ();
+                System.out.println ( response + "YES" );
             }
 
             @Override
             public void onFailure(Call<List<CategoriesResponse>> call, Throwable t) {
-                Log.e ( "failure", t.getLocalizedMessage () );
+                Toast.makeText ( UserDashboard.this, "FAILED", Toast.LENGTH_SHORT ).show ();
 
             }
         } );
+    }
+
+    private void categoriesRecycler() {
+
+        categoriesRecycler.setHasFixedSize ( true );
+        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        categoriesRecycler.setAdapter ( adapter );
 
 
     }

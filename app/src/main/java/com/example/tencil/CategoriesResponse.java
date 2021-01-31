@@ -1,31 +1,35 @@
 package com.example.tencil;
 
-public class CategoriesResponse {
-    private int cat_id;
-    private String category;
+import com.example.tencil.HelperClasses.HomeAdapter.CategoriesHelperClass;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-    public int getCat_id() {
-        return cat_id;
+public class CategoriesResponse extends CategoriesHelperClass {
+    @SerializedName("cid")
+    @Expose
+    private String cid;
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+    public CategoriesResponse(int image, String title) {
+        super ( image, title );
     }
 
-    public void setCat_id(int cat_id) {
-        this.cat_id = cat_id;
+    public String getCid() {
+        return cid;
     }
 
-    public String getCategory() {
-        return category;
+    public void setCid(String cid) {
+        this.cid = cid;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-        return "CategoriesResponse{" +
-                "cat_id=" + cat_id +
-                ", category='" + category + '\'' +
-                '}';
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

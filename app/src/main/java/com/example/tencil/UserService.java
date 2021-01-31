@@ -25,6 +25,6 @@ public interface UserService {
     @GET("ivgen.php")
     Call<RegisterRequest> ivgen(@Body RegisterRequest ivgen);
 
-    @GET("index.php")
+    @GET("catsGet.php?c=ALL")
     Call<List<CategoriesResponse>> getAllCategories();
 }
