@@ -1,7 +1,5 @@
 package com.example.tencil;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -17,7 +15,7 @@ public interface UserService {
     );
 
     @POST("registration.php?method=json")
-    @Headers({"Content-Type: application/json", "Accept: application/json", "X-API-KEY: ee4183831d9c0fd8794c9161a25c36b6"})
+    @Headers({"Content-Type: application/json", "Accept: application/json", "X-API-KEY: a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE"})
     Call<RegisterResponse> registerUsers(
             @Body RegisterRequest registerRequest
     );
@@ -25,6 +23,8 @@ public interface UserService {
     @GET("ivgen.php")
     Call<RegisterRequest> ivgen(@Body RegisterRequest ivgen);
 
-    @GET("catsGet.php?c=ALL")
-    Call<List<CategoriesResponse>> getAllCategories();
+    @GET("tools/cats.php?c=ALL")
+    Call<JSONResponse> getMovies();
+
+
 }

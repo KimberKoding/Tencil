@@ -309,5 +309,6 @@
     <string name="new_password_logo">New Password Logo</string>
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="splashscreen">Tencil</string>
 
 </resources>

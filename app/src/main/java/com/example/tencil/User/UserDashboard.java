@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -17,9 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tencil.AllCategories;
-import com.example.tencil.CategoriesResponse;
+import com.example.tencil.CategoriesAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
 import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
+import com.example.tencil.JSONResponse;
+import com.example.tencil.Movie;
 import com.example.tencil.R;
 import com.example.tencil.UserService;
 import com.example.tencil.financeCompany;
@@ -30,6 +31,7 @@ import com.example.tencil.techCompany;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -39,8 +41,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private static final String TAG = "Started User Dashboard Successfully";
-    //Variables
+
+    // WE WILL BUILD A PROFESSIONAL APP ;)
+
+    private static final String JSON_URL = "https://providencewebservices.co.uk/api-test/v1/tools/cats.php?c=ALL";
+    //Variables + Widgets
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
     Button btnShare;
     ImageView menuIcon;
@@ -52,7 +57,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Context mContext;
-    ArrayList<CategoriesResponse> categoriesResponses = new ArrayList<> ();
+    List<Movie> movieList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,52 +73,56 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         featuredRecycler = findViewById ( R.id.featured_recycler );
         categoriesRecycler = findViewById ( R.id.categories_recycler );
         featuredRecycler ();
-        categoriesRecycler ();
-        getCategoriesResponse ();
+        movieList = new ArrayList<> ();
+
+
+        //RETROFIT
+
+        Retrofit retrofit = new Retrofit.Builder ()
+                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .addConverterFactory ( GsonConverterFactory.create () )
+                .build ();
+        UserService userService = retrofit.create ( UserService.class );
+        Call<JSONResponse> call = userService.getMovies ();
+
+        call.enqueue ( new Callback<JSONResponse> () {
+            @Override
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+
+                JSONResponse jsonResponse = response.body ();
+                movieList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
+
+                PutDataIntoRecyclerView ( movieList );
+
+
+            }
+
+            @Override
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
+
+            }
+        } );
 
 
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
         navigationView = findViewById ( R.id.navigation_view );
         menuIcon = findViewById ( R.id.menu_icon );
+
+        //RecyclerView Hooks
         contentView = findViewById ( R.id.content );
-
-
         navigationDrawer ();
+
+
     }
 
-    private void getCategoriesResponse() {
-        Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
-                .addConverterFactory ( GsonConverterFactory.create () )
-                .build ();
-
-        UserService userService = retrofit.create ( UserService.class );
-        Call<List<CategoriesResponse>> call = userService.getAllCategories ();
-        call.enqueue ( new Callback<List<CategoriesResponse>> () {
-            @Override
-            public void onResponse(Call<List<CategoriesResponse>> call, Response<List<CategoriesResponse>> response) {
-                categoriesResponses = new ArrayList<> ( response.body () );
-                Toast.makeText ( UserDashboard.this, "Success", Toast.LENGTH_SHORT ).show ();
-                System.out.println ( response + "YES" );
-            }
-
-            @Override
-            public void onFailure(Call<List<CategoriesResponse>> call, Throwable t) {
-                Toast.makeText ( UserDashboard.this, "FAILED", Toast.LENGTH_SHORT ).show ();
-
-            }
-        } );
-    }
-
-    private void categoriesRecycler() {
-
-        categoriesRecycler.setHasFixedSize ( true );
+    private void PutDataIntoRecyclerView(List<Movie> movieList) {
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, movieList );
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
-        categoriesRecycler.setAdapter ( adapter );
-
+        categoriesRecycler.setAdapter ( categoriesAdapter );
 
     }
+
 
     //Setting Featured Recylcer design view
     private void featuredRecycler() {

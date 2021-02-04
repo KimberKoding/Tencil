@@ -1,26 +1,28 @@
-package com.example.tencil.HelperClasses.HomeAdapter;
+package com.example.tencil;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tencil.R;
-
-import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.tencil.R.id.categories_card;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.FeaturedViewHolder> {
 
-    private final ArrayList<CategoriesAdapter> categoriesAdapter = new ArrayList<> ();
     private Context mContext;
+    private final List<Movie> mData;
+
+    public CategoriesAdapter(Context mContext, List<Movie> mData) {
+        this.mContext = mContext;
+        this.mData = mData;
+    }
 
     //Returns Categories View Dynamically
     public CategoriesAdapter.FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,19 +34,20 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
     @Override
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
 
+        holder.category.setText ( mData.get ( position ).getName () );
+        holder.cid.setText ( mData.get ( position ).getCid () );
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mData.size ();
     }
 
     //HOLDS VIEWS
     public static class FeaturedViewHolder extends RecyclerView.ViewHolder {
 
         RelativeLayout categoriesCard;
-        ImageView image;
-        TextView title;
+        TextView cid;
         TextView category;
 
 
@@ -52,8 +55,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
             super ( itemView );
             //HOOKS
             categoriesCard = itemView.findViewById ( categories_card );
-            image = itemView.findViewById ( R.id.categories_image );
-            title = itemView.findViewById ( R.id.categories_title );
+            cid = itemView.findViewById ( R.id.categories_cid );
             category = itemView.findViewById ( R.id.categories_title );
 
 
