@@ -24,15 +24,26 @@
 
 
     <TextView
+        android:layout_margin="10dp"
         android:id="@+id/categories_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"
+        android:textAllCaps="true"
         android:fontFamily="@font/raleway_bold"
         android:text="Tech&#xA;Companies"
         android:textColor="#fff"
         android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/categories_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/pws" />
+
 
     <TextView
         android:id="@+id/categories_cid"

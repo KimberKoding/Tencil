@@ -20,11 +20,17 @@ public interface UserService {
             @Body RegisterRequest registerRequest
     );
 
-    @GET("ivgen.php")
-    Call<RegisterRequest> ivgen(@Body RegisterRequest ivgen);
+    //  @GET("ivgen.php")
+    // Call<RegisterRequest> ivgen(@Body RegisterRequest ivgen);
 
     @GET("tools/cats.php?c=ALL")
-    Call<JSONResponse> getMovies();
+    Call<JSONResponse> getCategories();
+
+    @GET("tools/businesses.php?method=get&ft=true")
+    Call<BusinessesResponse> getBusinesses();
+
+    @GET("tools/businesses.php?method=get&cid=1")
+    Call<AllCategoriesResponse> getAllCategories();
 
 
 }

@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
+        <activity android:name=".CategoryCardActivity" />
         <activity android:name=".ForgetPasswordSuccessMessage" />
         <activity android:name=".SetNewPassword" />
         <activity android:name=".MakeSelection" />
@@ -24,9 +25,6 @@
         <activity android:name=".socialMedia" />
         <activity android:name=".soloCompanyFinance" />
         <activity android:name=".financeCompany" />
-        <activity android:name=".communicationCompanies" />
-        <activity android:name=".codingCategory" />
-        <activity android:name=".FeaturedBusiness" />
         <activity android:name=".solo_company" />
         <activity android:name=".register" />
         <activity android:name=".Common.OnBoarding" />
@@ -46,7 +44,6 @@
         <activity android:name=".questionthree" />
         <activity android:name=".questiontwo" />
         <activity android:name=".questionone" />
-        <activity android:name=".AllCategories" />
         <activity android:name=".soloCompanyFinance2" />
         <activity android:name=".company" />
         <activity android:name=".User.UserDashboard" />

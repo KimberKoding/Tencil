@@ -208,11 +208,12 @@
 
                 </LinearLayout>
 
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/banner_background">
 
                     <LinearLayout
@@ -243,22 +244,29 @@
 
                     </LinearLayout>
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                    </RelativeLayout>
+
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/featured_recycler"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
                         android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/featured_background"
-                        android:background="#fff" />
+                        android:background="#fff"></androidx.recyclerview.widget.RecyclerView>
 
 
                 </RelativeLayout>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="50dp"
                     android:orientation="vertical"
                     android:padding="20dp">
 

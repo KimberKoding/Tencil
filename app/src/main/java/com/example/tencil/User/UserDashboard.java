@@ -3,6 +3,7 @@ package com.example.tencil.User;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +17,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tencil.AllCategories;
+import com.example.tencil.Businesses;
+import com.example.tencil.BusinessesAdapter;
+import com.example.tencil.BusinessesResponse;
+import com.example.tencil.Categories;
 import com.example.tencil.CategoriesAdapter;
-import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
-import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
+import com.example.tencil.CategoryCardActivity;
 import com.example.tencil.JSONResponse;
-import com.example.tencil.Movie;
 import com.example.tencil.R;
+import com.example.tencil.RecyclerViewClickInterface;
 import com.example.tencil.UserService;
 import com.example.tencil.financeCompany;
 import com.example.tencil.fintechCompany;
@@ -40,11 +44,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, CategoriesAdapter.RecyclerViewClickInterface {
 
     // WE WILL BUILD A PROFESSIONAL APP ;)
 
     private static final String JSON_URL = "https://providencewebservices.co.uk/api-test/v1/tools/cats.php?c=ALL";
+    private static final String JSON_URL2 = "https://providencewebservices.co.uk/api-test/v1/tools/businesses.php?method=get&ft=true";
+    private static final String TAG = "CLICKED";
     //Variables + Widgets
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
     Button btnShare;
@@ -52,12 +58,14 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     LinearLayout contentView;
     static float END_SCALE = 0.7f;
     RecyclerView featuredRecycler, categoriesRecycler;
-    RecyclerView.Adapter adapter;
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Context mContext;
-    List<Movie> movieList;
+    List<Categories> categoriesList;
+    List<Businesses> businessesList;
+    List<AllCategories> allCategoriesList;
+    RecyclerViewClickInterface recyclerViewClickInterface;
 
 
     @Override
@@ -72,8 +80,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
         categoriesRecycler = findViewById ( R.id.categories_recycler );
-        featuredRecycler ();
-        movieList = new ArrayList<> ();
+        categoriesList = new ArrayList<> ();
+        businessesList = new ArrayList<> ();
+        allCategoriesList = new ArrayList<> ();
 
 
         //RETROFIT
@@ -83,22 +92,40 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );
-        Call<JSONResponse> call = userService.getMovies ();
+        Call<JSONResponse> call = userService.getCategories ();
 
         call.enqueue ( new Callback<JSONResponse> () {
             @Override
             public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
                 JSONResponse jsonResponse = response.body ();
-                movieList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
+                categoriesList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
 
-                PutDataIntoRecyclerView ( movieList );
+                PutDataIntoRecyclerView ( categoriesList );
 
 
             }
 
             @Override
             public void onFailure(Call<JSONResponse> call, Throwable t) {
+                System.out.println ( t );
+
+            }
+        } );
+
+        Call<BusinessesResponse> call1 = userService.getBusinesses ();
+        call1.enqueue ( new Callback<BusinessesResponse> () {
+            @Override
+            public void onResponse(Call<BusinessesResponse> call, Response<BusinessesResponse> response) {
+                System.out.println ( response );
+                BusinessesResponse businessesResponse = response.body ();
+                businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
+                PutDataIntoView ( businessesList );
+            }
+
+            @Override
+            public void onFailure(Call<BusinessesResponse> call, Throwable t) {
+                System.out.println ( t + "FUUCK" );
 
             }
         } );
@@ -116,29 +143,22 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-    private void PutDataIntoRecyclerView(List<Movie> movieList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, movieList );
+    private void PutDataIntoView(List<Businesses> businessesList) {
+        BusinessesAdapter businessesAdapter = new BusinessesAdapter ( this, businessesList );
+        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, true ) );
+        featuredRecycler.setAdapter ( businessesAdapter );
+    }
+
+    private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, this );
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
+
 
     }
 
 
     //Setting Featured Recylcer design view
-    private void featuredRecycler() {
-
-        featuredRecycler.setHasFixedSize ( true );
-        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
-
-        ArrayList<FeaturedHelperClass> featuredBusinesses = new ArrayList<> ();
-        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.pwsb, "Provide", "We are a Company that designs websites and apps. Learn More Here:" ) );
-        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.tencilw, "Tencil", "“Tencil was created with the aim of helping young adults learn more about the digital marketing industry”" ) );
-        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.search_place, "Want to be a Featured Business?", "Contact Us Now!" ) );
-
-        adapter = new FeaturedAdapter ( (featuredBusinesses) );
-        featuredRecycler.setAdapter ( adapter );
-
-    }
 
 
     // Navigation Drawer functions
@@ -238,4 +258,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     public void viewAllClicked(View view) {
         UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
     }
+
+
+    @Override
+    public void onItemClick(int position) {
+        Log.d ( TAG, "onItemClick: " + position );
+        System.out.println ( "SUCCESS" );
+
+        Intent intent = new Intent ( this, CategoryCardActivity.class );
+        intent.putExtra ( "selected_category", categoriesList.get ( position ) );
+        startActivity ( intent );
+
+
+    }
+
 }

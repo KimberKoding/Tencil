@@ -1,12 +1,11 @@
 package com.example.tencil;
 
-public class JSONResponse {
+public class AllCategoriesResponse {
 
     private Categories[] categories;
 
-    public Categories[] getCategories() {
+    public Categories[] getAllCategories() {
         return categories;
     }
-
 
 }

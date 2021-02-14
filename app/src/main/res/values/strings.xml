@@ -269,7 +269,7 @@
     <string name="category_lawtech">Lawtech</string>
     <string name="category_other">Other</string>
     <string name="category_proptech">Proptech</string>
-    <!-- Businesses -->
+    <!-- com.example.tencil.Businesses -->
     <string name="business1">Business #1</string>
     <string name="goback">GoBack</string>
     <string name="business_name">Business Name</string>
