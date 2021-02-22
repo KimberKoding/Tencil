@@ -5,6 +5,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface UserService {
 
@@ -20,8 +21,6 @@ public interface UserService {
             @Body RegisterRequest registerRequest
     );
 
-    //  @GET("ivgen.php")
-    // Call<RegisterRequest> ivgen(@Body RegisterRequest ivgen);
 
     @GET("tools/cats.php?c=ALL")
     Call<JSONResponse> getCategories();
@@ -29,8 +28,8 @@ public interface UserService {
     @GET("tools/businesses.php?method=get&ft=true")
     Call<BusinessesResponse> getBusinesses();
 
-    @GET("tools/businesses.php?method=get&cid=1")
-    Call<AllCategoriesResponse> getAllCategories();
+    @GET("tools/businesses.php?method=get&")
+    Call<GetAllBusinessesByCidResponse> getAllBusinessesByCID(@Query("cid") int cid);
 
 
 }

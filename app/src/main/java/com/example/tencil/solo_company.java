@@ -6,6 +6,8 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.tencil.User.UserDashboard;
+
 public class solo_company extends AppCompatActivity {
 
     @Override
@@ -15,7 +17,7 @@ public class solo_company extends AppCompatActivity {
     }
 
     public void backDashsolo(View v) {
-        solo_company.this.startActivity ( new Intent ( solo_company.this, AllCategories.class ) );
+        solo_company.this.startActivity ( new Intent ( solo_company.this, UserDashboard.class ) );
 
 
     }

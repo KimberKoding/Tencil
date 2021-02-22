@@ -16,20 +16,23 @@ public class Categories extends JSONResponse implements Parcelable {
         }
     };
     //Model Class
-    private final String cid;
+    private final int cid;
     private final String name;
 
+
     protected Categories(Parcel in) {
-        cid = in.readString ();
+        cid = in.readInt ();
         name = in.readString ();
+
     }
 
-    public String getCid() {
+    public int getCid() {
         return cid;
     }
 
     public String getName() {
-        return name;
+        String str = name.substring ( 0, 1 ).toUpperCase () + name.substring ( 1 );
+        return str;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class Categories extends JSONResponse implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString ( cid );
+        dest.writeInt ( cid );
         dest.writeString ( name );
     }
 }

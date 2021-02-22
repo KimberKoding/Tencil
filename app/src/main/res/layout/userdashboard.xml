@@ -74,6 +74,19 @@
 
                 </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/we_suggest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="100dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:gravity="center"
+                    android:paddingTop="15dp"
+                    android:text="Based On Your Answers"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,98 +94,19 @@
                     android:orientation="horizontal"
                     android:paddingTop="20dp">
 
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <RelativeLayout
-                            android:id="@+id/card_1"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/card_3"
-                            android:elevation="8dp"
-                            android:onClick="cardClicked1">
 
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/tencilw" />
 
-                        </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:text="@string/socialmedis"
-                            android:textAlignment="center" />
 
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:id="@+id/card_2"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/card_1"
-                            android:elevation="8dp"
-                            android:onClick="cardClicked2">>
-
-                            <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/piggy" />
-
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:text="@string/finance"
-                            android:textAlignment="center" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <RelativeLayout
-                            android:id="@+id/card_3"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/card_2"
-                            android:elevation="8dp"
-                            android:onClick="cardClicked3">
-
-                            <ImageView
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/pws" />
-
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:text="@string/tech"
-                            android:textAlignment="center" />
-
-
-                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -184,22 +118,22 @@
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:layout_margin="10dp"
-                            android:background="@drawable/card_4"
+                            android:background="#fff"
                             android:elevation="8dp"
                             android:onClick="cardClicked4">
 
                             <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
-                                android:src="@drawable/analysisw" />
+                                android:src="@drawable/ttdlogo" />
 
                         </RelativeLayout>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:text="@string/fintech"
+                            android:text="TradeDesk"
                             android:textAlignment="center" />
 
 
@@ -282,15 +216,6 @@
                             android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/view_all"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:onClick="viewAllClicked"
-                            android:text="@string/view_all" />
 
 
                     </RelativeLayout>

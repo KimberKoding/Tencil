@@ -16,13 +16,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tencil.AllCategories;
 import com.example.tencil.Businesses;
 import com.example.tencil.BusinessesAdapter;
 import com.example.tencil.BusinessesResponse;
 import com.example.tencil.Categories;
 import com.example.tencil.CategoriesAdapter;
 import com.example.tencil.CategoryCardActivity;
+import com.example.tencil.GetAllBusinessesByCid;
 import com.example.tencil.JSONResponse;
 import com.example.tencil.R;
 import com.example.tencil.RecyclerViewClickInterface;
@@ -64,7 +64,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     Context mContext;
     List<Categories> categoriesList;
     List<Businesses> businessesList;
-    List<AllCategories> allCategoriesList;
     RecyclerViewClickInterface recyclerViewClickInterface;
 
 
@@ -82,7 +81,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categoriesRecycler = findViewById ( R.id.categories_recycler );
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
-        allCategoriesList = new ArrayList<> ();
 
 
         //RETROFIT
@@ -129,8 +127,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
             }
         } );
-
-
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
         navigationView = findViewById ( R.id.navigation_view );
@@ -145,7 +141,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     private void PutDataIntoView(List<Businesses> businessesList) {
         BusinessesAdapter businessesAdapter = new BusinessesAdapter ( this, businessesList );
-        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, true ) );
+        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         featuredRecycler.setAdapter ( businessesAdapter );
     }
 
@@ -217,8 +213,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         if (id == R.id.nav_home) {
             startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
         } else if (id == R.id.nav_categories) {
-            startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
-
+            startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
         } else if (id == R.id.nav_logout) {
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
 
@@ -256,7 +251,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void viewAllClicked(View view) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, GetAllBusinessesByCid.class ) );
     }
 
 
@@ -264,9 +259,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     public void onItemClick(int position) {
         Log.d ( TAG, "onItemClick: " + position );
         System.out.println ( "SUCCESS" );
-
         Intent intent = new Intent ( this, CategoryCardActivity.class );
-        intent.putExtra ( "selected_category", categoriesList.get ( position ) );
+        intent.putExtra ( "category", categoriesList.get ( position ) );
+        intent.putExtra ( "cat_id", categoriesList.get ( position ) );
         startActivity ( intent );
 
 

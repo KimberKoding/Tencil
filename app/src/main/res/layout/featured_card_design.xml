@@ -38,7 +38,7 @@
             android:id="@+id/business_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tester for RECYCLER" />
+            android:text="This App Is In Beta" />
 
 
     </LinearLayout>
