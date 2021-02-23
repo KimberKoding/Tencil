@@ -25,7 +25,7 @@ public class soloCompanyFintech extends AppCompatActivity {
 
     public void website(View view) {
         Intent myWebLink = new Intent ( android.content.Intent.ACTION_VIEW );
-        myWebLink.setData ( Uri.parse ( "https://www.moneyfarm.com/uk/" ) );
+        myWebLink.setData ( Uri.parse ( "https://www.thetradedesk.com/us" ) );
         startActivity ( myWebLink );
     }
 }

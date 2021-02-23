@@ -35,7 +35,6 @@ public class register extends AppCompatActivity {
     private static final String secretKey = "a61caa1f9aa6005111c14faa323411b0";
     private Button btn_register;
     private ProgressBar loading;
-    private String data;
     private static final String dataSend = "a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE";
     private static final String salt = "ssshhhhhhhhhhh!!!!";
     ////  Imports of components

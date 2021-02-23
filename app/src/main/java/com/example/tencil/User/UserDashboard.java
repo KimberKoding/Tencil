@@ -16,14 +16,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tencil.APiClient;
-import com.example.tencil.AllCategories;
-import com.example.tencil.CategoriesResponse;
-import com.example.tencil.HelperClasses.HomeAdapter.CategoriesAdapter;
-import com.example.tencil.HelperClasses.HomeAdapter.CategoriesHelperClass;
-import com.example.tencil.HelperClasses.HomeAdapter.FeaturedAdapter;
-import com.example.tencil.HelperClasses.HomeAdapter.FeaturedHelperClass;
+import com.example.tencil.Businesses;
+import com.example.tencil.BusinessesAdapter;
+import com.example.tencil.BusinessesResponse;
+import com.example.tencil.Categories;
+import com.example.tencil.CategoriesAdapter;
+import com.example.tencil.CategoryCardActivity;
+import com.example.tencil.GetAllBusinessesByCid;
+import com.example.tencil.JSONResponse;
 import com.example.tencil.R;
+import com.example.tencil.RecyclerViewClickInterface;
+import com.example.tencil.UserService;
 import com.example.tencil.financeCompany;
 import com.example.tencil.fintechCompany;
 import com.example.tencil.login;
@@ -32,29 +35,37 @@ import com.example.tencil.techCompany;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
-public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, CategoriesAdapter.RecyclerViewClickInterface {
 
-    private static final String TAG = "Started User Dashboard Successfully";
-    //Variables
+    // WE WILL BUILD A PROFESSIONAL APP ;)
+
+    private static final String JSON_URL = "https://providencewebservices.co.uk/api-test/v1/tools/cats.php?c=ALL";
+    private static final String JSON_URL2 = "https://providencewebservices.co.uk/api-test/v1/tools/businesses.php?method=get&ft=true";
+    private static final String TAG = "CLICKED";
+    //Variables + Widgets
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
     Button btnShare;
     ImageView menuIcon;
     LinearLayout contentView;
     static float END_SCALE = 0.7f;
     RecyclerView featuredRecycler, categoriesRecycler;
-    RecyclerView.Adapter adapter;
-
-
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Context mContext;
+    List<Categories> categoriesList;
+    List<Businesses> businessesList;
+    RecyclerViewClickInterface recyclerViewClickInterface;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,73 +78,83 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
-        categoriesRecycler = findViewById ( R.id.parentLayout );
-        featuredRecycler ();
-        categoriesRecycler ();
+        categoriesRecycler = findViewById ( R.id.categories_recycler );
+        categoriesList = new ArrayList<> ();
+        businessesList = new ArrayList<> ();
 
 
-        //Menu Hooks
-        drawerLayout = findViewById ( R.id.drawer_layout );
-        navigationView = findViewById ( R.id.navigation_view );
-        menuIcon = findViewById ( R.id.menu_icon );
-        contentView = findViewById ( R.id.content );
+        //RETROFIT
 
+        Retrofit retrofit = new Retrofit.Builder ()
+                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .addConverterFactory ( GsonConverterFactory.create () )
+                .build ();
+        UserService userService = retrofit.create ( UserService.class );
+        Call<JSONResponse> call = userService.getCategories ();
 
-        navigationDrawer ();
-    }
-
-
-    private void categoriesRecycler() {
-
-
-        ArrayList<CategoriesHelperClass> categoriesHelperClasses = new ArrayList<> ();
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.tencilw, "Social Media" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.piggy, "Finance Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.pws, "Tech Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.analysisw, "FinTech Companies" ) );
-        categoriesHelperClasses.add ( new CategoriesHelperClass ( R.drawable.home, "Local" ) );
-
-
-        categoriesRecycler.setHasFixedSize ( true );
-        adapter = new CategoriesAdapter ( categoriesHelperClasses, mContext );
-
-        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
-        categoriesRecycler.setAdapter ( adapter );
-
-        Call<List<CategoriesResponse>> categorieslist = APiClient.getUserService ().getAllCategories ();
-        categorieslist.enqueue ( new Callback<List<CategoriesResponse>> () {
+        call.enqueue ( new Callback<JSONResponse> () {
             @Override
-            public void onResponse(Call<List<CategoriesResponse>> call, Response<List<CategoriesResponse>> response) {
-                if (response.isSuccessful ()) {
-                    Log.e ( "success", response.body ().toString () );
-                }
+            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+
+                JSONResponse jsonResponse = response.body ();
+                categoriesList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
+
+                PutDataIntoRecyclerView ( categoriesList );
+
+
             }
 
             @Override
-            public void onFailure(Call<List<CategoriesResponse>> call, Throwable t) {
-                Log.e ( "failure", t.getLocalizedMessage () );
+            public void onFailure(Call<JSONResponse> call, Throwable t) {
+                System.out.println ( t );
 
             }
         } );
 
+        Call<BusinessesResponse> call1 = userService.getBusinesses ();
+        call1.enqueue ( new Callback<BusinessesResponse> () {
+            @Override
+            public void onResponse(Call<BusinessesResponse> call, Response<BusinessesResponse> response) {
+                System.out.println ( response );
+                BusinessesResponse businessesResponse = response.body ();
+                businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
+                PutDataIntoView ( businessesList );
+            }
+
+            @Override
+            public void onFailure(Call<BusinessesResponse> call, Throwable t) {
+                System.out.println ( t + "FUUCK" );
+
+            }
+        } );
+        //Menu Hooks
+        drawerLayout = findViewById ( R.id.drawer_layout );
+        navigationView = findViewById ( R.id.navigation_view );
+        menuIcon = findViewById ( R.id.menu_icon );
+
+        //RecyclerView Hooks
+        contentView = findViewById ( R.id.content );
+        navigationDrawer ();
+
 
     }
+
+    private void PutDataIntoView(List<Businesses> businessesList) {
+        BusinessesAdapter businessesAdapter = new BusinessesAdapter ( this, businessesList );
+        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        featuredRecycler.setAdapter ( businessesAdapter );
+    }
+
+    private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, this );
+        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        categoriesRecycler.setAdapter ( categoriesAdapter );
+
+
+    }
+
 
     //Setting Featured Recylcer design view
-    private void featuredRecycler() {
-
-        featuredRecycler.setHasFixedSize ( true );
-        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
-
-        ArrayList<FeaturedHelperClass> featuredBusinesses = new ArrayList<> ();
-        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.pwsb, "Provide", "We are a Company that designs websites and apps. Learn More Here:" ) );
-        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.tencilw, "Tencil", "“Tencil was created with the aim of helping young adults learn more about the digital marketing industry”" ) );
-        featuredBusinesses.add ( new FeaturedHelperClass ( R.drawable.search_place, "Want to be a Featured Business?", "Contact Us Now!" ) );
-
-        adapter = new FeaturedAdapter ( (featuredBusinesses) );
-        featuredRecycler.setAdapter ( adapter );
-
-    }
 
 
     // Navigation Drawer functions
@@ -192,8 +213,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         if (id == R.id.nav_home) {
             startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
         } else if (id == R.id.nav_categories) {
-            startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
-
+            startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
         } else if (id == R.id.nav_logout) {
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
 
@@ -231,6 +251,20 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void viewAllClicked(View view) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, AllCategories.class ) );
+        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, GetAllBusinessesByCid.class ) );
     }
+
+
+    @Override
+    public void onItemClick(int position) {
+        Log.d ( TAG, "onItemClick: " + position );
+        System.out.println ( "SUCCESS" );
+        Intent intent = new Intent ( this, CategoryCardActivity.class );
+        intent.putExtra ( "category", categoriesList.get ( position ) );
+        intent.putExtra ( "cat_id", categoriesList.get ( position ) );
+        startActivity ( intent );
+
+
+    }
+
 }

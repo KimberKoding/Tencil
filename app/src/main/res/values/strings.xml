@@ -269,7 +269,7 @@
     <string name="category_lawtech">Lawtech</string>
     <string name="category_other">Other</string>
     <string name="category_proptech">Proptech</string>
-    <!-- Businesses -->
+    <!-- com.example.tencil.Businesses -->
     <string name="business1">Business #1</string>
     <string name="goback">GoBack</string>
     <string name="business_name">Business Name</string>
@@ -309,5 +309,6 @@
     <string name="new_password_logo">New Password Logo</string>
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="splashscreen">Tencil</string>
 
 </resources>
