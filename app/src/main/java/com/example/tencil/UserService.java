@@ -28,7 +28,7 @@ public interface UserService {
     @GET("tools/businesses.php?method=get&ft=true")
     Call<BusinessesResponse> getBusinesses();
 
-    @GET("tools/businesses.php?method=get&")
+    @GET("tools/businesses.php?method=get")
     Call<GetAllBusinessesByCidResponse> getAllBusinessesByCID(@Query("cid") int cid);
 
 

@@ -31,9 +31,7 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull BusinessesAdapter.MyViewHolder holder, int position) {
-
         holder.business_name.setText ( mData.get ( position ).getBusiness_name () );
-
     }
 
     @Override

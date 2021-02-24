@@ -1,12 +1,14 @@
 package com.example.tencil;
 
-import com.google.gson.annotations.SerializedName;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class LoginRequest {
     private String email;
     private String password;
     private String authmode;
 
+    @Nullable
     public String getAuthmode() {
         return authmode;
     }
@@ -15,6 +17,7 @@ public class LoginRequest {
         this.authmode = authmode;
     }
 
+    @NonNull
     public String getEmail() {
         return email;
     }
@@ -23,6 +26,7 @@ public class LoginRequest {
         this.email = email;
     }
 
+    @NonNull
     public String getPassword() {
         return password;
     }

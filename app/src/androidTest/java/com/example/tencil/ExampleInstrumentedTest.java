@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.tencil", appContext.getPackageName());
+        assertEquals("com.example.uk.co.providencewebservices.uk.co.providencewebservices.com.example.tencil", appContext.getPackageName());
     }
 }

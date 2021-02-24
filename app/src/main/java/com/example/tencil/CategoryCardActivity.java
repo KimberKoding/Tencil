@@ -2,10 +2,14 @@ package com.example.tencil;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +25,17 @@ public class CategoryCardActivity extends AppCompatActivity {
     TextView category;
     List<Businesses> businessesList;
     RecyclerView newRecycler;
+    static int cid;
 
+    public int getCid() {
+        System.out.println("getCid() method was called! CID is: " + cid);
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        CategoryCardActivity.cid = cid;
+        System.out.println("setCid() method was called! CID is now: " + CategoryCardActivity.cid);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,35 +51,33 @@ public class CategoryCardActivity extends AppCompatActivity {
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );
-        Call<GetAllBusinessesByCidResponse> call = userService.getAllBusinessesByCID ( 1 );
+        Call<GetAllBusinessesByCidResponse> call = userService.getAllBusinessesByCID ( getCid() );
         call.enqueue ( new Callback<GetAllBusinessesByCidResponse> () {
+
             @Override
-            public void onResponse(Call<com.example.tencil.GetAllBusinessesByCidResponse> call, Response<com.example.tencil.GetAllBusinessesByCidResponse> response) {
+            public void onResponse(Call<com.example.tencil.GetAllBusinessesByCidResponse> call,
+                                   Response<com.example.tencil.GetAllBusinessesByCidResponse> response) {
                 System.out.println ( response );
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
-                businessesList = new ArrayList<> ( Arrays.asList ( getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
-                System.out.println ();
+                assert getAllBusinessesByCidResponse != null; //asserts that .body() is not null
+                businessesList = new ArrayList<> ( Arrays.asList (
+                        getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
                 PutDataIntoHere ( businessesList );
-
             }
 
             @Override
-            public void onFailure(Call<com.example.tencil.GetAllBusinessesByCidResponse> call, Throwable t) {
+            public void onFailure(Call<com.example.tencil.GetAllBusinessesByCidResponse> call,
+                                  Throwable t) {
                 System.out.println ( t );
             }
-
-
         } );
-
-
     }
 
-    private void PutDataIntoHere(List<Businesses> businessesList) {
-
-        GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter ( this, businessesList );
-        newRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL, false ) );
+    void PutDataIntoHere(List<Businesses> businessesList) {
+        GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter
+                ( this, businessesList );
+        newRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL,
+                false ) );
         newRecycler.setAdapter ( getAllBusinessesByCidAdapter );
-
     }
-
 }

@@ -4,6 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Categories extends JSONResponse implements Parcelable {
+    private final int cid;
+    private final String name;
+
     public static final Creator<Categories> CREATOR = new Creator<Categories> () {
         @Override
         public Categories createFromParcel(Parcel in) {
@@ -15,15 +18,10 @@ public class Categories extends JSONResponse implements Parcelable {
             return new Categories[size];
         }
     };
-    //Model Class
-    private final int cid;
-    private final String name;
-
 
     protected Categories(Parcel in) {
         cid = in.readInt ();
         name = in.readString ();
-
     }
 
     public int getCid() {
