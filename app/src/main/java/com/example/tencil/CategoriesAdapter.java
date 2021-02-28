@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,21 +17,18 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 import static com.example.tencil.R.id.categories_card;
-import static com.example.tencil.R.id.position;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.FeaturedViewHolder> {
 
     private static final String TAG = "CategoriesAdapter"; // RYAN, PLEASE READ THE NAMING CONVENTIONS https://developer.android.com/reference/android/util/Log
     private Context mContext;
     private final List<Categories> mData;
-    private final RecyclerViewClickInterface recyclerViewClickInterface;
     private CategoryCardActivity cca;
 
 
-    public CategoriesAdapter(Context mContext, List<Categories> mData, RecyclerViewClickInterface recyclerViewClickInterface) {
+    public CategoriesAdapter(Context mContext, List<Categories> mData) {
         this.mContext = mContext;
         this.mData = mData;
-        this.recyclerViewClickInterface = recyclerViewClickInterface;
     }
 
     //Returns Categories View Dynamically
@@ -40,20 +36,20 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
     public CategoriesAdapter.FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext ();
         View view = LayoutInflater.from ( mContext ).inflate ( R.layout.categories_card_design, parent, false );
-        return new CategoriesAdapter.FeaturedViewHolder ( view, recyclerViewClickInterface );
+        return new CategoriesAdapter.FeaturedViewHolder ( view );
     }
 
     @Override
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
-        final Categories temp = mData.get (position);
-        holder.category.setText (mData.get (position).getName ());
-        String val = String.valueOf(mData.get(position).getCid());
-        cca = new CategoryCardActivity();
-        cca.setCid(Integer.parseInt(val));
-        Toast.makeText(mContext, val, Toast.LENGTH_LONG).show();
+        final Categories temp = mData.get ( position );
+        holder.setIsRecyclable ( false );
+        holder.category.setText ( mData.get ( position ).getName () );
+        String val = String.valueOf ( mData.get ( position ).getCid () );
+        cca = new CategoryCardActivity ();
+        cca.setCid ( Integer.parseInt ( val ) );
         holder.categoriesCard.setOnClickListener ( v -> {
-            Log.d(TAG, "onClick:Clicked on: " + mData.get(position).getName());
-            Log.d(TAG, "onClick:Clicked on: " + mData.get(position).getCid());
+            Log.d ( TAG, "onClick:Clicked on: " + mData.get ( position ).getName () );
+            Log.d ( TAG, "onClick:Clicked on: " + mData.get ( position ).getCid () );
 
             Intent intent = new Intent ( mContext, CategoryCardActivity.class );
             intent.putExtra ( "category", temp.getName () );
@@ -61,6 +57,18 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
             intent.setFlags ( Intent.FLAG_ACTIVITY_NEW_TASK );
             mContext.startActivity ( intent );
         } );
+    }
+
+    @Override
+    public long getItemId(int position) {
+        System.out.println ( position );
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        System.out.println ( "POSITION IS:" + position );
+        return position;
     }
 
     @Override
@@ -82,13 +90,13 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
         RecyclerViewClickInterface recyclerViewClickInterface;
 
 
-        public FeaturedViewHolder(View itemView, RecyclerViewClickInterface recyclerViewClickInterface) {
+        public FeaturedViewHolder(View itemView) {
             super ( itemView );
             //HOOKS
             categoriesCard = itemView.findViewById ( categories_card );
             category = itemView.findViewById ( R.id.categories_title );
             itemView.setOnClickListener ( this );
-            this.recyclerViewClickInterface = recyclerViewClickInterface;
+
         }
 
         @Override

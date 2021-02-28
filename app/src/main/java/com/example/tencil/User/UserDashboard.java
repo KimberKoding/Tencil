@@ -25,7 +25,6 @@ import com.example.tencil.CategoryCardActivity;
 import com.example.tencil.GetAllBusinessesByCid;
 import com.example.tencil.JSONResponse;
 import com.example.tencil.R;
-import com.example.tencil.RecyclerViewClickInterface;
 import com.example.tencil.UserService;
 import com.example.tencil.financeCompany;
 import com.example.tencil.fintechCompany;
@@ -64,7 +63,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     Context mContext;
     List<Categories> categoriesList;
     List<Businesses> businessesList;
-    RecyclerViewClickInterface recyclerViewClickInterface;
 
 
     @Override
@@ -115,7 +113,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         call1.enqueue ( new Callback<BusinessesResponse> () {
             @Override
             public void onResponse(Call<BusinessesResponse> call, Response<BusinessesResponse> response) {
-                System.out.println ( response );
+                System.out.println ( response + "Businesses BITCH" );
                 BusinessesResponse businessesResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
                 PutDataIntoView ( businessesList );
@@ -146,7 +144,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, this );
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList );
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
 

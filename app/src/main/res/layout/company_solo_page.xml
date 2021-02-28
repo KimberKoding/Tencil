@@ -9,18 +9,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".solo_company">
-
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#fff"
-
-        app:headerLayout="@layout/menu_header"
-        app:menu="@menu/main_menu" />
+    tools:context=".soloCompanyFintech">
 
     <LinearLayout
         android:id="@+id/content"
@@ -32,7 +21,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".solo_company">
+            tools:context=".soloCompanyFintech">
 
 
             <LinearLayout
@@ -41,8 +30,14 @@
                 android:background="#fff"
                 android:orientation="vertical">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/soloRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
 
                 <RelativeLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -56,13 +51,13 @@
                         android:src="@drawable/general_back_icon" />
 
                     <TextView
-                        android:id="@+id/business_name"
+                        android:id="@+id/categoryname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/raleway_bold"
                         android:paddingTop="8dp"
-                        android:text="@string/providence_web_services"
+                        android:text="@string/fintech"
                         android:textColor="@color/colorAccent"
                         android:textSize="23sp" />
 
@@ -78,7 +73,7 @@
                     android:background="#fff">
 
                     <LinearLayout
-                        android:id="@+id/featured_background"
+                        android:id="@+id/soloPage"
                         android:layout_width="500dp"
                         android:layout_height="800dp"
                         android:layout_margin="0dp"
@@ -93,7 +88,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:paddingTop="10dp"
-                            android:src="@drawable/pwsxmas"
+                            android:src="@drawable/ttd"
                             app:civ_border_color="#000"
                             app:civ_border_width="5dp" />
 
@@ -101,29 +96,33 @@
                             android:id="@+id/textbusiness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_gravity="center"
                             android:layout_marginTop="50dp"
-                            android:text="@string/providence_web_services"
+                            android:text="TheTradeDesk"
                             android:textAllCaps="true"
-                            android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="25sp" />
 
                         <TextView
+                            android:id="@+id/company_desc"
                             android:layout_width="wrap_content"
-                            android:layout_height="200dp"
-                            android:layout_marginStart="30dp"
+                            android:layout_height="97dp"
+                            android:layout_gravity="center"
                             android:layout_marginTop="20dp"
-                            android:text="@string/provide_desc"
+                            android:layout_marginStart="0dp"
+                            android:gravity="center"
+                            android:text="More Coming Soon!"
                             android:textAllCaps="true"
+                            android:textAlignment="center"
                             android:textColor="#000"
                             android:textSize="15sp" />
+
 
                         <TextView
                             android:id="@+id/resources"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="120dp"
+                            android:layout_gravity="center"
                             android:layout_marginTop="50dp"
                             android:text="@string/resources"
                             android:textAllCaps="true"
@@ -131,10 +130,10 @@
 
                             android:textSize="25sp" />
 
-
                         <RelativeLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="200dp">
+                            android:layout_width="match_parent"
+                            android:layout_height="73dp"
+                            android:layout_marginTop="0dp">
 
                             <View
                                 android:id="@+id/strut"
@@ -151,13 +150,14 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="5dp"
                                 android:backgroundTint="#056F98"
+                                android:onClick="website"
                                 android:text="@string/website"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 
                             <Button
                                 android:id="@+id/socialmedia"
-                                android:layout_width="49dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignStart="@id/strut"
                                 android:layout_alignParentEnd="true"
@@ -165,21 +165,6 @@
                                 android:layout_marginTop="10dp"
                                 android:backgroundTint="#16194E"
                                 android:text="@string/socialmedis"
-                                android:textColor="#fff"
-                                app:cornerRadius="20dp" />
-
-                            <Button
-                                android:id="@+id/contact"
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="100dp"
-                                android:layout_marginEnd="0dp"
-                                android:backgroundTint="#2B952F"
-                                android:text="@string/contact"
-
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 

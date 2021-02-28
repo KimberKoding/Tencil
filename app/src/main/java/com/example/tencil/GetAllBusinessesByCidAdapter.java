@@ -27,21 +27,37 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
     public GetAllBusinessesByCidAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext ();
         View v = LayoutInflater.from ( mContext ).inflate ( R.layout.categoriesallbusinesses, parent, false );
+
+
         return new GetAllBusinessesByCidAdapter.MyHolder ( v );
     }
 
     @Override
     public void onBindViewHolder(@NonNull GetAllBusinessesByCidAdapter.MyHolder holder, int position) {
-
+        holder.setIsRecyclable ( false );
         holder.business_name.setText ( allData.get ( position ).getBusiness_name () );
         holder.cat_id.setText ( allData.get ( position ).getCat_id () );
         System.out.println ( allData.size () );
+
     }
+
 
     @Override
     public int getItemCount() {
         return allData.size ();
 
+    }
+
+    @Override
+    public long getItemId(int position) {
+        System.out.println ( position );
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        System.out.println ( "POSITION IS:" + position );
+        return position;
     }
 
 

@@ -110,11 +110,12 @@
                             android:textColor="#000"
                             android:textSize="15sp" />
 
+
                         <TextView
                             android:id="@+id/resources"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="120dp"
+                            android:layout_gravity="center"
                             android:layout_marginTop="50dp"
                             android:text="@string/resources"
                             android:textAllCaps="true"
@@ -122,10 +123,10 @@
 
                             android:textSize="25sp" />
 
-
                         <RelativeLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="200dp">
+                            android:layout_width="match_parent"
+                            android:layout_height="73dp"
+                            android:layout_marginTop="0dp">
 
                             <View
                                 android:id="@+id/strut"
@@ -149,7 +150,7 @@
 
                             <Button
                                 android:id="@+id/socialmedia"
-                                android:layout_width="49dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignStart="@id/strut"
                                 android:layout_alignParentEnd="true"
@@ -157,21 +158,6 @@
                                 android:layout_marginTop="10dp"
                                 android:backgroundTint="#16194E"
                                 android:text="@string/socialmedis"
-                                android:textColor="#fff"
-                                app:cornerRadius="20dp" />
-
-                            <Button
-                                android:id="@+id/contact"
-                                android:layout_width="40dp"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="100dp"
-                                android:layout_marginEnd="0dp"
-                                android:backgroundTint="#2B952F"
-                                android:text="@string/contact"
-
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 

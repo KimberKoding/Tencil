@@ -1,15 +1,13 @@
 package com.example.tencil;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,10 +57,10 @@ public class CategoryCardActivity extends AppCompatActivity {
                                    Response<com.example.tencil.GetAllBusinessesByCidResponse> response) {
                 System.out.println ( response );
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
-                assert getAllBusinessesByCidResponse != null; //asserts that .body() is not null
                 businessesList = new ArrayList<> ( Arrays.asList (
                         getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
                 PutDataIntoHere ( businessesList );
+
             }
 
             @Override
@@ -76,8 +74,16 @@ public class CategoryCardActivity extends AppCompatActivity {
     void PutDataIntoHere(List<Businesses> businessesList) {
         GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter
                 ( this, businessesList );
-        newRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL,
+        newRecycler.setHasFixedSize ( true );
+        newRecycler.setLayoutManager ( new LinearLayoutManager ( CategoryCardActivity.this, LinearLayoutManager.VERTICAL,
                 false ) );
         newRecycler.setAdapter ( getAllBusinessesByCidAdapter );
+    }
+
+
+    public void seesolo(View view) {
+        Intent intent = new Intent ( this, Solocompany.class );
+        System.out.println ( "Success" );
+        startActivity ( intent );
     }
 }

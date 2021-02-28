@@ -79,11 +79,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="130dp"
                     android:fontFamily="@font/raleway_bold"
                     android:gravity="center"
                     android:paddingTop="15dp"
-                    android:text="Based On Your Answers"
+                    android:text="We Recommend"
                     android:textColor="@color/colorAccent"
                     android:textSize="20sp" />
 
@@ -222,9 +222,9 @@
 
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
                         android:id="@+id/categories_recycler"
-                        android:layout_height="150dp" />
+                        android:layout_width="411dp"
+                        android:layout_height="157dp" />
 
 
                 </LinearLayout>
