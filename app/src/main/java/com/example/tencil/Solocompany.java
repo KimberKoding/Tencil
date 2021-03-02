@@ -1,56 +1,79 @@
 package com.example.tencil;
 
-import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+public class Solocompany extends SolocompanyResponse {
+    //Model Class
+    private String business_id;
+    private String business_name;
+    private String cat_id;
+    private String business_namesolo;
+    private String business_desc;
+    private String website;
+    private String social_media;
+    private int business_img;
 
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class Solocompany extends AppCompatActivity {
-
-    RecyclerView soloRecycler;
-    List<Businesses> businessesList;
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate ( savedInstanceState );
-
-        setContentView ( R.layout.company_solo_page );
-        //RETROFIT
-
-        Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
-                .addConverterFactory ( GsonConverterFactory.create () )
-                .build ();
-        UserService userService = retrofit.create ( UserService.class );
-        Call<SolocompanyResponse> call = userService.getSolo ();
-        call.enqueue ( new Callback<SolocompanyResponse> () {
-            @Override
-            public void onResponse(Call<SolocompanyResponse> call, Response<SolocompanyResponse> response) {
-                System.out.println ( response );
-                SolocompanyResponse solocompanyResponse = response.body ();
-                solocompanyResponse.getsolo ();
-
-            }
-
-            @Override
-            public void onFailure(Call<SolocompanyResponse> call, Throwable t) {
-                System.out.println ( t + "Error :(" );
-            }
-        } );
+    public String getBusiness_id() {
+        return business_id;
     }
 
-    private void PutDataIntoThisView(List<Businesses> businessesList) {
-        SoloAdapter soloAdapter = new SoloAdapter ( this, businessesList );
-        soloRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
-        soloRecycler.setAdapter ( soloAdapter );
+    public void setBusiness_id(String business_id) {
+        this.business_id = business_id;
+    }
 
+    public String getBusiness_name() {
+        return business_name;
+    }
+
+    public void setBusiness_name(String business_name) {
+        this.business_name = business_name;
+    }
+
+    public String getCat_id() {
+        return cat_id;
+    }
+
+    public void setCat_id(String cat_id) {
+        this.cat_id = cat_id;
+    }
+
+    public String getBusiness_namesolo() {
+        return business_namesolo;
+    }
+
+    public void setBusiness_namesolo(String business_namesolo) {
+        this.business_namesolo = business_namesolo;
+    }
+
+    public String getBusiness_desc() {
+        return business_desc;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getSocial_media() {
+        return social_media;
+    }
+
+    public void setSocial_media(String social_media) {
+        this.social_media = social_media;
+    }
+
+    public int getBusiness_img() {
+        return business_img;
+    }
+
+    public void setBusiness_img(int business_img) {
+        this.business_img = business_img;
     }
 }
+
+
+
+
+
