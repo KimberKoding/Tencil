@@ -18,46 +18,39 @@
             android:orientation="vertical">
 
             <RelativeLayout
+
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize">
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/back_dash"
+                    android:id="@+id/back_pressedsolo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="backClicked"
+                    android:contentDescription="@string/goback"
+                    android:onClick="backtoDash"
                     android:padding="15dp"
                     android:src="@drawable/general_back_icon" />
+
+                <TextView
+                    android:id="@+id/categoryname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/raleway_bold"
+                    android:paddingTop="8dp"
+                    android:text="@string/fintech"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp" />
 
 
             </RelativeLayout>
 
-
-            <TextView
-                android:id="@+id/selectedcategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:autoSizeMaxTextSize="24sp"
-                android:autoSizeMinTextSize="12sp"
-                android:autoSizeStepGranularity="2sp"
-                android:autoSizeTextType="uniform"
-                android:fontFamily="@font/raleway_bold"
-                android:text="@string/category_coding" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:gravity="center_horizontal">
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/neww_recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="0dp" />
-            </RelativeLayout>
+                android:gravity="center_horizontal"></RelativeLayout>
 
 
         </LinearLayout>

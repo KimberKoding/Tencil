@@ -9,7 +9,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".soloCompanyFintech">
+    tools:context=".soloPage">
 
     <LinearLayout
         android:id="@+id/content"
@@ -20,8 +20,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".soloCompanyFintech">
+            android:layout_height="match_parent">
 
 
             <LinearLayout
@@ -29,12 +28,6 @@
                 android:layout_height="400dp"
                 android:background="#fff"
                 android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/soloRecycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
 
                 <RelativeLayout
 
@@ -46,20 +39,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/goback"
-                        android:onClick="backDashsolo"
+                        android:onClick="backtoDashsolo"
                         android:padding="15dp"
                         android:src="@drawable/general_back_icon" />
 
                     <TextView
-                        android:id="@+id/categoryname"
+                        android:id="@+id/solo_namesolo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:fontFamily="@font/raleway_bold"
                         android:paddingTop="8dp"
-                        android:text="@string/fintech"
+                        android:text="Business Name"
                         android:textColor="@color/colorAccent"
-                        android:textSize="23sp" />
+                        android:textSize="18sp" />
 
 
                 </RelativeLayout>
@@ -72,16 +65,16 @@
                     android:layout_marginTop="30dp"
                     android:background="#fff">
 
+
                     <LinearLayout
-                        android:id="@+id/soloPage"
+                        android:id="@+id/sololayout"
                         android:layout_width="500dp"
                         android:layout_height="800dp"
                         android:layout_margin="0dp"
                         android:background="#fff"
                         android:orientation="vertical"
-                        android:paddingEnd="10dp"
+                        android:paddingEnd="10dp">
 
-                        tools:ignore="RtlSymmetry">
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/profile_image"
@@ -93,18 +86,18 @@
                             app:civ_border_width="5dp" />
 
                         <TextView
-                            android:id="@+id/textbusiness"
+                            android:id="@+id/soloname"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="50dp"
-                            android:text="TheTradeDesk"
+                            android:text="Business Name"
                             android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="25sp" />
 
                         <TextView
-                            android:id="@+id/company_desc"
+                            android:id="@+id/solo_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="97dp"
                             android:layout_gravity="center"
@@ -123,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="50dp"
+                            android:layout_marginTop="250dp"
                             android:text="@string/resources"
                             android:textAllCaps="true"
                             android:textColor="#000"
@@ -150,7 +143,6 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="5dp"
                                 android:backgroundTint="#056F98"
-                                android:onClick="website"
                                 android:text="@string/website"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />

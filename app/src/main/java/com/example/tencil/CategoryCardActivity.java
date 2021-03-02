@@ -60,6 +60,7 @@ public class CategoryCardActivity extends AppCompatActivity {
                 businessesList = new ArrayList<> ( Arrays.asList (
                         getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
                 PutDataIntoHere ( businessesList );
+                System.out.println ( "This is the response from CID" );
 
             }
 
@@ -82,7 +83,7 @@ public class CategoryCardActivity extends AppCompatActivity {
 
 
     public void seesolo(View view) {
-        Intent intent = new Intent ( this, Solocompany.class );
+        Intent intent = new Intent ( this, soloPage.class );
         System.out.println ( "Success" );
         startActivity ( intent );
     }

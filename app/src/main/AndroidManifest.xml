@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tencil">
         <activity android:name="com.example.tencil.CategoryCardActivity" />
-        <activity android:name="com.example.tencil.Solocompany" />
+        <activity android:name="com.example.tencil.soloPage" />
         <activity android:name="com.example.tencil.ForgetPasswordSuccessMessage" />
         <activity android:name="com.example.tencil.SetNewPassword" />
         <activity android:name="com.example.tencil.MakeSelection" />

@@ -1,9 +1,9 @@
 package com.example.tencil;
 
 public class SolocompanyResponse {
-    private Businesses[] businesses;
+    private Solocompany[] businessDetails;
 
-    public Businesses[] getsolo() {
-        return businesses;
+    public Solocompany[] getsolo() {
+        return businessDetails;
     }
 }
