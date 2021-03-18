@@ -32,31 +32,6 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/business_cid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="1"
-                android:textColor="#fff"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-
-            <Button
-                android:id="@+id/see_moreRyan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="1dp"
-                android:background="#00000000"
-                android:backgroundTint="#00000000"
-                android:padding="20dp"
-                android:onClick="seesolo"
-                android:text="@string/See_More"
-                android:textColor="#fff"
-                android:textStyle="bold" />
-
 
         </RelativeLayout>
 

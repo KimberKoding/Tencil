@@ -1,8 +1,6 @@
 package com.example.tencil;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +38,7 @@ public class CategoryCardActivity extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.all_categories_card );
         businessesList = new ArrayList<> ();
-        newRecycler = findViewById ( R.id.new_recycler );
+        newRecycler = findViewById ( R.id.neww_recycler );
         category = findViewById ( R.id.selectedcategory );
         category.setText ( getIntent ().getStringExtra ( "category" ) );
 
@@ -57,10 +55,10 @@ public class CategoryCardActivity extends AppCompatActivity {
                                    Response<com.example.tencil.GetAllBusinessesByCidResponse> response) {
                 System.out.println ( response );
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
-                businessesList = new ArrayList<> ( Arrays.asList (
-                        getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
-                PutDataIntoHere ( businessesList );
+                businessesList = new ArrayList<> ( Arrays.asList ( getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
                 System.out.println ( "This is the response from CID" );
+                PutDataHere ( businessesList );
+
 
             }
 
@@ -72,19 +70,13 @@ public class CategoryCardActivity extends AppCompatActivity {
         } );
     }
 
-    void PutDataIntoHere(List<Businesses> businessesList) {
-        GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter
-                ( this, businessesList );
-        newRecycler.setHasFixedSize ( true );
-        newRecycler.setLayoutManager ( new LinearLayoutManager ( CategoryCardActivity.this, LinearLayoutManager.VERTICAL,
-                false ) );
+    private void PutDataHere(List<Businesses> businessesList) {
+        GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter ( this, businessesList );
+        newRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL, false ) );
         newRecycler.setAdapter ( getAllBusinessesByCidAdapter );
+
+
     }
 
 
-    public void seesolo(View view) {
-        Intent intent = new Intent ( this, soloPage.class );
-        System.out.println ( "Success" );
-        startActivity ( intent );
-    }
 }

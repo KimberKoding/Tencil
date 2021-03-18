@@ -1,75 +1,33 @@
 package com.example.tencil;
 
 
-public class Solocompany extends SolocompanyResponse {
-    //Model Class
-    private String business_id;
-    private String business_name;
-    private String cat_id;
-    private String business_namesolo;
-    private String business_desc;
-    private String website;
-    private String social_media;
-    private int business_img;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
-    public String getBusiness_id() {
-        return business_id;
-    }
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-    public void setBusiness_id(String business_id) {
-        this.business_id = business_id;
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    public String getBusiness_name() {
-        return business_name;
-    }
+public class Solocompany extends AppCompatActivity {
+    List<Categories> categoriesList;
+    List<Businesses> businessesList;
+    TextView business_name;
 
-    public void setBusiness_name(String business_name) {
-        this.business_name = business_name;
-    }
 
-    public String getCat_id() {
-        return cat_id;
-    }
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate ( savedInstanceState );
+        setContentView ( R.layout.company_solo_page );
+        businessesList = new ArrayList<> ();
+        business_name = findViewById ( R.id.bus_name );
+        business_name.setText ( getIntent ().getStringExtra ( "bus_name" ) );
+        System.out.println ( "SUCCESS" );
+        Toast.makeText ( this, "Success", Toast.LENGTH_SHORT ).show ();
 
-    public void setCat_id(String cat_id) {
-        this.cat_id = cat_id;
-    }
 
-    public String getBusiness_namesolo() {
-        return business_namesolo;
-    }
-
-    public void setBusiness_namesolo(String business_namesolo) {
-        this.business_namesolo = business_namesolo;
-    }
-
-    public String getBusiness_desc() {
-        return business_desc;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
-    }
-
-    public String getSocial_media() {
-        return social_media;
-    }
-
-    public void setSocial_media(String social_media) {
-        this.social_media = social_media;
-    }
-
-    public int getBusiness_img() {
-        return business_img;
-    }
-
-    public void setBusiness_img(int business_img) {
-        this.business_img = business_img;
     }
 }
 

@@ -1,11 +1,13 @@
 package com.example.tencil;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,10 +36,15 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
 
     @Override
     public void onBindViewHolder(@NonNull GetAllBusinessesByCidAdapter.MyHolder holder, int position) {
-        holder.setIsRecyclable ( false );
+        Businesses temp = allData.get ( position );
         holder.business_name.setText ( allData.get ( position ).getBusiness_name () );
-        holder.cat_id.setText ( allData.get ( position ).getCat_id () );
         System.out.println ( allData.size () );
+        holder.allcatCard.setOnClickListener ( v -> {
+            Toast.makeText ( mContext, "Clicked", Toast.LENGTH_SHORT ).show ();
+            Intent intent = new Intent ( mContext, Solocompany.class );
+            intent.putExtra ( "bus_name", temp.getBusiness_name () );
+            mContext.startActivity ( intent );
+        } );
 
     }
 
@@ -73,7 +80,6 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
 
             allcatCard = itemView.findViewById ( R.id.business_card );
             business_name = itemView.findViewById ( R.id.business_namecard );
-            cat_id = itemView.findViewById ( R.id.business_cid );
 
 
         }

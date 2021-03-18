@@ -41,7 +41,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
 
     @Override
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
-        final Categories temp = mData.get ( position );
+        Categories temp = mData.get ( position );
         holder.setIsRecyclable ( false );
         holder.category.setText ( mData.get ( position ).getName () );
         String val = String.valueOf ( mData.get ( position ).getCid () );
@@ -53,8 +53,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
 
             Intent intent = new Intent ( mContext, CategoryCardActivity.class );
             intent.putExtra ( "category", temp.getName () );
-            intent.putExtra ( "cat_id", temp.getCid () );
-            intent.setFlags ( Intent.FLAG_ACTIVITY_NEW_TASK );
             mContext.startActivity ( intent );
         } );
     }

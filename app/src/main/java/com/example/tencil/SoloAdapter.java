@@ -31,7 +31,6 @@ public class SoloAdapter extends RecyclerView.Adapter<SoloAdapter.SoloViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull SoloViewHolder holder, int position) {
-        holder.soloname.setText ( soloData.get ( position ).getBusiness_name () );
 
 
     }
@@ -49,7 +48,6 @@ public class SoloAdapter extends RecyclerView.Adapter<SoloAdapter.SoloViewHolder
         public SoloViewHolder(View view) {
             super ( view );
             sololayout = view.findViewById ( R.id.sololayout );
-            soloname = view.findViewById ( R.id.soloname );
 
 
         }
