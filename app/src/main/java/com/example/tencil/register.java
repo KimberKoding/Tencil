@@ -123,4 +123,8 @@ public class register extends AppCompatActivity {
     }
 
 
+    public void activate(View view) {
+        startActivity ( new Intent ( getApplicationContext (), Activate.class ) );
+        finish ();
+    }
 }

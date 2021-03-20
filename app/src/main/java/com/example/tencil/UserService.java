@@ -33,4 +33,9 @@ public interface UserService {
 
     @GET("tools/businesses.php?method=get")
     Call<SolocompanyResponse> getSolo(@Query("bname") int bname);
+
+    @POST("tools/activate.php")
+    Call<ActivateResponse> activateUsers(
+            @Body ActivateResponse res);
+
 }

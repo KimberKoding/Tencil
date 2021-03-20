@@ -105,18 +105,41 @@
         android:background="#0000BCD4">
 
 
+        <View
+            android:id="@+id/strut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true" />
+
         <Button
-            android:id="@+id/register"
+            android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            android:layout_marginStart="60dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginTop="140dp"
             android:backgroundTint="@color/colorPrimary"
             android:fontFamily="@font/roboto_regular"
             android:onClick="loginHere"
-            android:text="@string/click_to_login"
+            android:text="@string/login"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/activate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#27C6E1"
+            android:fontFamily="@font/roboto_regular"
+            android:onClick="activate"
+            android:text="@string/activate"
             android:textAllCaps="true"
             android:textColor="#fff"
             android:textSize="16sp"

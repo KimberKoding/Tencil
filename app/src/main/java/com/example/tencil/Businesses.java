@@ -6,7 +6,7 @@ public class Businesses extends BusinessesResponse {
     private String business_name;
     private String cat_id;
     private String business_namesolo;
-    private String business_desc;
+    private String bdesc;
     private String website;
     private String social_media;
     private int business_img;
@@ -27,8 +27,8 @@ public class Businesses extends BusinessesResponse {
         return business_namesolo;
     }
 
-    public String getBusiness_desc() {
-        return business_desc;
+    public String getBdesc() {
+        return bdesc;
     }
 
     public String getWebsite() {

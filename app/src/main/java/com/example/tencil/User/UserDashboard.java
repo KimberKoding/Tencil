@@ -152,7 +152,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
 
-    //Setting Featured Recylcer design view
 
 
     // Navigation Drawer functions

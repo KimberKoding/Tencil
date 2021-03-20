@@ -96,6 +96,11 @@ public class login extends AppCompatActivity {
         finish ();
 
     }
+
+    public void activate(View view) {
+        startActivity ( new Intent ( getApplicationContext (), Activate.class ) );
+        finish ();
+    }
 }
 
 

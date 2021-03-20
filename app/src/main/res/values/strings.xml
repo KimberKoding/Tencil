@@ -310,5 +310,10 @@
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="splashscreen">Tencil</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="activate">Activate</string>
+    <string name="activation_code">Activation code</string>
+    <string name="enter_the_activation_code_below">Enter the Activation code below</string>
+    <string name="activate_account">Activate Account</string>
 
 </resources>
