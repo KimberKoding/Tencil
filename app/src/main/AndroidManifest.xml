@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tencil">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,7 +11,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/tencil"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tencil">
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:theme="@style/Theme.Tencil"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".FeaturedSolocompany" />
         <activity android:name=".Activate" />
         <activity android:name=".Solocompany" />
         <activity android:name="com.example.tencil.CategoryCardActivity" />

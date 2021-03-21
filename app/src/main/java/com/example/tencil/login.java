@@ -58,9 +58,10 @@ public class login extends AppCompatActivity {
                 if (response.isSuccessful ()) {
                     LoginResponse loginResponse = response.body ();
                     String user = loginResponse.getEmail();
-                    Boolean passMatch = loginResponse.getPassMatch();
+                    Boolean passMatch = loginResponse.getPassMatch ();
+                    Boolean userActive = loginResponse.getUserActive ();
 
-                    if(passMatch) {
+                    if (passMatch && userActive) {
 
                         Toast.makeText ( login.this, "Login Successful", Toast.LENGTH_LONG ).show ();
                         new Handler ().postDelayed ( new Runnable () {
@@ -70,7 +71,7 @@ public class login extends AppCompatActivity {
                             }
                         }, 400 );
                     } else {
-                        Toast.makeText ( login.this, "Credentials are incorrect", Toast.LENGTH_LONG ).show ();
+                        Toast.makeText ( login.this, "Credentials are incorrect or Account is not active", Toast.LENGTH_LONG ).show ();
                     }
 
                 } else {

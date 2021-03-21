@@ -13,8 +13,18 @@ public class LoginResponse {
     //response variables
     @SerializedName("passwordMatches")
     private Boolean passMatch;
+    @SerializedName("userActive")
+    private Boolean userActive;
 
-    public LoginResponse(){
+    public Boolean getUserActive() {
+        return userActive;
+    }
+
+    public void setUserActive(Boolean userActive) {
+        this.userActive = userActive;
+    }
+
+    public LoginResponse() {
         //empty default constructor
     }
 

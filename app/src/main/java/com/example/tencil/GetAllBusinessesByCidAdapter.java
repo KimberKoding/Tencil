@@ -31,6 +31,7 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
         View v = LayoutInflater.from ( mContext ).inflate ( R.layout.categoriesallbusinesses, parent, false );
 
 
+
         return new GetAllBusinessesByCidAdapter.MyHolder ( v );
     }
 
@@ -43,6 +44,7 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
             Toast.makeText ( mContext, "Clicked", Toast.LENGTH_SHORT ).show ();
             Intent intent = new Intent ( mContext, Solocompany.class );
             intent.putExtra ( "bus_name", temp.getBusiness_name () );
+            intent.putExtra ( "bdesc", temp.getBdesc () );
             mContext.startActivity ( intent );
         } );
 
@@ -72,7 +74,7 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
 
         RelativeLayout allcatCard;
         TextView business_name;
-        TextView cat_id;
+        TextView bdesc;
 
 
         public MyHolder(@NonNull View itemView) {
@@ -80,6 +82,7 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
 
             allcatCard = itemView.findViewById ( R.id.business_card );
             business_name = itemView.findViewById ( R.id.business_namecard );
+            bdesc = itemView.findViewById ( R.id.bdesc );
 
 
         }

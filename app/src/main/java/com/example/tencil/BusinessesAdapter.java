@@ -1,6 +1,7 @@
 package com.example.tencil;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +34,16 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull BusinessesAdapter.MyViewHolder holder, int position) {
+        Businesses temp = mData.get ( position );
         holder.business_name.setText ( mData.get ( position ).getBusiness_name () );
         holder.featured_desc.setText ( mData.get ( position ).getBdesc () );
         holder.featured_card.setOnClickListener ( v -> {
             Toast.makeText ( mContext, "Clicked", Toast.LENGTH_SHORT ).show ();
+            Intent intent = new Intent ( mContext, FeaturedSolocompany.class );
+            intent.putExtra ( "feat_name", temp.getBusiness_name () );
+            intent.putExtra ( "feat_bdesc", temp.getBdesc () );
+            mContext.startActivity ( intent );
+            System.out.println ( "POP SMOKE" );
 
 
         } );

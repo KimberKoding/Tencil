@@ -36,11 +36,22 @@
                         android:id="@+id/back_pressedsolo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:contentDescription="@string/goback"
                         android:onClick="backtoDashsolo"
                         android:padding="15dp"
-                        android:layout_marginTop="10dp"
                         android:src="@drawable/general_back_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="50dp"
+                        android:gravity="center_vertical"
+                        android:text="FEATURED BUSINESS"
+                        android:textAllCaps="true"
+                        android:textColor="#000"
+                        android:textSize="20sp" />
 
                 </RelativeLayout>
 
@@ -73,7 +84,7 @@
                             app:civ_border_width="5dp" />
 
                         <TextView
-                            android:id="@+id/bus_name"
+                            android:id="@+id/feat_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -84,16 +95,16 @@
                             android:textSize="25sp" />
 
                         <TextView
-                            android:id="@+id/bdesc"
+                            android:id="@+id/feat_bdesc"
                             android:layout_width="wrap_content"
                             android:layout_height="97dp"
                             android:layout_gravity="center"
-                            android:layout_marginTop="20dp"
                             android:layout_marginStart="0dp"
+                            android:layout_marginTop="20dp"
                             android:gravity="center"
                             android:text="More Coming Soon!"
-                            android:textAllCaps="true"
                             android:textAlignment="center"
+                            android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="15sp" />
 
@@ -130,8 +141,8 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="5dp"
                                 android:backgroundTint="#056F98"
-                                android:text="@string/website"
                                 android:onClick="websitefull"
+                                android:text="@string/website"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 
@@ -159,7 +170,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="50dp"
-                            android:text="WANT TO BE APART OF TENCIL?"
+                            android:text="@string/want_to_be_a_featured_business"
                             android:textAllCaps="true"
                             android:textColor="#000"
 
