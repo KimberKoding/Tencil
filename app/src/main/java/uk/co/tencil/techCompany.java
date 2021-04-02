@@ -8,14 +8,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import uk.co.tencil.User.UserDashboard;
 
-import static com.example.tencil.R.layout.activity_tech_company;
+
 
 public class techCompany extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( activity_tech_company );
+        setContentView ( R.layout.activity_tech_company );
     }
 
     public void ryanNav(View v) {

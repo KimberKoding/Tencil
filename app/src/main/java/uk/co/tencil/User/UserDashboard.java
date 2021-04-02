@@ -16,7 +16,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.tencil.R;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -36,6 +35,7 @@ import uk.co.tencil.CategoriesAdapter;
 import uk.co.tencil.CategoryCardActivity;
 import uk.co.tencil.GetAllBusinessesByCid;
 import uk.co.tencil.JSONResponse;
+import uk.co.tencil.R;
 import uk.co.tencil.UserService;
 import uk.co.tencil.financeCompany;
 import uk.co.tencil.fintechCompany;

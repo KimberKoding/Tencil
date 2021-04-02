@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import static com.example.tencil.R.id.categories_card;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.FeaturedViewHolder> {
 
@@ -72,7 +71,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
         public FeaturedViewHolder(View itemView) {
             super ( itemView );
             //HOOKS
-            categoriesCard = itemView.findViewById ( categories_card );
+            categoriesCard = itemView.findViewById ( R.id.categories_card );
             category = itemView.findViewById ( R.id.categories_title );
         }
     }

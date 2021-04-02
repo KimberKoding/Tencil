@@ -13,9 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.tencil.R;
-
 import uk.co.tencil.HelperClasses.SliderAdapter;
+import uk.co.tencil.R;
 import uk.co.tencil.login;
 
 

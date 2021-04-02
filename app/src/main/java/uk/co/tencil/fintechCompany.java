@@ -6,14 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.tencil.R.layout.activity_fintech_company;
+
 
 public class fintechCompany extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( activity_fintech_company );
+        setContentView ( R.layout.activity_fintech_company );
     }
 
     public void ryanNav(View v) {

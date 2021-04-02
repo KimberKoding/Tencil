@@ -20,7 +20,7 @@ import java.util.List;
 
 import uk.co.tencil.User.UserDashboard;
 
-import static com.example.tencil.R.id;
+
 
 public class Solocompany extends AppCompatActivity {
     private static final String TAG = "SOLO company";
@@ -33,11 +33,11 @@ public class Solocompany extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( layout.company_solo_page );
+        setContentView ( R.layout.company_solo_page );
         businessesList = new ArrayList<> ();
-        business_name = findViewById ( id.bus_name );
-        business_logo = findViewById ( id.profile_image );
-        bdesc = findViewById ( id.bdesc );
+        business_name = findViewById ( R.id.bus_name );
+        business_logo = findViewById ( R.id.profile_image );
+        bdesc = findViewById ( R.id.bdesc );
         business_name.setText ( getIntent ().getStringExtra ( "bus_name" ) );
         bdesc.setText ( getIntent ().getStringExtra ( "bdesc" ) );
         Glide.with ( this )

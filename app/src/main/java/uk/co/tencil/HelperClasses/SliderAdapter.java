@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.tencil.R;
+import uk.co.tencil.R;
 
 
 public class SliderAdapter extends PagerAdapter {

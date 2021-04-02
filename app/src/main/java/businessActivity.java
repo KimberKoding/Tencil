@@ -3,7 +3,8 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tencil.R;
+import uk.co.tencil.R;
+
 
 public class businessActivity extends AppCompatActivity {
     private static final String TAG = "BusinessActivity";
