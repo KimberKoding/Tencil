@@ -199,8 +199,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         if (drawerLayout.isDrawerVisible ( GravityCompat.START )) {
             drawerLayout.closeDrawer ( GravityCompat.START );
-        } else
-            super.onBackPressed ();
+        }
+
     }
 
     @Override

@@ -1,38 +1,48 @@
 package com.example.tencil;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.example.tencil.User.UserDashboard;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.tencil.R.id;
+import static com.example.tencil.R.layout;
+
 public class Solocompany extends AppCompatActivity {
+    private static final String TAG = "SOLO company";
+    ImageView business_logo;
     List<Businesses> businessesList;
     TextView business_name;
     TextView bdesc;
-
+    private Context mContext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.company_solo_page );
+        setContentView ( layout.company_solo_page );
         businessesList = new ArrayList<> ();
-        business_name = findViewById ( R.id.bus_name );
-        bdesc = findViewById ( R.id.bdesc );
+        business_name = findViewById ( id.bus_name );
+        business_logo = findViewById ( id.profile_image );
+        bdesc = findViewById ( id.bdesc );
         business_name.setText ( getIntent ().getStringExtra ( "bus_name" ) );
         bdesc.setText ( getIntent ().getStringExtra ( "bdesc" ) );
-        System.out.println ( "SUCCESS" );
-        Toast.makeText ( this, "Success", Toast.LENGTH_SHORT ).show ();
-
-
+        Glide.with ( this )
+                .load ( getIntent ().getStringExtra ( "Image_URL" ) )
+                .into ( business_logo );
     }
 
     public void websitefull(View view) {
@@ -49,6 +59,12 @@ public class Solocompany extends AppCompatActivity {
     }
 
     public void socialmedia(View view) {
+    }
+
+
+    public void backtoUser(View view) {
+        Intent intent = new Intent ( this, UserDashboard.class );
+        this.startActivity ( intent );
     }
 }
 

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tencil.R;
-import com.example.tencil.User.UserDashboard;
+import com.example.tencil.cardviewdesign;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -58,12 +58,12 @@ public class SplashScreen extends AppCompatActivity {
                     SharedPreferences.Editor editor = onBoardingScreen.edit ();
                     editor.putBoolean ( "firstTime", false );
                     editor.commit ();
-                    Intent intent = new Intent ( getApplicationContext (), UserDashboard.class );
+                    Intent intent = new Intent ( getApplicationContext (), cardviewdesign.class );
                     startActivity ( intent );
                     finish ();
 
                 } else {
-                    Intent intent = new Intent ( getApplicationContext (), UserDashboard.class );
+                    Intent intent = new Intent ( getApplicationContext (), cardviewdesign.class );
                     startActivity ( intent );
                     finish ();
                 }

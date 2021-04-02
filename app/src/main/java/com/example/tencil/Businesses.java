@@ -9,7 +9,7 @@ public class Businesses extends BusinessesResponse {
     private String bdesc;
     private String website;
     private String social_media;
-    private int business_img;
+    private String business_img;
 
     public String getBusiness_id() {
         return business_id;
@@ -39,11 +39,11 @@ public class Businesses extends BusinessesResponse {
         return social_media;
     }
 
-    public int getBusiness_img() {
+    public String getBusiness_img() {
         return business_img;
     }
 
-    public void setBusiness_img(int business_img) {
+    public void setBusiness_img(String business_img) {
         this.business_img = business_img;
     }
 

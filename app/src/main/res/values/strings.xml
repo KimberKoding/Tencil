@@ -315,5 +315,7 @@
     <string name="enter_the_activation_code_below">Enter the Activation code below</string>
     <string name="activate_account">Activate Account</string>
     <string name="contact_us">Contact Us</string>
+    <string name="homepage">Ryan\'s Home page</string>
+    <string name="we_recomend">We Recomend : </string>
 
 </resources>

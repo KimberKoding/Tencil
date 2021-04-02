@@ -6,7 +6,7 @@ public class ActivateResponse {
     @SerializedName("uid")
     private String email;
     @SerializedName("code")
-    private String activaitoncode;
+    private String activation;
 
     public ActivateResponse() {
         //Default constructor
@@ -20,11 +20,11 @@ public class ActivateResponse {
         this.email = email;
     }
 
-    public String getActivaitoncode() {
-        return activaitoncode;
+    public String getActivation() {
+        return activation;
     }
 
-    public void setActivaitoncode(String activaitoncode) {
-        this.activaitoncode = activaitoncode;
+    public void setActivation(String activation) {
+        this.activation = activation;
     }
 }

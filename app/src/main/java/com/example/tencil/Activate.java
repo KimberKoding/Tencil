@@ -1,5 +1,6 @@
 package com.example.tencil;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -36,7 +37,7 @@ public class Activate extends AppCompatActivity {
                     //proceed to activate
                     ActivateResponse res = new ActivateResponse ();
                     res.setEmail ( email.getText ().toString () );
-                    res.setActivaitoncode ( activatecode.getText ().toString () );
+                    res.setActivation ( activatecode.getText ().toString () );
                     activate ( res );
                 }
 
@@ -55,10 +56,13 @@ public class Activate extends AppCompatActivity {
             public void onResponse(Call<ActivateResponse> call, Response<ActivateResponse> response) {
                 if (response.isSuccessful ()) {
                     ActivateResponse activateResponse = response.body ();
-                    Toast.makeText ( Activate.this, "Activation Request Sucessful", Toast.LENGTH_SHORT ).show ();
-                    System.out.println ( response );
+                    Intent intent = new Intent ( Activate.this, register.class );
+                    Toast.makeText ( Activate.this, "Verified user successfully", Toast.LENGTH_SHORT ).show ();
+                    startActivity ( intent );
+
                 } else {
-                    Toast.makeText ( Activate.this, "There was an error try again", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( Activate.this, "Glitch in the Matrix", Toast.LENGTH_SHORT ).show ();
+                    System.out.println ( response + "Error" );
                 }
             }
 
@@ -78,5 +82,13 @@ public class Activate extends AppCompatActivity {
     }
 
     public void resend(View view) {
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent ();
+        returnIntent.putExtra ( "hasBackPressed", true );
+        setResult ( Activity.RESULT_OK, returnIntent );
+        finish ();
     }
 }

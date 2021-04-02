@@ -91,10 +91,10 @@ public class register extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call<RegisterResponse> call, @NotNull Response<RegisterResponse> response) {
                 if (response.isSuccessful ()) {
-                    Toast.makeText ( register.this, "Registered User Successful", Toast.LENGTH_LONG ).show ();
+                    Toast.makeText ( register.this, "Check your Emails for a Code!!", Toast.LENGTH_SHORT ).show ();
                     RegisterResponse registerResponse = response.body ();
                     loading.setVisibility ( View.GONE );
-                    startActivity ( new Intent ( register.this, login.class ) );
+                    startActivity ( new Intent ( register.this, Activate.class ) );
                 } else {
 
                     Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();

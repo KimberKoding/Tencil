@@ -1,14 +1,12 @@
 package com.example.tencil;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,45 +16,29 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.List;
 
-public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.MyViewHolder> {
-    private static final String TAG = "businessadapter";
+public class FeaturedSoloCompanyAdapter extends RecyclerView.Adapter<BusinessesAdapter.MyViewHolder> {
+    private static final String TAG = "FeaturedSoloCompanyAdapter";
     private final List<Businesses> mData;
     private Context mContext;
 
-    public BusinessesAdapter(Context mContext, List<Businesses> mData) {
-        this.mContext = mContext;
+    public FeaturedSoloCompanyAdapter(List<Businesses> mData, Context mContext) {
         this.mData = mData;
+        this.mContext = mContext;
     }
 
-    @NonNull
-    @Override
     public BusinessesAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext ();
-        View view = LayoutInflater.from ( mContext ).inflate ( R.layout.featured_card_design, parent, false );
-        return new BusinessesAdapter.MyViewHolder ( view );
+        View v = LayoutInflater.from ( mContext ).inflate ( R.layout.featuredsolopage, parent, false );
+        return new BusinessesAdapter.MyViewHolder ( v );
     }
 
     @Override
     public void onBindViewHolder(@NonNull BusinessesAdapter.MyViewHolder holder, int position) {
-        Businesses temp = mData.get ( position );
-        holder.business_name.setText ( mData.get ( position ).getBusiness_name () );
-        holder.featured_desc.setText ( mData.get ( position ).getBdesc () );
         Glide.with ( mContext )
                 .asBitmap ()
                 .load ( mData.get ( position ).getBusiness_img () )
                 .diskCacheStrategy ( DiskCacheStrategy.ALL )
                 .into ( holder.featured_image );
-        holder.featured_card.setOnClickListener ( v -> {
-            Toast.makeText ( mContext, "Clicked", Toast.LENGTH_SHORT ).show ();
-            Intent intent = new Intent ( mContext, FeaturedSolocompany.class );
-            intent.putExtra ( "feat_name", temp.getBusiness_name () );
-            intent.putExtra ( "feat_bdesc", temp.getBdesc () );
-            intent.putExtra ( "feat_image", temp.getBusiness_img () );
-            mContext.startActivity ( intent );
-
-
-        } );
-
 
     }
 
@@ -64,7 +46,6 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
     public int getItemCount() {
         return mData.size ();
     }
-
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout featured_card;

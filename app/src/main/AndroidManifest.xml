@@ -15,6 +15,7 @@
         android:theme="@style/Theme.Tencil"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".FeaturedSolocompany" />
+        <activity android:name=".cardviewdesign" />
         <activity android:name=".Activate" />
         <activity android:name=".Solocompany" />
         <activity android:name="com.example.tencil.CategoryCardActivity" />

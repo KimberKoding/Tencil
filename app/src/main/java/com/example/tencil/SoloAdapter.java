@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class SoloAdapter extends RecyclerView.Adapter<SoloAdapter.SoloViewHolder> {
-    private final List<Solocompany> soloData;
+    private final List<Businesses> soloData;
     private Context mContext;
 
-    public SoloAdapter(Context mContext, List<Solocompany> soloData) {
+    public SoloAdapter(Context mContext, List<Businesses> soloData) {
         this.soloData = soloData;
         this.mContext = mContext;
     }
@@ -41,13 +39,10 @@ public class SoloAdapter extends RecyclerView.Adapter<SoloAdapter.SoloViewHolder
     }
 
     public class SoloViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout sololayout;
-        TextView soloname;
 
 
         public SoloViewHolder(View view) {
             super ( view );
-            sololayout = view.findViewById ( R.id.sololayout );
 
 
         }

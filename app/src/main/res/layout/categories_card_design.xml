@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:layout_margin="12sp"
     app:cardCornerRadius="0dp"
     app:cardElevation="0dp">
 
     <RelativeLayout
 
         android:id="@+id/categories_card"
-        android:layout_width="399dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/card_3"
 
@@ -32,13 +31,13 @@
 
 
     <TextView
-        android:layout_margin="10dp"
         android:id="@+id/categories_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAllCaps="true"
+        android:layout_margin="10dp"
         android:fontFamily="@font/raleway_bold"
-        android:text="Tech&#xA;Companies"
+        android:text="Starling Bank"
+        android:textAllCaps="true"
         android:textColor="#fff"
         android:textSize="20sp" />
 

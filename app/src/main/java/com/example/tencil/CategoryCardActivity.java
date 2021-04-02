@@ -56,7 +56,7 @@ public class CategoryCardActivity extends AppCompatActivity {
                 System.out.println ( response );
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
-                System.out.println ( "This is the response from CID" );
+                System.out.println ( "This is the response from CID " + cid );
                 PutDataHere ( businessesList );
 
 
@@ -69,6 +69,7 @@ public class CategoryCardActivity extends AppCompatActivity {
             }
         } );
     }
+
 
     private void PutDataHere(List<Businesses> businessesList) {
         GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter ( this, businessesList );
