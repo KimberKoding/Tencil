@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.tencil">
+    package="uk.co.tencil">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+
         android:icon="@mipmap/tencil"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/tencil"
@@ -14,48 +15,48 @@
         android:fullBackupContent="@xml/backup_descriptor"
         android:theme="@style/Theme.Tencil"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".FeaturedSolocompany" />
-        <activity android:name=".cardviewdesign" />
-        <activity android:name=".Activate" />
-        <activity android:name=".Solocompany" />
-        <activity android:name="com.example.tencil.CategoryCardActivity" />
-        <activity android:name="com.example.tencil.ForgetPasswordSuccessMessage" />
-        <activity android:name="com.example.tencil.SetNewPassword" />
-        <activity android:name="com.example.tencil.MakeSelection" />
-        <activity android:name="com.example.tencil.ForgetPassword" />
-        <activity android:name="com.example.tencil.fintechCompany" />
-        <activity android:name="com.example.tencil.soloCompanyFintech" />
-        <activity android:name="com.example.tencil.techCompany" />
-        <activity android:name="com.example.tencil.tech_company" />
-        <activity android:name="com.example.tencil.businessActivity" />
-        <activity android:name="com.example.tencil.socialMedia" />
-        <activity android:name="com.example.tencil.soloCompanyFinance" />
-        <activity android:name="com.example.tencil.financeCompany" />
-        <activity android:name="com.example.tencil.solo_company" />
-        <activity android:name="com.example.tencil.register" />
-        <activity android:name="com.example.tencil.Common.OnBoarding" />
+        <activity android:name="uk.co.tencil.FeaturedSolocompany" />
+        <activity android:name="uk.co.tencil.cardviewdesign" />
+        <activity android:name="uk.co.tencil.Activate" />
+        <activity android:name="uk.co.tencil.Solocompany" />
+        <activity android:name="uk.co.tencil.CategoryCardActivity" />
+        <activity android:name="uk.co.tencil.ForgetPasswordSuccessMessage" />
+        <activity android:name="uk.co.tencil.SetNewPassword" />
+        <activity android:name="uk.co.tencil.MakeSelection" />
+        <activity android:name="uk.co.tencil.ForgetPassword" />
+        <activity android:name="uk.co.tencil.fintechCompany" />
+        <activity android:name="uk.co.tencil.soloCompanyFintech" />
+        <activity android:name="uk.co.tencil.techCompany" />
+        <activity android:name="uk.co.tencil.tech_company" />
+        <activity android:name="uk.co.tencil.businessActivity" />
+        <activity android:name="uk.co.tencil.socialMedia" />
+        <activity android:name="uk.co.tencil.soloCompanyFinance" />
+        <activity android:name="uk.co.tencil.financeCompany" />
+        <activity android:name="uk.co.tencil.solo_company" />
+        <activity android:name="uk.co.tencil.register" />
+        <activity android:name="uk.co.tencil.Common.OnBoarding" />
         <activity
-            android:name="com.example.tencil.login"
+            android:name="uk.co.tencil.login"
             android:theme="@style/Theme.Tencil" />
-        <activity android:name="com.example.tencil.questionthirteen" />
-        <activity android:name="com.example.tencil.questiontwelve" />
-        <activity android:name="com.example.tencil.questioneleven" />
-        <activity android:name="com.example.tencil.questionten" />
-        <activity android:name="com.example.tencil.questionnine" />
-        <activity android:name="com.example.tencil.questioneight" />
-        <activity android:name="com.example.tencil.questionseven" />
-        <activity android:name="com.example.tencil.questionsix" />
-        <activity android:name="com.example.tencil.questionfive" />
-        <activity android:name="com.example.tencil.questionfour" />
-        <activity android:name="com.example.tencil.questionthree" />
-        <activity android:name="com.example.tencil.questiontwo" />
-        <activity android:name="com.example.tencil.questionone" />
-        <activity android:name="com.example.tencil.soloCompanyFinance2" />
-        <activity android:name="com.example.tencil.company" />
-        <activity android:name="com.example.tencil.User.UserDashboard" />
-        <activity android:name="com.example.tencil.soloCompanysmedia1" />
+        <activity android:name="uk.co.tencil.questionthirteen" />
+        <activity android:name="uk.co.tencil.questiontwelve" />
+        <activity android:name="uk.co.tencil.questioneleven" />
+        <activity android:name="uk.co.tencil.questionten" />
+        <activity android:name="uk.co.tencil.questionnine" />
+        <activity android:name="uk.co.tencil.questioneight" />
+        <activity android:name="uk.co.tencil.questionseven" />
+        <activity android:name="uk.co.tencil.questionsix" />
+        <activity android:name="uk.co.tencil.questionfive" />
+        <activity android:name="uk.co.tencil.questionfour" />
+        <activity android:name="uk.co.tencil.questionthree" />
+        <activity android:name="uk.co.tencil.questiontwo" />
+        <activity android:name="uk.co.tencil.questionone" />
+        <activity android:name="uk.co.tencil.soloCompanyFinance2" />
+        <activity android:name="uk.co.tencil.company" />
+        <activity android:name="uk.co.tencil.User.UserDashboard" />
+        <activity android:name="uk.co.tencil.soloCompanysmedia1" />
         <activity
-            android:name="com.example.tencil.Common.SplashScreen"
+            android:name="uk.co.tencil.Common.SplashScreen"
             android:theme="@style/Theme.Tencil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

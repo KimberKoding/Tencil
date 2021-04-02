@@ -7,7 +7,7 @@
     android:background="#fff"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".techCompany">
+    tools:context="uk.co.tencil.techCompany">
 
     <LinearLayout
         android:layout_width="match_parent"

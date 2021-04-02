@@ -9,7 +9,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".User.UserDashboard">
+    tools:context="uk.co.tencil.User.UserDashboard">
 
 
     <com.google.android.material.navigation.NavigationView

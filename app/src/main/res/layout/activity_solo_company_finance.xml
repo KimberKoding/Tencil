@@ -9,7 +9,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".soloCompanyFinance">
+    tools:context="uk.co.tencil.soloCompanyFinance">
 
 
     <com.google.android.material.navigation.NavigationView
@@ -31,7 +31,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".solo_company">
+            tools:context="uk.co.tencil.solo_company">
 
 
             <LinearLayout

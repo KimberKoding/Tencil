@@ -7,7 +7,7 @@
     android:background="#fff"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".financeCompany">
+    tools:context="uk.co.tencil.financeCompany">
 
     <LinearLayout
         android:layout_width="match_parent"
