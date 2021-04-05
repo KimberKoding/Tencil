@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
@@ -64,7 +64,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
     //HOLDS VIEWS
     public class FeaturedViewHolder extends RecyclerView.ViewHolder {
 
-        RelativeLayout categoriesCard;
+        CardView categoriesCard;
         TextView category;
 
 

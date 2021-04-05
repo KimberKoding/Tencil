@@ -67,18 +67,6 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
 
     }
 
-    @Override
-    public long getItemId(int position) {
-        System.out.println ( position );
-        return position;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        System.out.println ( "POSITION IS:" + position );
-        return position;
-    }
-
 
     public class MyHolder extends RecyclerView.ViewHolder {
 

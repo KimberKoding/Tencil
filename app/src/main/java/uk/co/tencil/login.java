@@ -64,6 +64,10 @@ public class login extends AppCompatActivity {
 
                     if (passMatch && userActive) {
 
+                        //Create a Session
+                        SessionManager sessionManager = new SessionManager ( login.this );
+                        sessionManager.createLoginSession ( email, password );
+
                         Toast.makeText ( login.this, "Login Successful", Toast.LENGTH_LONG ).show ();
                         new Handler ().postDelayed ( new Runnable () {
                             @Override

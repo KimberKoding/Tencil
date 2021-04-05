@@ -106,7 +106,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorPrimary"
         android:fontFamily="@font/roboto_regular"
-        android:onClick="resend"
+        android:onClick="resendTO"
         android:text="@string/resend_code"
         android:textAllCaps="true"
         android:textColor="#fff"

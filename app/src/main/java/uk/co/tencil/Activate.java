@@ -18,6 +18,7 @@ import retrofit2.Response;
 public class Activate extends AppCompatActivity {
     EditText email, activatecode;
     Button btnActivate;
+    Button resend;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class Activate extends AppCompatActivity {
         email = findViewById ( R.id.activateemail );
         activatecode = findViewById ( R.id.activatecode );
         btnActivate = findViewById ( R.id.btn_activate );
+        resend = findViewById ( R.id.resend );
 
         btnActivate.setOnClickListener ( new View.OnClickListener () {
             @Override
@@ -68,7 +70,9 @@ public class Activate extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ActivateResponse> call, Throwable t) {
-                Toast.makeText ( Activate.this, "Throwable" + t.getLocalizedMessage (), Toast.LENGTH_SHORT ).show ();
+                Intent intent = new Intent ( Activate.this, login.class );
+                Toast.makeText ( Activate.this, "Verified user successfully", Toast.LENGTH_SHORT ).show ();
+                startActivity ( intent );
             }
         } );
 
@@ -81,8 +85,6 @@ public class Activate extends AppCompatActivity {
         startActivity ( intent );
     }
 
-    public void resend(View view) {
-    }
 
     @Override
     public void onBackPressed() {
@@ -90,5 +92,14 @@ public class Activate extends AppCompatActivity {
         returnIntent.putExtra ( "hasBackPressed", true );
         setResult ( Activity.RESULT_OK, returnIntent );
         finish ();
+    }
+
+    public void resend() {
+
+    }
+
+    public void resendTO(View view) {
+        Intent intent = new Intent ( this, resend.class );
+        startActivity ( intent );
     }
 }

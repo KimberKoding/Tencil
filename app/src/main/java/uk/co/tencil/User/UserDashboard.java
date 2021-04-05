@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,6 +37,7 @@ import uk.co.tencil.CategoryCardActivity;
 import uk.co.tencil.GetAllBusinessesByCid;
 import uk.co.tencil.JSONResponse;
 import uk.co.tencil.R;
+import uk.co.tencil.SessionManager;
 import uk.co.tencil.UserService;
 import uk.co.tencil.financeCompany;
 import uk.co.tencil.fintechCompany;
@@ -79,6 +81,13 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categoriesRecycler = findViewById ( R.id.categories_recycler );
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
+
+        SessionManager sessionManager = new SessionManager ( this );
+        HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession ();
+
+        String email = userDetails.get ( SessionManager.KEY_EMAIL );
+        String password = userDetails.get ( SessionManager.KEY_PASSWORD );
+        System.out.println ( email + password + "Printed to console" );
 
 
         //RETROFIT

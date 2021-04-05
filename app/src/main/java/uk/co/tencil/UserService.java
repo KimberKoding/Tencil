@@ -38,4 +38,9 @@ public interface UserService {
     Call<ActivateResponse> activateUsers(
             @Body ActivateResponse res);
 
+    @POST("tools/activate.php?func=resend")
+    Call<ResendRequest> resendemail(
+            @Body ResendResponse resendMe);
+
 }
+
