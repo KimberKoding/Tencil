@@ -76,6 +76,11 @@ public class FeaturedSolocompany extends AppCompatActivity {
         return;
     }
 
+    public void backtoDashsolo(View view) {
+        Intent intent = new Intent ( this, UserDashboard.class );
+        startActivity ( intent );
+        return;
+    }
 }
 
 
