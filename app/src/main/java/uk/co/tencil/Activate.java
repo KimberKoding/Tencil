@@ -1,6 +1,5 @@
 package uk.co.tencil;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -88,14 +87,9 @@ public class Activate extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent returnIntent = new Intent ();
-        returnIntent.putExtra ( "hasBackPressed", true );
-        setResult ( Activity.RESULT_OK, returnIntent );
+        Intent returnIntent = new Intent ( this, login.class );
+        startActivity ( returnIntent );
         finish ();
-    }
-
-    public void resend() {
-
     }
 
     public void resendTO(View view) {

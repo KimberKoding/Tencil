@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +18,7 @@ import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.FeaturedViewHolder> {
 
+    private static final String TAG = "CategoriesAdapter"; // RYAN, PLEASE READ THE NAMING CONVENTIONS https://developer.android.com/reference/android/util/Log
     private Context mContext;
     private final List<Categories> mData;
     private CategoryCardActivity cca;
@@ -40,31 +41,29 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
         Categories temp = mData.get ( position );
         holder.category.setText ( mData.get ( position ).getName () );
-        String val = String.valueOf ( mData.get ( position ).getCid () );
 
-        cca = new CategoryCardActivity ();
-        cca.setCid ( Integer.parseInt ( val ) );
         holder.categoriesCard.setOnClickListener ( v -> {
             Intent intent = new Intent ( mContext, CategoryCardActivity.class );
             intent.putExtra ( "category", temp.getName () );
+            String val = String.valueOf ( mData.get ( position ).getCid () );
+            System.out.println ( mData.get ( position ).getCid () );
+            System.out.println ( mData.get ( position ).getName () );
+            cca = new CategoryCardActivity ();
+            cca.setCid ( Integer.parseInt ( val ) );
             mContext.startActivity ( intent );
         } );
-    }
 
+    }
 
     @Override
     public int getItemCount() {
         return mData.size ();
     }
 
-    public interface RecyclerViewClickInterface {
-        void onItemClick(int position);
-    }
-
     //HOLDS VIEWS
     public class FeaturedViewHolder extends RecyclerView.ViewHolder {
 
-        CardView categoriesCard;
+        RelativeLayout categoriesCard;
         TextView category;
 
 
@@ -73,6 +72,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
             //HOOKS
             categoriesCard = itemView.findViewById ( R.id.categories_card );
             category = itemView.findViewById ( R.id.categories_title );
+
+
         }
+
     }
 }

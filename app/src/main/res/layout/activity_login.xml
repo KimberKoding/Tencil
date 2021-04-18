@@ -85,6 +85,16 @@
         android:text="@string/login"
         android:textColor="@android:color/white" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="forgottenpassword"
+        android:text="@string/forgot_password" />
+
+
     <View
         android:id="@+id/strut"
         android:layout_width="0dp"

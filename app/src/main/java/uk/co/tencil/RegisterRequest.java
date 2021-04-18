@@ -7,6 +7,16 @@ public class RegisterRequest {
     private String email;
     @SerializedName("pwd")
     private String password;
+    @SerializedName("fname")
+    private String fname;
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
 
     public String getEmail() {
         return email;

@@ -2,6 +2,7 @@ package uk.co.tencil;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -51,31 +52,28 @@ public class CategoryCardActivity extends AppCompatActivity {
         call.enqueue ( new Callback<GetAllBusinessesByCidResponse> () {
 
             @Override
-            public void onResponse(Call<GetAllBusinessesByCidResponse> call,
-                                   Response<GetAllBusinessesByCidResponse> response) {
+            public void onResponse(Call<GetAllBusinessesByCidResponse> call, Response<GetAllBusinessesByCidResponse> response) {
                 System.out.println ( response );
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
-                System.out.println ( "This is the response from CID " + cid );
+                System.out.println ( "This is the new response!!!!" );
+                Toast.makeText ( CategoryCardActivity.this, "This CID was called: " + getCid (), Toast.LENGTH_SHORT ).show ();
+
                 PutDataHere ( businessesList );
-
-
             }
 
             @Override
-            public void onFailure(Call<GetAllBusinessesByCidResponse> call,
-                                  Throwable t) {
+            public void onFailure(Call<GetAllBusinessesByCidResponse> call, Throwable t) {
                 System.out.println ( t );
             }
+
         } );
     }
-
 
     private void PutDataHere(List<Businesses> businessesList) {
         GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter ( this, businessesList );
         newRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL, false ) );
         newRecycler.setAdapter ( getAllBusinessesByCidAdapter );
-
 
     }
 

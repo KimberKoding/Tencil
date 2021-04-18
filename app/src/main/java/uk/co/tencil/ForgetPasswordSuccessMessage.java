@@ -1,5 +1,6 @@
 package uk.co.tencil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,5 +15,8 @@ public class ForgetPasswordSuccessMessage extends AppCompatActivity {
     }
 
     public void backToLogin(View view) {
+        Intent intent = new Intent ( this, login.class );
+        startActivity ( intent );
+        return;
     }
 }

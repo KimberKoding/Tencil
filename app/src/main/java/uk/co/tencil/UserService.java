@@ -42,5 +42,17 @@ public interface UserService {
     Call<ResendRequest> resendemail(
             @Body ResendResponse resendMe);
 
+    @POST("tools/pwreset.php?func=ir")
+    @Headers({"Content-Type: application/json", "Accept: application/json", "X-API-KEY: a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE"})
+    Call<PasswordResponse> resetpassword(
+            @Body PasswordResponse resetPass);
+
+
+    @POST("tools/pwreset.php?func=res")
+    @Headers({"Content-Type: application/json", "Accept: application/json", "X-API-KEY: a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE"})
+    Call<ResetResponse> passwordreset(
+            @Body ResetResponse passreset);
+
+
 }
 

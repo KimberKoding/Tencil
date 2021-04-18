@@ -19,13 +19,13 @@ import uk.co.tencil.User.UserDashboard;
 public class login extends AppCompatActivity {
     Button btnLogin;
     EditText email, password;
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_login );
         email = findViewById ( R.id.email );
         password = findViewById ( R.id.password );
         btnLogin = findViewById ( R.id.btn_login );
+
 
         btnLogin.setOnClickListener ( new View.OnClickListener () {
             @Override
@@ -51,6 +51,7 @@ public class login extends AppCompatActivity {
         loginRequest.setEmail ( email.getText ().toString () );
         loginRequest.setPassword ( password.getText ().toString () );
 
+
         Call<LoginResponse> loginResponseCall = APiClient.getUserService ().userLogin (credentials);
         loginResponseCall.enqueue ( new Callback<LoginResponse> () {
             @Override
@@ -60,7 +61,9 @@ public class login extends AppCompatActivity {
                     LoginResponse loginResponse = response.body ();
                     String user = loginResponse.getEmail();
                     Boolean passMatch = loginResponse.getPassMatch ();
+                    String fname = loginResponse.getFname ();
                     Boolean userActive = loginResponse.getUserActive ();
+                    String userApiKey = loginResponse.getUserApiKey ();
 
                     if (passMatch && userActive) {
 
@@ -68,11 +71,14 @@ public class login extends AppCompatActivity {
                         SessionManager sessionManager = new SessionManager ( login.this );
                         sessionManager.createLoginSession ( email, password );
 
+
                         Toast.makeText ( login.this, "Login Successful", Toast.LENGTH_LONG ).show ();
                         new Handler ().postDelayed ( new Runnable () {
                             @Override
                             public void run() {
-                                startActivity ( new Intent ( login.this, UserDashboard.class ) );
+                                Intent intent = new Intent ( login.this, UserDashboard.class );
+                                intent.putExtra ( "email", loginResponse.getFname () );
+                                startActivity ( intent );
                             }
                         }, 400 );
                     } else {
@@ -98,7 +104,7 @@ public class login extends AppCompatActivity {
 
 
     public void register(View view) {
-        startActivity ( new Intent ( getApplicationContext (), register.class ) );
+        startActivity ( new Intent ( this, register.class ) );
         finish ();
 
     }
@@ -106,6 +112,16 @@ public class login extends AppCompatActivity {
     public void activate(View view) {
         startActivity ( new Intent ( getApplicationContext (), Activate.class ) );
         finish ();
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.out.println ( "back button pressed" );
+    }
+
+    public void forgottenpassword(View view) {
+        Intent intent = new Intent ( this, ForgetPassword.class );
+        startActivity ( intent );
     }
 }
 

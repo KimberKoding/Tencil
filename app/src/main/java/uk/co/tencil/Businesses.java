@@ -7,9 +7,11 @@ public class Businesses extends BusinessesResponse {
     private String cat_id;
     private String business_namesolo;
     private String bdesc;
-    private String website;
-    private String social_media;
+    private String business_website;
+    private String business_website_social;
+    private String careers;
     private String business_img;
+    private String contact;
 
     public String getBusiness_id() {
         return business_id;
@@ -31,12 +33,28 @@ public class Businesses extends BusinessesResponse {
         return bdesc;
     }
 
-    public String getWebsite() {
-        return website;
+    public String getBusiness_website() {
+        return business_website;
     }
 
-    public String getSocial_media() {
-        return social_media;
+    public void setBusiness_website(String business_website) {
+        this.business_website = business_website;
+    }
+
+    public String getBusiness_website_social() {
+        return business_website_social;
+    }
+
+    public void setBusiness_website_social(String business_website_social) {
+        this.business_website_social = business_website_social;
+    }
+
+    public String getCareers() {
+        return careers;
+    }
+
+    public void setCareers(String careers) {
+        this.careers = careers;
     }
 
     public String getBusiness_img() {
@@ -45,6 +63,14 @@ public class Businesses extends BusinessesResponse {
 
     public void setBusiness_img(String business_img) {
         this.business_img = business_img;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
 

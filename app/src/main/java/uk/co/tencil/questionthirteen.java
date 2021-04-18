@@ -7,8 +7,6 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import uk.co.tencil.User.UserDashboard;
-
 public class questionthirteen extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -23,6 +21,7 @@ public class questionthirteen extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        questionthirteen.this.startActivity ( new Intent ( questionthirteen.this, UserDashboard.class ) );
+        questionthirteen.this.startActivity ( new Intent ( questionthirteen.this, Activate.class ) );
+
     }
 }

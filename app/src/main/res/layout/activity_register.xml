@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.Tencil"
+    android:theme="@style/AppTheme"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="uk.co.tencil.register">
@@ -47,6 +47,21 @@
         android:textSize="15sp" />
 
     <EditText
+        android:id="@+id/fname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_custom"
+        android:drawableRight="@drawable/ic_user"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="Name"
+        android:inputType="text"
+        android:padding="15dp"
+        android:textSize="15sp" />
+
+    <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -76,16 +91,16 @@
         android:textSize="15sp" />
 
     <Button
+
         android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/btn_custom"
-        android:backgroundTint="#14b9d5"
+        android:background="@drawable/bg_green"
+        android:backgroundTint="#00DAFF"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/register"
         android:textColor="@android:color/white"

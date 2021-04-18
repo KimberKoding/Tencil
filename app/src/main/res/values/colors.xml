@@ -9,4 +9,7 @@
     <color name="card4">#FF9800</color>
     <color name="white">#fff</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="colorBackground">#f9f9fa</color>
+    <color name="colorTextSubtitle">#4e4e4e</color>
+    <color name="colorTextTitle">#262626</color>
 </resources>

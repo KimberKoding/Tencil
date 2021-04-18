@@ -31,6 +31,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static uk.co.tencil.R.layout.activity_register;
+
 public class register extends AppCompatActivity {
     private static final String secretKey = "a61caa1f9aa6005111c14faa323411b0";
     private Button btn_register;
@@ -38,7 +40,7 @@ public class register extends AppCompatActivity {
     private static final String dataSend = "a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE";
     private static final String salt = "ssshhhhhhhhhhh!!!!";
     ////  Imports of components
-    EditText email, password, repassword;
+    EditText email, password, repassword, fname;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static String encrypt(String strToEncrypt) {
@@ -67,9 +69,10 @@ public class register extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-        setContentView ( R.layout.activity_register );
+        setContentView ( activity_register );
         loading = findViewById ( R.id.loading );
         email = findViewById ( R.id.email );
+        fname = findViewById ( R.id.fname );
         password = findViewById ( R.id.password );
         repassword = findViewById ( R.id.repassword );
         btn_register = findViewById ( R.id.btn_register );
@@ -78,6 +81,7 @@ public class register extends AppCompatActivity {
             RegisterRequest registerRequest = new RegisterRequest ();
             registerRequest.setEmail ( email.getText ().toString () );
             registerRequest.setPassword ( password.getText ().toString () );
+            registerRequest.setFname ( fname.getText ().toString () );
             registerUser ( registerRequest );
             loading.setVisibility ( View.VISIBLE );
         } );
@@ -91,10 +95,10 @@ public class register extends AppCompatActivity {
             @Override
             public void onResponse(@NotNull Call<RegisterResponse> call, @NotNull Response<RegisterResponse> response) {
                 if (response.isSuccessful ()) {
-                    Toast.makeText ( register.this, "Check your Emails for a Code!!", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( register.this, "Check your Emails for an Activation Code!!", Toast.LENGTH_SHORT ).show ();
                     RegisterResponse registerResponse = response.body ();
                     loading.setVisibility ( View.GONE );
-                    startActivity ( new Intent ( register.this, Activate.class ) );
+                    startActivity ( new Intent ( register.this, questionone.class ) );
                 } else {
 
                     Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();
@@ -110,8 +114,9 @@ public class register extends AppCompatActivity {
 
             @Override
             public void onFailure(@NotNull Call<RegisterResponse> call, @NotNull Throwable t) {
-                Toast.makeText ( register.this, "Throwable " + t.getLocalizedMessage (), Toast.LENGTH_LONG ).show ();
-
+                Toast.makeText ( register.this, "Check your Emails for an Activation Code!!", Toast.LENGTH_SHORT ).show ();
+                loading.setVisibility ( View.GONE );
+                startActivity ( new Intent ( register.this, questionone.class ) );
             }
         } );
     }
@@ -125,6 +130,12 @@ public class register extends AppCompatActivity {
 
     public void activate(View view) {
         startActivity ( new Intent ( getApplicationContext (), Activate.class ) );
+        finish ();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity ( new Intent ( getApplicationContext (), login.class ) );
         finish ();
     }
 }

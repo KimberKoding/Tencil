@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,11 +46,14 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
                 .diskCacheStrategy ( DiskCacheStrategy.ALL )
                 .into ( holder.featured_image );
         holder.featured_card.setOnClickListener ( v -> {
-            Toast.makeText ( mContext, "Clicked", Toast.LENGTH_SHORT ).show ();
             Intent intent = new Intent ( mContext, FeaturedSolocompany.class );
             intent.putExtra ( "feat_name", temp.getBusiness_name () );
             intent.putExtra ( "feat_bdesc", temp.getBdesc () );
             intent.putExtra ( "feat_image", temp.getBusiness_img () );
+            intent.putExtra ( "contact", temp.getContact () );
+            intent.putExtra ( "website", temp.getBusiness_website () );
+            intent.putExtra ( "website_social", temp.getBusiness_website_social () );
+            intent.putExtra ( "careers", temp.getCareers () );
             mContext.startActivity ( intent );
 
 

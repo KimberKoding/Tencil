@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="20dp"
-            android:background="@drawable/categories_restaurant_background">
+            android:background="#000">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categories_recycler"
@@ -37,10 +37,10 @@
 
         <ImageView
             android:id="@+id/business_logocard"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="-20dp"
+            android:layout_marginTop="0dp"
             android:src="@drawable/pws" />
 
 

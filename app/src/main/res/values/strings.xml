@@ -298,7 +298,7 @@
     <string name="test">Test Company</string>
     <string name="MoneyFarm">Money Farm</string>
     <string name="moneyfarm_desc">"We are a pan-European digital wealth manager with 50,000 active investors and over £1 billion invested on our platform.</string>
-    <string name="forget_password_desc">Provide Your Account Email<br /> To Reset Your Password</string>
+    <string name="forget_password_desc">Provide Your Account Email  \n To Reset Your Password</string>
     <string name="next_forgotten_password">Next</string>
     <string name="verification_method">Please Select a <br />Method of Verification</string>
     <string name="new_credentials">New Credentials</string>
@@ -316,7 +316,19 @@
     <string name="activate_account">Activate Account</string>
     <string name="contact_us">Contact Us</string>
     <string name="homepage">Ryan\'s Home page</string>
-    <string name="we_recomend">We Recomend : </string>
-    <string name="welcome_to_tencil_ryan">Welcome to Tencil Ryan</string>
+    <string name="we_recomend">We Recommend: </string>
+    <string name="welcome_to_tencil_ryan">Welcome to Tencil \n  </string>
+    <string name="full_name">Full Name</string>
+    <string name="ryan">Ryan</string>
+    <string name="ryan_kimber">Ryan Kimber</string>
+    <string name="update_details">Update Details</string>
+    <string name="want_to_edit_your_details">Want to Edit your details?</string>
+    <string name="ryan_kimber97_gmail_com">ryan.kimber97@gmail.com</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="provide_your_verification_code_to_get_started">Provide your verification code to \n get started</string>
+    <string name="newpassstart">Provide Your Account Email and \n New Password to complete the reset</string>
+    <string name="news_this_feature_will_be_live_on_full_release">News \n (This feature will be live on full release)</string>
+    <string name="videos_this_feature_will_be_live_on_full_release">Videos \n (This feature will be live on full release)</string>
+    <string name="moneyfarm_is_an_online_investment_advisor_and_one_of_the_largest_digital_wealth_management_companies_in_europe">Moneyfarm is an online investment advisor and one of the largest digital wealth management companies in Europe</string>
 
 </resources>

@@ -9,12 +9,32 @@ public class LoginResponse {
     @SerializedName("pwd")
     private String password;
     private String auth;
+    @SerializedName("fname")
+    private String fname;
+    @SerializedName("userApiKey")
+    private String userApiKey;
+
+    public String getFname() {
+        return fname;
+    }
 
     //response variables
     @SerializedName("passwordMatches")
     private Boolean passMatch;
     @SerializedName("userActive")
     private Boolean userActive;
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getUserApiKey() {
+        return userApiKey;
+    }
+
+    public void setUserApiKey(String userApiKey) {
+        this.userApiKey = userApiKey;
+    }
 
     public Boolean getUserActive() {
         return userActive;

@@ -1,14 +1,15 @@
 package uk.co.tencil.User;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -33,19 +34,15 @@ import uk.co.tencil.BusinessesAdapter;
 import uk.co.tencil.BusinessesResponse;
 import uk.co.tencil.Categories;
 import uk.co.tencil.CategoriesAdapter;
-import uk.co.tencil.CategoryCardActivity;
-import uk.co.tencil.GetAllBusinessesByCid;
 import uk.co.tencil.JSONResponse;
 import uk.co.tencil.R;
 import uk.co.tencil.SessionManager;
 import uk.co.tencil.UserService;
-import uk.co.tencil.financeCompany;
-import uk.co.tencil.fintechCompany;
 import uk.co.tencil.login;
-import uk.co.tencil.socialMedia;
-import uk.co.tencil.techCompany;
+import uk.co.tencil.soloCompanyFinance;
+import uk.co.tencil.solocompany_monzo;
 
-public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, CategoriesAdapter.RecyclerViewClickInterface {
+public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     // WE WILL BUILD A PROFESSIONAL APP ;)
 
@@ -56,6 +53,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
     Button btnShare;
     ImageView menuIcon;
+    TextView welcomeuserdash;
     LinearLayout contentView;
     static float END_SCALE = 0.7f;
     RecyclerView featuredRecycler, categoriesRecycler;
@@ -67,6 +65,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     List<Businesses> businessesList;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -81,6 +80,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categoriesRecycler = findViewById ( R.id.categories_recycler );
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
+        welcomeuserdash = findViewById ( R.id.welcomeuserdash );
+        welcomeuserdash.setText ( "Welcome To Tencil, " + getIntent ().getStringExtra ( "email" ) );
+
 
         SessionManager sessionManager = new SessionManager ( this );
         HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession ();
@@ -161,8 +163,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
 
-
-
     // Navigation Drawer functions
     private void navigationDrawer() {
 
@@ -218,8 +218,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         int id = item.getItemId ();
         if (id == R.id.nav_home) {
             startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
-        } else if (id == R.id.nav_categories) {
-            startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
         } else if (id == R.id.nav_logout) {
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
 
@@ -237,40 +235,24 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-    public void cardClicked1(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, socialMedia.class ) );
-    }
 
-    public void cardClicked2(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, financeCompany.class ) );
-    }
-
-    public void cardClicked3(View v) {
-
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, techCompany.class ) );
-    }
-
-
-    public void cardClicked4(View v) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, fintechCompany.class ) );
-
-    }
-
-    public void viewAllClicked(View view) {
-        UserDashboard.this.startActivity ( new Intent ( UserDashboard.this, GetAllBusinessesByCid.class ) );
-    }
-
-
-    @Override
-    public void onItemClick(int position) {
-        Log.d ( TAG, "onItemClick: " + position );
-        System.out.println ( "SUCCESS" );
-        Intent intent = new Intent ( this, CategoryCardActivity.class );
-        intent.putExtra ( "category", categoriesList.get ( position ) );
-        intent.putExtra ( "cat_id", categoriesList.get ( position ) );
+    public void card001(View view) {
+        Intent intent = new Intent ( UserDashboard.this, soloCompanyFinance.class );
         startActivity ( intent );
-
-
+        return;
     }
+
+    public void card002(View view) {
+        Intent intent = new Intent ( UserDashboard.this, solocompany_monzo.class );
+        startActivity ( intent );
+        return;
+    }
+
+    public void card003(View view) {
+        Intent intent = new Intent ( UserDashboard.this, solocompany_moneyfarm.class );
+        startActivity ( intent );
+        return;
+    }
+
 
 }
