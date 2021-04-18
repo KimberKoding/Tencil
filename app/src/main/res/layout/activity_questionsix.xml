@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".questionsix">
+    tools:context="uk.co.tencil.questionsix">
 
     <TextView
         android:id="@+id/textView18"
@@ -42,7 +42,7 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/what_is_your_favourite_subjects"
+        android:text="@string/what_is_your_hobbies"
         android:textAlignment="center"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -58,7 +58,7 @@
         android:id="@+id/spinner7"
         android:layout_width="192dp"
         android:layout_height="47dp"
-        android:entries="@array/subjects"
+        android:entries="@array/hobbies"
         android:gravity="center|center_horizontal|center_vertical"
         android:spinnerMode="dropdown"
         android:textAlignment="center"

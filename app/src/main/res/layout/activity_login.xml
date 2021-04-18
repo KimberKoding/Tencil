@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login">
+    tools:context="uk.co.tencil.login">
 
       <TextView
           android:id="@+id/tv_title"
@@ -85,22 +85,57 @@
         android:text="@string/login"
         android:textColor="@android:color/white" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="forgottenpassword"
+        android:text="@string/forgot_password" />
+
+
+    <View
+        android:id="@+id/strut"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorPrimary"
         android:fontFamily="@font/roboto_regular"
         android:onClick="register"
-        android:text="@string/click_to_register"
+        android:text="@string/register"
         android:textAllCaps="true"
         android:textColor="#fff"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="20dp" />
+
+    <Button
+        android:id="@+id/activate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#27C6E1"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="activate"
+        android:text="@string/activate"
+        android:textAllCaps="true"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="20dp" />
+
 
 </RelativeLayout>

@@ -8,17 +8,11 @@
             android:icon="@drawable/home"
             android:title="@string/home" />
 
-        <item
-            android:id="@+id/nav_categories"
-            android:icon="@drawable/general_search_icon"
-            android:title="@string/categories" />
+
     </group>
     <item android:title="Profile">
         <menu>
             <group android:checkableBehavior="single">
-
-
-
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/general_back_icon"

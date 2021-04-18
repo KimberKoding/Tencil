@@ -9,7 +9,7 @@
     android:background="#FF14B9D5"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".solo_company">
+    tools:context="uk.co.tencil.solo_company">
 
 
     <LinearLayout
@@ -22,7 +22,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".solo_company">
+            tools:context="uk.co.tencil.solo_company">
 
 
             <LinearLayout
