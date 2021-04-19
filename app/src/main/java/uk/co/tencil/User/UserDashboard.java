@@ -39,6 +39,7 @@ import uk.co.tencil.R;
 import uk.co.tencil.SessionManager;
 import uk.co.tencil.UserService;
 import uk.co.tencil.login;
+import uk.co.tencil.privacy_policy;
 import uk.co.tencil.soloCompanyFinance;
 import uk.co.tencil.solocompany_monzo;
 
@@ -81,7 +82,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
         welcomeuserdash = findViewById ( R.id.welcomeuserdash );
-        welcomeuserdash.setText ( "Welcome To Tencil, " + getIntent ().getStringExtra ( "email" ) );
 
 
         SessionManager sessionManager = new SessionManager ( this );
@@ -228,6 +228,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             startActivity ( intent2 );
 
 
+        } else if (id == R.id.legal) {
+            startActivity ( new Intent ( this, privacy_policy.class ) );
+            finish ();
         }
 
 

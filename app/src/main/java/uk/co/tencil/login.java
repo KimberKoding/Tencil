@@ -77,7 +77,6 @@ public class login extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Intent intent = new Intent ( login.this, UserDashboard.class );
-                                intent.putExtra ( "email", loginResponse.getFname () );
                                 startActivity ( intent );
                             }
                         }, 400 );

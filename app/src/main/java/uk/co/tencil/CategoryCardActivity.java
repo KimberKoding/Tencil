@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -60,8 +59,6 @@ public class CategoryCardActivity extends AppCompatActivity {
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
                 System.out.println ( "This is the new response!!!!" );
-                Toast.makeText ( CategoryCardActivity.this, "This CID was called: " + getCid (), Toast.LENGTH_SHORT ).show ();
-
                 PutDataHere ( businessesList );
             }
 

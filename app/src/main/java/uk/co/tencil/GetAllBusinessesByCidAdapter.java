@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,7 +41,6 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
         holder.business_name.setText ( allData.get ( position ).getBusiness_name () );
         System.out.println ( allData.size () );
         holder.allcatCard.setOnClickListener ( v -> {
-            Toast.makeText ( mContext, "Clicked", Toast.LENGTH_SHORT ).show ();
             Intent intent = new Intent ( mContext, Solocompany.class );
             intent.putExtra ( "bus_name", temp.getBusiness_name () );
             intent.putExtra ( "bdesc", temp.getBdesc () );

@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".featuresolopage"></activity>
+        <activity android:name=".privacy_policy"></activity>
+        <activity android:name=".featuresolopage" />
         <activity android:name=".User.solocompany_moneyfarm" />
         <activity android:name=".solocompany_monzo" />
         <activity android:name=".user_profile" />

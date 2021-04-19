@@ -52,5 +52,8 @@ public class solocompany_monzo extends AppCompatActivity {
     }
 
     public void newsheadline(View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( "https://www.google.com/search?q=monzo+news&rlz=1C1CHBF_en-GB&oq=monzo+news&aqs=chrome..69i57j0l4j0i22i30l5.3785j0j7&sourceid=chrome&ie=UTF-8" ) );
+
+        startActivity ( browserIntent );
     }
 }
