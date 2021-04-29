@@ -53,6 +53,14 @@ public interface UserService {
     Call<ResetResponse> passwordreset(
             @Body ResetResponse passreset);
 
+    @POST("tools/userdetails.php?func=edit")
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    Call<EditResponse> editdetails(
+            @Body EditResponse editdetails);
+
+    @GET("tools/businesses.php?method=get&cid=40")
+    Call<WerecommendResponse> werecommend();
+
 
 }
 

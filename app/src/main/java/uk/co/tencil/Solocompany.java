@@ -15,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,8 @@ public class Solocompany extends AppCompatActivity {
     Button website, social, careers, contact;
     TextView business_name;
     TextView bdesc;
+    YouTubePlayerView mYoutubePlayerView;
+    YouTubePlayer.OnInitializedListener mOnInitalizedListener;
     private Context mContext;
 
     @Override
@@ -49,7 +53,6 @@ public class Solocompany extends AppCompatActivity {
                 .load ( getIntent ().getStringExtra ( "Image_URL" ) )
                 .into ( business_logo );
         contact.setOnClickListener ( this::contact );
-
 
     }
 

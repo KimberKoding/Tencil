@@ -38,10 +38,13 @@ import uk.co.tencil.JSONResponse;
 import uk.co.tencil.R;
 import uk.co.tencil.SessionManager;
 import uk.co.tencil.UserService;
+import uk.co.tencil.WerecommendAdapter;
+import uk.co.tencil.WerecommendResponse;
 import uk.co.tencil.login;
 import uk.co.tencil.privacy_policy;
 import uk.co.tencil.soloCompanyFinance;
 import uk.co.tencil.solocompany_monzo;
+import uk.co.tencil.user_profile;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -57,13 +60,14 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     TextView welcomeuserdash;
     LinearLayout contentView;
     static float END_SCALE = 0.7f;
-    RecyclerView featuredRecycler, categoriesRecycler;
+    RecyclerView featuredRecycler, categoriesRecycler, werecommendRecycler;
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Context mContext;
     List<Categories> categoriesList;
     List<Businesses> businessesList;
+    List<Businesses> werecommendList;
 
 
     @SuppressLint("SetTextI18n")
@@ -79,6 +83,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
         categoriesRecycler = findViewById ( R.id.categories_recycler );
+        werecommendRecycler = findViewById ( R.id.werecommendrecycler );
+        werecommendList = new ArrayList<> ();
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
         welcomeuserdash = findViewById ( R.id.welcomeuserdash );
@@ -128,6 +134,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 BusinessesResponse businessesResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
                 PutDataIntoView ( businessesList );
+
             }
 
             @Override
@@ -136,6 +143,26 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
             }
         } );
+
+        Call<WerecommendResponse> call2 = userService.werecommend ();
+        call2.enqueue ( new Callback<WerecommendResponse> () {
+            @Override
+            public void onResponse(Call<WerecommendResponse> call,
+                                   Response<WerecommendResponse> response) {
+                System.out.println ( response + "We Recommend Feature Loaded" );
+                WerecommendResponse werecommendResponse = response.body ();
+                werecommendList = new ArrayList<>
+                        ( Arrays.asList ( werecommendResponse.werecommend () ) );
+                PutDataIntoWeRecommend ( werecommendList );
+            }
+
+            @Override
+            public void onFailure(Call<WerecommendResponse> call, Throwable t) {
+
+            }
+        } );
+
+
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
         navigationView = findViewById ( R.id.navigation_view );
@@ -148,15 +175,27 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
+    private void PutDataIntoWeRecommend(List<Businesses> werecommendList) {
+        WerecommendAdapter werecommendAdapter = new WerecommendAdapter ( this,
+                werecommendList );
+        werecommendRecycler.setLayoutManager ( new LinearLayoutManager ( this,
+                LinearLayoutManager.HORIZONTAL, false ) );
+        werecommendRecycler.setAdapter ( werecommendAdapter );
+
+
+    }
+
     private void PutDataIntoView(List<Businesses> businessesList) {
         BusinessesAdapter businessesAdapter = new BusinessesAdapter ( this, businessesList );
-        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this,
+                LinearLayoutManager.HORIZONTAL, false ) );
         featuredRecycler.setAdapter ( businessesAdapter );
     }
 
     private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
         CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList );
-        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this,
+                LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
 
 
@@ -220,6 +259,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             startActivity ( new Intent ( UserDashboard.this, UserDashboard.class ) );
         } else if (id == R.id.nav_logout) {
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
+
+        } else if (id == R.id.nav_profile) {
+            startActivity ( new Intent ( this, user_profile.class ) );
+
 
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );

@@ -19,6 +19,7 @@ import uk.co.tencil.User.UserDashboard;
 public class login extends AppCompatActivity {
     Button btnLogin;
     EditText email, password;
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_login );
