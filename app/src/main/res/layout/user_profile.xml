@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,14 +16,7 @@
             android:background="@color/colorPrimary"
             android:padding="20dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/profile"
-                app:civ_border_color="#000"
-                app:civ_border_width="4dp" />
+
 
             <TextView
                 android:id="@+id/nameuser"
@@ -35,7 +27,7 @@
                 android:layout_toEndOf="@+id/profile_image"
                 android:fontFamily="@font/raleway_bold"
                 android:includeFontPadding="false"
-                android:text="@string/ryan_kimber"
+                android:text="@string/test"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -49,7 +41,7 @@
                 android:layout_toEndOf="@+id/profile_image"
                 android:fontFamily="@font/raleway"
                 android:includeFontPadding="false"
-                android:text="@string/ryan_kimber97_gmail_com"
+                android:text="@string/test"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 

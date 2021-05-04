@@ -1,6 +1,5 @@
 package uk.co.tencil.Common;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,6 +7,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
     private static final int SPLASH_TIMER = 5000;
 
     //Variables
-    TextView backgroundImage;
+    ImageView backgroundImage;
     TextView poweredByLine;
 
     //Animations
@@ -29,7 +29,6 @@ public class SplashScreen extends AppCompatActivity {
     //Shared Prefernces
     SharedPreferences onBoardingScreen;
 
-    @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.splash_screen );

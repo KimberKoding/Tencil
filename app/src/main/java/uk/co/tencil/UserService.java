@@ -54,7 +54,9 @@ public interface UserService {
             @Body ResetResponse passreset);
 
     @POST("tools/userdetails.php?func=edit")
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @Headers({"Content-Type: application/json",
+            "Accept: application/json",
+    })
     Call<EditResponse> editdetails(
             @Body EditResponse editdetails);
 

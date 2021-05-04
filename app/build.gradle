@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -62,7 +61,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     //Times Formater
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
-
+    compile 'com.github.danylovolokh:list-visibility-utils:0.2.0'
+    compile 'com.github.danylovolokh:video-player-manager:0.2.0'
 
 
 

@@ -10,7 +10,7 @@
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/tencil"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/tencil"
+        android:roundIcon="@mipmap/tencilnewlogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">

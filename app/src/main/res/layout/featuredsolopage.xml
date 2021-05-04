@@ -2,11 +2,13 @@
 
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
+    tools:context="uk.co.tencil.Solocompany"
     android:orientation="vertical">
 
     <LinearLayout
@@ -23,23 +25,24 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="800dp"
+                android:layout_height="match_parent"
                 android:background="#fff"
                 android:orientation="vertical">
 
                 <RelativeLayout
 
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
+
 
                     <ImageView
                         android:id="@+id/back_pressedsolo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:contentDescription="@string/goback"
-                        android:onClick="backtoDashsolo"
+                        android:layout_marginTop="10dp"
                         android:padding="15dp"
+                        android:onClick="backtoUser"
                         android:src="@drawable/general_back_icon" />
 
                     <TextView
@@ -52,37 +55,35 @@
                         android:textAllCaps="true"
                         android:textColor="#000"
                         android:textSize="20sp" />
-
                 </RelativeLayout>
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="800dp"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="0dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="0dp"
                     android:background="#fff">
-
 
 
                     <LinearLayout
                         android:id="@+id/sololayout"
-                        android:layout_width="500dp"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="0dp"
                         android:background="#fff"
-                        android:orientation="vertical"
-                        android:paddingEnd="0dp">
+                        android:orientation="vertical">
 
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/profile_image"
-                            android:layout_width="96dp"
-                            android:layout_height="96dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginBottom="20dp"
-                            android:src="@drawable/round_bk3"
-                            app:civ_border_color="#FF000000"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:paddingTop="0dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ttd"
+                            app:civ_border_color="#000"
                             app:civ_border_width="5dp" />
 
                         <TextView
@@ -90,7 +91,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="50dp"
                             android:text="Business Name"
                             android:textAllCaps="true"
                             android:textColor="#000"
@@ -104,25 +105,24 @@
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="20dp"
                             android:gravity="center"
-                            android:paddingLeft="50dp"
-                            android:paddingRight="50dp"
-                            android:text="@string/moneyfarm_is_an_online_investment_advisor_and_one_of_the_largest_digital_wealth_management_companies_in_europe"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:text="More Coming Soon!"
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="15sp" />
 
-
                         <TextView
                             android:id="@+id/resources"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="50dp"
                             android:layout_gravity="center"
+                            android:layout_marginTop="50dp"
                             android:text="@string/resources"
                             android:textAllCaps="true"
+                            android:layout_marginStart="0dp"
                             android:textColor="#000"
-
                             android:textSize="25sp" />
 
 
@@ -141,10 +141,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
+                                android:layout_marginStart="8dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="5dp"
-                                android:onClick="websitetest"
                                 android:backgroundTint="#056F98"
+                                android:onClick="websitetest"
                                 android:text="@string/website"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
@@ -154,7 +155,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
+                                android:layout_centerHorizontal="true"
                                 android:layout_marginStart="130dp"
+                                android:gravity="center"
                                 android:layout_marginTop="10dp"
                                 android:backgroundTint="#056F98"
                                 android:onClick="socialmedia"
@@ -169,29 +172,191 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginStart="5dp"
                                 android:layout_marginTop="10dp"
+
+                                android:layout_marginEnd="9dp"
                                 android:backgroundTint="#16194E"
                                 android:onClick="careers"
                                 android:text="Careers"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 
-                            <Button
-                                android:id="@+id/contact"
-                                android:layout_width="40dp"
+                            <RelativeLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginStart="0dp"
-                                android:layout_marginTop="100dp"
-                                android:layout_marginEnd="0dp"
-                                android:backgroundTint="#2B952F"
-                                android:onClick="contact"
-                                android:text="@string/contact"
-                                android:textColor="#fff"
-                                app:cornerRadius="20dp" />
+                                android:gravity="center">
+
+                                <Button
+                                    android:id="@+id/contact"
+                                    android:layout_width="300dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="0dp"
+                                    android:layout_marginTop="100dp"
+                                    android:layout_marginEnd="0dp"
+                                    android:backgroundTint="#2B952F"
+                                    android:gravity="center"
+                                    android:onClick="contact"
+                                    android:text="@string/contact"
+                                    android:textColor="#fff"
+                                    app:cornerRadius="20dp" />
+
+                            </RelativeLayout>
+
 
                         </RelativeLayout>
 
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="50dp">
+
+                            <TextView
+                                android:id="@+id/news"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="0dp"
+                                android:text="News"
+                                android:textAllCaps="true"
+                                android:textColor="#000"
+                                android:textSize="18sp" />
+
+
+                        </RelativeLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/news_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:onClick="news"
+                            app:cardBackgroundColor="@color/white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/imageView"
+                                    android:layout_width="0dp"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="6dp"
+                                    android:layout_weight="1"
+                                    android:contentDescription="NewsHeadline"
+                                    android:src="@drawable/tenlogo"
+                                    android:tag="image_tag" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="12dp"
+                                    android:layout_weight="2"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/textViewName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginTop="10dp"
+                                        android:text="News Headline"
+                                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp">
+
+                            <TextView
+                                android:id="@+id/videos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="0dp"
+                                android:text="Videos"
+                                android:textAllCaps="true"
+                                android:textColor="#000"
+                                android:textSize="18sp" />
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="8dp">
+
+                                    <FrameLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <VideoView
+                                            android:id="@+id/videoview"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="250dp"
+                                            android:layout_gravity="center" />
+                                    </FrameLayout>
+
+
+                                </androidx.cardview.widget.CardView>
+
+
+                            </RelativeLayout>
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="50dp">
+
+                            <TextView
+                                android:id="@+id/featured_bus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="0dp"
+                                android:text="WANT TO BE APART OF TENCIL?"
+                                android:textAllCaps="true"
+                                android:textColor="#000"
+
+                                android:textSize="18sp" />
+
+                            <Button
+                                android:id="@+id/contact_button"
+                                android:layout_width="382dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="50dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="#00BCD4"
+                                android:elevation="20dp"
+                                android:onClick="contacttencil"
+                                android:text="@string/contact_us"
+                                android:textColor="#FFFFFF"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
 
                     </LinearLayout>
 

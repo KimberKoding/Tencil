@@ -54,6 +54,8 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
             intent.putExtra ( "website", temp.getBusiness_website () );
             intent.putExtra ( "website_social", temp.getBusiness_website_social () );
             intent.putExtra ( "careers", temp.getCareers () );
+            intent.putExtra ( "videos", temp.getVideos () );
+            intent.putExtra ( "news", temp.getNews () );
             mContext.startActivity ( intent );
 
 
@@ -74,6 +76,7 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
         TextView featured_desc;
         ImageView featured_image;
 
+
         public MyViewHolder(@NonNull View itemView) {
             super ( itemView );
             //HOOKS
@@ -81,6 +84,8 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
             business_name = itemView.findViewById ( R.id.business_name );
             featured_desc = itemView.findViewById ( R.id.featured_desc );
             featured_image = itemView.findViewById ( R.id.featured_image );
+
+
         }
     }
 }

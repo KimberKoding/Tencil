@@ -12,6 +12,9 @@ public class Businesses extends BusinessesResponse {
     private String careers;
     private String business_img;
     private String contact;
+    private String videos;
+    private String news;
+
 
     public String getBusiness_id() {
         return business_id;
@@ -73,5 +76,19 @@ public class Businesses extends BusinessesResponse {
         this.contact = contact;
     }
 
+    public String getVideos() {
+        return videos;
+    }
 
+    public void setVideos(String videos) {
+        this.videos = videos;
+    }
+
+    public String getNews() {
+        return news;
+    }
+
+    public void setNews(String news) {
+        this.news = news;
+    }
 }

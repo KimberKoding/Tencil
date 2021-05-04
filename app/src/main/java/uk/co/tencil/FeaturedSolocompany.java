@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 
@@ -21,7 +25,11 @@ public class FeaturedSolocompany extends AppCompatActivity {
     List<Businesses> businessesList;
     TextView business_name;
     TextView bdesc;
+    Button website, social, careers, contact;
     ImageView business_img;
+    VideoView videoView;
+    CardView news;
+    ImageView imageView;
 
 
     @Override
@@ -36,8 +44,35 @@ public class FeaturedSolocompany extends AppCompatActivity {
         bdesc.setText ( getIntent ().getStringExtra ( "feat_bdesc" ) );
         business_img.setImageResource ( R.drawable.analysis );
         Glide.with ( this ).load ( getIntent ().getStringExtra ( "feat_image" ) ).into ( business_img );
+        website = findViewById ( R.id.website );
+        social = findViewById ( R.id.socialmedia );
+        careers = findViewById ( R.id.careers );
+        contact = findViewById ( R.id.contact );
+        videoView = findViewById ( R.id.videoview );
+        news = findViewById ( R.id.news_card );
+        imageView = findViewById ( R.id.imageView );
+
+        careers.setOnClickListener ( this::careers );
+
+        videoView.setVideoPath ( getIntent ().getStringExtra ( "videos" ) );
+        videoView.start ();
+        MediaController mediaController = new MediaController ( this );
+        videoView.setMediaController ( mediaController );
+        mediaController.setAnchorView ( videoView );
 
 
+        news.setOnClickListener ( this::news );
+        Glide.with ( this )
+                .load ( getIntent ().getStringExtra ( "feat_image" ) )
+                .into ( imageView );
+        contact.setOnClickListener ( this::contact );
+
+
+    }
+
+    private void news(View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "news" ) ) );
+        startActivity ( browserIntent );
     }
 
     public void contact(View view) {

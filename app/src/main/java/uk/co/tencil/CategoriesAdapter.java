@@ -21,12 +21,14 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
     private static final String TAG = "CategoriesAdapter"; // RYAN, PLEASE READ THE NAMING CONVENTIONS https://developer.android.com/reference/android/util/Log
     private Context mContext;
     private final List<Categories> mData;
+    private final List<Businesses> alldata;
     private CategoryCardActivity cca;
 
 
-    public CategoriesAdapter(Context mContext, List<Categories> mData) {
+    public CategoriesAdapter(Context mContext, List<Categories> mData, List<Businesses> alldata) {
         this.mContext = mContext;
         this.mData = mData;
+        this.alldata = alldata;
     }
 
     //Returns Categories View Dynamically
@@ -40,7 +42,9 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
     @Override
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
         Categories temp = mData.get ( position );
+
         holder.category.setText ( mData.get ( position ).getName () );
+
 
         holder.categoriesCard.setOnClickListener ( v -> {
             Intent intent = new Intent ( mContext, CategoryCardActivity.class );
@@ -72,7 +76,6 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
             //HOOKS
             categoriesCard = itemView.findViewById ( R.id.categories_card );
             category = itemView.findViewById ( R.id.categories_title );
-
 
         }
 

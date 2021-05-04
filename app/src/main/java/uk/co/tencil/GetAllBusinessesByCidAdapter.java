@@ -2,6 +2,7 @@ package uk.co.tencil;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
+import java.util.Random;
 
 public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBusinessesByCidAdapter.MyHolder> {
 
     private final List<Businesses> allData;
     private Context mContext;
+
 
     public GetAllBusinessesByCidAdapter(Context mContext, List<Businesses> allData) {
         this.mContext = mContext;
@@ -38,8 +43,12 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
     @Override
     public void onBindViewHolder(@NonNull GetAllBusinessesByCidAdapter.MyHolder holder, int position) {
         Businesses temp = allData.get ( position );
+        Random rnd = new Random ();
+        int currentColour = Color.argb ( 255, rnd.nextInt ( 256 ), rnd.nextInt ( 256 ), rnd.nextInt ( 256 ) );
+        holder.allcatCard.setBackgroundColor ( currentColour );
         holder.business_name.setText ( allData.get ( position ).getBusiness_name () );
         System.out.println ( allData.size () );
+        Glide.with ( mContext ).load ( temp.getBusiness_img () ).into ( holder.business_logocard );
         holder.allcatCard.setOnClickListener ( v -> {
             Intent intent = new Intent ( mContext, Solocompany.class );
             intent.putExtra ( "bus_name", temp.getBusiness_name () );
@@ -49,10 +58,10 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
             intent.putExtra ( "website", temp.getBusiness_website () );
             intent.putExtra ( "website_social", temp.getBusiness_website_social () );
             intent.putExtra ( "careers", temp.getCareers () );
-
-
+            intent.putExtra ( "videos", temp.getVideos () );
             mContext.startActivity ( intent );
         } );
+
 
     }
 

@@ -31,6 +31,7 @@ import uk.co.tencil.User.UserDashboard;
 public class cardviewdesign extends AppCompatActivity {
     static float END_SCALE = 0.7f;
     List<Categories> categoriesList;
+    List<Businesses> businessesList;
     RecyclerView categoriesRecycler;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -86,7 +87,7 @@ public class cardviewdesign extends AppCompatActivity {
 
     }
     private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList );
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, businessesList );
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
 

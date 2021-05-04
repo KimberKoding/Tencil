@@ -74,8 +74,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-
-
         setContentView ( R.layout.userdashboard );
 
         //Hooks
@@ -88,8 +86,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
         welcomeuserdash = findViewById ( R.id.welcomeuserdash );
-
-
         SessionManager sessionManager = new SessionManager ( this );
         HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession ();
 
@@ -130,7 +126,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         call1.enqueue ( new Callback<BusinessesResponse> () {
             @Override
             public void onResponse(Call<BusinessesResponse> call, Response<BusinessesResponse> response) {
-                System.out.println ( response + "Businesses BITCH" );
                 BusinessesResponse businessesResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
                 PutDataIntoView ( businessesList );
@@ -175,6 +170,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
+
     private void PutDataIntoWeRecommend(List<Businesses> werecommendList) {
         WerecommendAdapter werecommendAdapter = new WerecommendAdapter ( this,
                 werecommendList );
@@ -193,7 +189,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList );
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, businessesList );
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this,
                 LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
@@ -261,7 +257,11 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
 
         } else if (id == R.id.nav_profile) {
-            startActivity ( new Intent ( this, user_profile.class ) );
+            Intent recieveIntent = getIntent ();
+            Bundle bundle = recieveIntent.getExtras ();
+            Intent toUserProfile = new Intent ( UserDashboard.this, user_profile.class );
+            toUserProfile.putExtra ( "logininfo", bundle );
+            startActivity ( toUserProfile );
 
 
         } else if (id == R.id.nav_share) {

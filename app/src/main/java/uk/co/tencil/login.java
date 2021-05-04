@@ -20,12 +20,14 @@ public class login extends AppCompatActivity {
     Button btnLogin;
     EditText email, password;
 
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_login );
         email = findViewById ( R.id.email );
         password = findViewById ( R.id.password );
         btnLogin = findViewById ( R.id.btn_login );
+
 
 
         btnLogin.setOnClickListener ( new View.OnClickListener () {
@@ -60,11 +62,13 @@ public class login extends AppCompatActivity {
 
                 if (response.isSuccessful ()) {
                     LoginResponse loginResponse = response.body ();
-                    String user = loginResponse.getEmail();
+                    String user = loginResponse.getEmail ();
                     Boolean passMatch = loginResponse.getPassMatch ();
                     String fname = loginResponse.getFname ();
                     Boolean userActive = loginResponse.getUserActive ();
                     String userApiKey = loginResponse.getUserApiKey ();
+                    System.out.println ( response );
+
 
                     if (passMatch && userActive) {
 
@@ -78,8 +82,13 @@ public class login extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Intent intent = new Intent ( login.this, UserDashboard.class );
+                                intent.putExtra ( "fname", loginResponse.getFname () );
+                                intent.putExtra ( "email", loginResponse.getEmail () );
+                                intent.putExtra ( "userapikey", loginResponse.getUserApiKey () );
                                 startActivity ( intent );
                             }
+
+
                         }, 400 );
                     } else {
                         Toast.makeText ( login.this, "Credentials are incorrect or Account is not active", Toast.LENGTH_LONG ).show ();

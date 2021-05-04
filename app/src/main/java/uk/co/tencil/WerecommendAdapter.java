@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,7 +50,6 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
         Random rnd = new Random ();
         int currentColour = Color.argb ( 255, rnd.nextInt ( 256 ), rnd.nextInt ( 256 ), rnd.nextInt ( 256 ) );
         holder.cardview.setBackgroundColor ( currentColour );
-        // END
 
         holder.businessname.setText ( mData.get ( position ).getBusiness_name () );
         Glide.with ( mcontext )
@@ -66,17 +66,20 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
             intent.putExtra ( "website", temp.getBusiness_website () );
             intent.putExtra ( "website_social", temp.getBusiness_website_social () );
             intent.putExtra ( "careers", temp.getCareers () );
+            intent.putExtra ( "videos", temp.getVideos () );
+            intent.putExtra ( "news", temp.getNews () );
+
             mcontext.startActivity ( intent );
 
 
         } );
+
 
     }
 
     @Override
     public int getItemCount() {
         cca = new CategoryCardActivity ();
-        cca.setCid ( 2 );
         return mData.size ();
     }
 
@@ -89,6 +92,8 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
         ImageView businesslogo;
         LinearLayout cardview;
 
+        VideoView videoView;
+
 
         public MyHolder(@NonNull View itemView) {
             super ( itemView );
@@ -97,6 +102,9 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
             businessname = itemView.findViewById ( R.id.businessname );
             businesslogo = itemView.findViewById ( R.id.business_image );
             cardview = itemView.findViewById ( R.id.cardview );
+            videoView = itemView.findViewById ( R.id.videoview );
+
+
         }
     }
 }

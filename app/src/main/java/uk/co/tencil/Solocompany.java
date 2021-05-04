@@ -8,15 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +31,10 @@ public class Solocompany extends AppCompatActivity {
     Button website, social, careers, contact;
     TextView business_name;
     TextView bdesc;
-    YouTubePlayerView mYoutubePlayerView;
-    YouTubePlayer.OnInitializedListener mOnInitalizedListener;
+    VideoView videoView;
+    CardView news;
+    ImageView imageView;
+
     private Context mContext;
 
     @Override
@@ -47,6 +49,10 @@ public class Solocompany extends AppCompatActivity {
         social = findViewById ( R.id.socialmedia );
         careers = findViewById ( R.id.careers );
         contact = findViewById ( R.id.contact );
+        videoView = findViewById ( R.id.videoview );
+        news = findViewById ( R.id.news_card );
+        imageView = findViewById ( R.id.imageView );
+
         business_name.setText ( getIntent ().getStringExtra ( "bus_name" ) );
         bdesc.setText ( getIntent ().getStringExtra ( "bdesc" ) );
         Glide.with ( this )
@@ -54,6 +60,25 @@ public class Solocompany extends AppCompatActivity {
                 .into ( business_logo );
         contact.setOnClickListener ( this::contact );
 
+        videoView.setVideoPath ( getIntent ().getStringExtra ( "videos" ) );
+        videoView.start ();
+        MediaController mediaController = new MediaController ( this );
+        videoView.setMediaController ( mediaController );
+        mediaController.setAnchorView ( videoView );
+
+        news.setOnClickListener ( this::news );
+        Glide.with ( this )
+                .load ( getIntent ().getStringExtra ( "Image_URL" ) )
+                .into ( imageView );
+        contact.setOnClickListener ( this::contact );
+        social.setOnClickListener ( this::socialmedia );
+        careers.setOnClickListener ( this::careers );
+
+    }
+
+    private void news(View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "news" ) ) );
+        startActivity ( browserIntent );
     }
 
     public void contact(View view) {
@@ -66,7 +91,6 @@ public class Solocompany extends AppCompatActivity {
     public void socialmedia(View view) {
         Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website_social" ) ) );
         startActivity ( browserIntent );
-        Toast.makeText ( mContext, "Going to Social Media", Toast.LENGTH_SHORT ).show ();
     }
 
     public void backtoUser(View view) {
@@ -77,7 +101,8 @@ public class Solocompany extends AppCompatActivity {
     public void careers(View view) {
         Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "careers" ) ) );
         startActivity ( browserIntent );
-        Toast.makeText ( mContext, "Going to Website", Toast.LENGTH_SHORT ).show ();
+
+
     }
 
     public void websitetest(View view) {
@@ -98,7 +123,10 @@ public class Solocompany extends AppCompatActivity {
         startActivity ( browserIntent );
 
     }
+
+
 }
+
 
 
 

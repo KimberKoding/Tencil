@@ -3,6 +3,7 @@ package uk.co.tencil;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ public class CategoryCardActivity extends AppCompatActivity {
     TextView category;
     List<Businesses> businessesList;
     RecyclerView newRecycler;
+    ImageView business_logo;
     static int cid;
 
     public int getCid() {
@@ -41,9 +43,11 @@ public class CategoryCardActivity extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.all_categories_card );
         businessesList = new ArrayList<> ();
+        business_logo = findViewById ( R.id.business_logocard );
         newRecycler = findViewById ( R.id.neww_recycler );
         category = findViewById ( R.id.selectedcategory );
         category.setText ( getIntent ().getStringExtra ( "category" ) );
+
 
         Retrofit retrofit = new Retrofit.Builder ()
                 .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
