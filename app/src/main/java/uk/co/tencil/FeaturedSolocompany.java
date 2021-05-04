@@ -73,6 +73,7 @@ public class FeaturedSolocompany extends AppCompatActivity {
                 .load ( getIntent ().getStringExtra ( "feat_image" ) )
                 .into ( imageView );
         contact.setOnClickListener ( this::contact );
+        System.out.println ( "This is a test for Git" );
 
 
     }
