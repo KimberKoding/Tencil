@@ -229,7 +229,6 @@
                             android:id="@+id/news_card"
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
-                            android:onClick="news"
                             app:cardBackgroundColor="@color/white">
 
                             <LinearLayout
