@@ -25,7 +25,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#fff"
                 android:orientation="vertical">
 
@@ -81,7 +81,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="50dp"
-                            android:text="Business Name"
+                            android:text="@string/business_name"
                             android:textAllCaps="true"
                             android:textColor="#000"
                             android:textSize="25sp" />
@@ -96,7 +96,7 @@
                             android:gravity="center"
                             android:paddingLeft="10dp"
                             android:paddingRight="10dp"
-                            android:text="More Coming Soon!"
+                            android:text="@string/more_coming_soon"
                             android:textAlignment="center"
                             android:textAllCaps="true"
                             android:textColor="#000"
@@ -164,7 +164,7 @@
                                 android:layout_marginEnd="9dp"
                                 android:backgroundTint="#16194E"
                                 android:onClick="careers"
-                                android:text="Careers"
+                                android:text="@string/careers"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 

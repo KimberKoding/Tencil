@@ -61,7 +61,14 @@ public class FeaturedSolocompany extends AppCompatActivity {
         mediaController.setAnchorView ( videoView );
 
 
-        news.setOnClickListener ( this::news );
+        news.setOnClickListener ( new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "news" ) ) );
+                startActivity ( browserIntent );
+            }
+        } );
+
         Glide.with ( this )
                 .load ( getIntent ().getStringExtra ( "feat_image" ) )
                 .into ( imageView );
@@ -70,10 +77,6 @@ public class FeaturedSolocompany extends AppCompatActivity {
 
     }
 
-    private void news(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "news" ) ) );
-        startActivity ( browserIntent );
-    }
 
     public void contact(View view) {
         Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "contact" ) ) );
