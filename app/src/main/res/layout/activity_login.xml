@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.co.tencil.login">
+    tools:context="uk.co.tencil.User.Login.login">
 
     <ImageView
         android:layout_width="wrap_content"

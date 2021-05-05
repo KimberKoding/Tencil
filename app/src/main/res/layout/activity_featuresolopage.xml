@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="uk.co.tencil.featuresolopage">
+    tools:context="uk.co.tencil.Businesses.FeaturedBusiness.featuresolopage">
 
     <LinearLayout
         android:id="@+id/content"

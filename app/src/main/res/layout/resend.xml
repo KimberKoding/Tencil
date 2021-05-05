@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
-    tools:context="uk.co.tencil.resend">
+    tools:context="uk.co.tencil.User.Resend.resend">
 
     <RelativeLayout
         android:layout_width="match_parent"

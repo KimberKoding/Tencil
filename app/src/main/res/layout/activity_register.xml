@@ -6,7 +6,7 @@
     android:theme="@style/AppTheme"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="uk.co.tencil.register">
+    tools:context="uk.co.tencil.User.Register.register">
 
     <TextView
         android:id="@+id/tv_logo"

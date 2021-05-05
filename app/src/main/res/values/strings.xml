@@ -133,6 +133,20 @@
 
     </string-array>
 
+    <string-array name="careers">
+        <item>coding</item>
+        <item>edtech </item>
+        <item>communication companies</item>
+        <item>consultancy</item>
+        <item>lawtech</item>
+        <item>fintech</item>
+        <item>proptech</item>
+        <item>IT</item>
+        <item>Other</item>
+
+
+    </string-array>
+
 
     <string name="tencil">Welcome To Tencil</string>
     <string name="textview">TextView</string>

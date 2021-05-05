@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context="uk.co.tencil.Common.OnBoarding">
+    tools:context="uk.co.tencil.MainActivity.OnBoarding">
 
     <Button
         android:id="@+id/skip_btn"

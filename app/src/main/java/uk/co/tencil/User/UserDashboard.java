@@ -29,22 +29,19 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import uk.co.tencil.Businesses;
-import uk.co.tencil.BusinessesAdapter;
-import uk.co.tencil.BusinessesResponse;
-import uk.co.tencil.Categories;
-import uk.co.tencil.CategoriesAdapter;
-import uk.co.tencil.JSONResponse;
+import uk.co.tencil.API.UserService;
+import uk.co.tencil.Businesses.Businesses;
+import uk.co.tencil.Businesses.BusinessesAdapter;
+import uk.co.tencil.Businesses.BusinessesResponse;
+import uk.co.tencil.Businesses.JSONResponse;
+import uk.co.tencil.Categories.Categories;
+import uk.co.tencil.Categories.CategoriesAdapter;
+import uk.co.tencil.Legal.privacy_policy;
 import uk.co.tencil.R;
-import uk.co.tencil.SessionManager;
-import uk.co.tencil.UserService;
-import uk.co.tencil.WerecommendAdapter;
-import uk.co.tencil.WerecommendResponse;
-import uk.co.tencil.login;
-import uk.co.tencil.privacy_policy;
-import uk.co.tencil.soloCompanyFinance;
-import uk.co.tencil.solocompany_monzo;
-import uk.co.tencil.user_profile;
+import uk.co.tencil.User.Login.SessionManager;
+import uk.co.tencil.User.Login.login;
+import uk.co.tencil.WeRecommend.WerecommendAdapter;
+import uk.co.tencil.WeRecommend.WerecommendResponse;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -53,6 +50,14 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     private static final String JSON_URL = "https://providencewebservices.co.uk/api-test/v1/tools/cats.php?c=ALL";
     private static final String JSON_URL2 = "https://providencewebservices.co.uk/api-test/v1/tools/businesses.php?method=get&ft=true";
     private static final String TAG = "CLICKED";
+    static int cid;
+
+    public int getCid() {
+        System.out.println ( "getCid() method was called! CID is: " + cid );
+        cid = (2);
+        return cid;
+    }
+
     //Variables + Widgets
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
     Button btnShare;
@@ -139,7 +144,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             }
         } );
 
-        Call<WerecommendResponse> call2 = userService.werecommend ();
+        Call<WerecommendResponse> call2 = userService.werecommend ( getCid () );
         call2.enqueue ( new Callback<WerecommendResponse> () {
             @Override
             public void onResponse(Call<WerecommendResponse> call,
@@ -281,24 +286,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-
-    public void card001(View view) {
-        Intent intent = new Intent ( UserDashboard.this, soloCompanyFinance.class );
-        startActivity ( intent );
-        return;
-    }
-
-    public void card002(View view) {
-        Intent intent = new Intent ( UserDashboard.this, solocompany_monzo.class );
-        startActivity ( intent );
-        return;
-    }
-
-    public void card003(View view) {
-        Intent intent = new Intent ( UserDashboard.this, solocompany_moneyfarm.class );
-        startActivity ( intent );
-        return;
-    }
 
 
 }
