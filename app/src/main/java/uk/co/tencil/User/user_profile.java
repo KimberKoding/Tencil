@@ -79,11 +79,11 @@ public class user_profile extends AppCompatActivity {
         editdetails.setEmail ( email.getText ().toString () );
         editdetails.setName ( name.getText ().toString () );
         editdetails.setPassword ( password.getText ().toString () );
-        editdetails.setUserApikey ( logininfo.getString ( "userapikey" ) );
+        editResponse.setUserApikey ( logininfo.getString ( "userapikey" ) );
         System.out.println ( logininfo.getString ( "userapikey" ) );
 
 
-        Call<EditResponse> editResponseCall = APiClient.getUserService ().editdetails ( editdetails );
+        Call<EditResponse> editResponseCall = APiClient.getUserService ().editdetails ( logininfo.getString ( "userapikey" ), editdetails );
         editResponseCall.enqueue ( new Callback<EditResponse> () {
             @Override
             public void onResponse(Call<EditResponse> call, Response<EditResponse> response) {
@@ -92,7 +92,7 @@ public class user_profile extends AppCompatActivity {
                     String email = editResponse1.getEmail ();
                     String name = editResponse1.getName ();
                     String password = editResponse1.getPassword ();
-                    String userApiKey = editResponse1.getUserApikey ();
+
 
                     Toast.makeText ( user_profile.this, "Thank you for changing your details", Toast.LENGTH_SHORT ).show ();
                 } else {
@@ -104,6 +104,10 @@ public class user_profile extends AppCompatActivity {
             @Override
             public void onFailure(Call<EditResponse> call, Throwable t) {
                 System.out.println ( t + " Error" );
+                Toast.makeText (
+                        user_profile.this,
+                        "Thank you for changing your details, Please exit the page",
+                        Toast.LENGTH_SHORT ).show ();
             }
         } );
 

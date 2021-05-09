@@ -37,7 +37,7 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/legal"
-                    android:icon="@drawable/settings"
+                    android:icon="@drawable/insurance"
                     android:title="@string/privacy_policy" />
             </group>
 
@@ -48,14 +48,33 @@
     <item android:title="Profile">
         <menu>
             <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/nav_logout"
-                    android:icon="@drawable/general_back_icon"
-                    android:title="@string/logout" />
+
                 <item
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/ic_user"
                     android:title="Profile" />
+                <item
+                    android:id="@+id/nav_qs"
+                    android:icon="@drawable/help"
+                    android:title="Questions" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/general_back_icon"
+                    android:title="@string/logout" />
+            </group>
+
+
+        </menu>
+
+    </item>
+    <item android:title="Technical">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_technical"
+                    android:icon="@drawable/settings"
+                    android:title="Status Page" />
+
             </group>
 
 

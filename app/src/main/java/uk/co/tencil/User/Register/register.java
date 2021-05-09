@@ -103,7 +103,7 @@ public class register extends AppCompatActivity {
                     Toast.makeText ( register.this, "Check your Emails for an Activation Code!!", Toast.LENGTH_SHORT ).show ();
                     RegisterResponse registerResponse = response.body ();
                     loading.setVisibility ( View.GONE );
-                    startActivity ( new Intent ( register.this, questionone.class ) );
+                    startActivity ( new Intent ( register.this, Activate.class ) );
                 } else {
 
                     Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();

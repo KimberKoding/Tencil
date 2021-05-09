@@ -3,6 +3,7 @@ package uk.co.tencil.User;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -37,6 +39,7 @@ import uk.co.tencil.Businesses.JSONResponse;
 import uk.co.tencil.Categories.Categories;
 import uk.co.tencil.Categories.CategoriesAdapter;
 import uk.co.tencil.Legal.privacy_policy;
+import uk.co.tencil.Questions.questionone;
 import uk.co.tencil.R;
 import uk.co.tencil.User.Login.SessionManager;
 import uk.co.tencil.User.Login.login;
@@ -97,7 +100,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         String email = userDetails.get ( SessionManager.KEY_EMAIL );
         String password = userDetails.get ( SessionManager.KEY_PASSWORD );
         System.out.println ( email + password + "Printed to console" );
-
 
         //RETROFIT
 
@@ -279,6 +281,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.legal) {
             startActivity ( new Intent ( this, privacy_policy.class ) );
             finish ();
+        } else if (id == R.id.nav_qs) {
+            Intent recieveIntent = getIntent ();
+            Bundle bundle = recieveIntent.getExtras ();
+            Intent toqs = new Intent ( UserDashboard.this, questionone.class );
+            toqs.putExtra ( "logininfo", bundle );
+            startActivity ( toqs );
+        } else if (id == R.id.nav_technical) {
+            Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( "https://manage.statuspage.io/pages/sgndqzkndcf7/incidents" ) );
+            startActivity ( browserIntent );
+            Toast.makeText ( this, "Taking you to privacy policy", Toast.LENGTH_SHORT ).show ();
         }
 
 
