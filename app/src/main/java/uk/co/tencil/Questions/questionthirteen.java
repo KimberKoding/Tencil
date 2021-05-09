@@ -19,6 +19,7 @@ import retrofit2.Response;
 import uk.co.tencil.API.APiClient;
 import uk.co.tencil.Categories.Categories;
 import uk.co.tencil.R;
+import uk.co.tencil.User.UserDashboard;
 
 public class questionthirteen extends AppCompatActivity {
     Context mContext;
@@ -166,6 +167,9 @@ public class questionthirteen extends AppCompatActivity {
             public void onFailure(Call<QuestionsResponse> call, Throwable t) {
                 System.out.println ( t + " Error" );
                 Toast.makeText ( mContext, "Error" + "" + "" + t, Toast.LENGTH_SHORT ).show ();
+                Intent intent = new Intent ( questionthirteen.this, UserDashboard.class );
+                Toast.makeText ( mContext, "Thanking you for answering some questions", Toast.LENGTH_SHORT ).show ();
+                startActivity ( intent );
 
             }
         } );
