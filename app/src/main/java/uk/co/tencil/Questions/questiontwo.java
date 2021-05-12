@@ -37,8 +37,8 @@ public class questiontwo extends AppCompatActivity {
             receiveIntent.getExtras ();
             String apikey1 = receiveIntent.getStringExtra ( "userapikey" );
             String email = receiveIntent.getStringExtra ( "email" );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long q2pos = spinner1.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String q2pos = String.valueOf ( spinner1.getSelectedItemId () );
             String questionone = receiveIntent.getStringExtra ( "location1" );
             Intent toPage3 = new Intent ( questiontwo.this, questionthree.class );
             toPage3.putExtra ( "age1", age1 );

@@ -54,14 +54,14 @@ public class questioneight extends AppCompatActivity {
             String email1 = receiveIntent.getStringExtra ( "email" );
             String questionseven = receiveIntent.getStringExtra ( "sports1" );
             Intent questioneight = receiveIntent.putExtra ( "smedia1", smedia1 );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-            long questionfouranswer = receiveIntent.getLongExtra ( "q4pos", 0 );
-            long questionfiveanswer = receiveIntent.getLongExtra ( "q5pos", 0 );
-            long questionsixanswer = receiveIntent.getLongExtra ( "q6pos", 0 );
-            long questionsevenanswer = receiveIntent.getLongExtra ( "q7pos", 0 );
-            long questioneightanswer = spinner11.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+            String questionfouranswer = receiveIntent.getStringExtra ( "q4pos" );
+            String questionfiveanswer = receiveIntent.getStringExtra ( "q5pos" );
+            String questionsixanswer = receiveIntent.getStringExtra ( "q6pos" );
+            String questionsevenanswer = receiveIntent.getStringExtra ( "q7pos" );
+            String questioneightanswer = String.valueOf ( spinner11.getSelectedItemId () );
 
             topage8.putExtra ( "location1", questionone );
             topage8.putExtra ( "age1", questiontwo );

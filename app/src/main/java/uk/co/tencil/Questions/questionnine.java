@@ -54,15 +54,15 @@ public class questionnine extends AppCompatActivity {
             String questioneight = receiveIntent.getStringExtra ( "smedia1" );
             String apikey1 = receiveIntent.getStringExtra ( "userapikey" );
             String email1 = receiveIntent.getStringExtra ( "email" );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-            long questionfouranswer = receiveIntent.getLongExtra ( "q4pos", 0 );
-            long questionfiveanswer = receiveIntent.getLongExtra ( "q5pos", 0 );
-            long questionsixanswer = receiveIntent.getLongExtra ( "q6pos", 0 );
-            long questionsevenanswer = receiveIntent.getLongExtra ( "q7pos", 0 );
-            long questioneightanswer = receiveIntent.getLongExtra ( "q8pos", 0 );
-            long questionnineanswer = spinner11.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+            String questionfouranswer = receiveIntent.getStringExtra ( "q4pos" );
+            String questionfiveanswer = receiveIntent.getStringExtra ( "q5pos" );
+            String questionsixanswer = receiveIntent.getStringExtra ( "q6pos" );
+            String questionsevenanswer = receiveIntent.getStringExtra ( "q7pos" );
+            String questioneightanswer = receiveIntent.getStringExtra ( "q8pos" );
+            String questionnineanswer = String.valueOf ( spinner11.getSelectedItemId () );
 
             Intent questionnine = receiveIntent.putExtra ( "genre1", genre1 );
             topage8.putExtra ( "location1", questionone );

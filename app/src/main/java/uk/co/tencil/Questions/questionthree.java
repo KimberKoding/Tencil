@@ -36,9 +36,9 @@ public class questionthree extends AppCompatActivity {
             String email = receiveIntent.getStringExtra ( "email" );
             String questionone = receiveIntent.getStringExtra ( "location1" );
             String questiontwo = receiveIntent.getStringExtra ( "age1" );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = spinner2.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = String.valueOf ( spinner2.getSelectedItemId () );
 
             Intent topage4 = new Intent ( questionthree.this, questionfour.class );
             topage4.putExtra ( "location1", questionone );

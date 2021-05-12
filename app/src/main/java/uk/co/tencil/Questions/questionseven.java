@@ -53,13 +53,13 @@ public class questionseven extends AppCompatActivity {
             String apikey1 = receiveIntent.getStringExtra ( "userapikey" );
             String email1 = receiveIntent.getStringExtra ( "email" );
             Intent questionseven = receiveIntent.putExtra ( "sports1", sports1 );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-            long questionfouranswer = receiveIntent.getLongExtra ( "q4pos", 0 );
-            long questionfiveanswer = receiveIntent.getLongExtra ( "q5pos", 0 );
-            long questionsixanswer = receiveIntent.getLongExtra ( "q6pos", 0 );
-            long questionsevenanswer = spinner10.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+            String questionfouranswer = receiveIntent.getStringExtra ( "q4pos" );
+            String questionfiveanswer = receiveIntent.getStringExtra ( "q5pos" );
+            String questionsixanswer = receiveIntent.getStringExtra ( "q6pos" );
+            String questionsevenanswer = String.valueOf ( spinner10.getSelectedItemId () );
 
             topage7.putExtra ( "location1", questionone );
             topage7.putExtra ( "age1", questiontwo );

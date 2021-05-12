@@ -1,6 +1,6 @@
 package uk.co.tencil.User;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.newrelic.agent.android.NewRelic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,7 +58,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     public int getCid() {
         System.out.println ( "getCid() method was called! CID is: " + cid );
-        cid = (2);
+        cid = (39);
         return cid;
     }
 
@@ -78,12 +79,13 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     List<Businesses> werecommendList;
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.userdashboard );
-
+        NewRelic.withApplicationToken (
+                "eu01xxd3e41d94d24d89321ca1a55320c48e9681c3-NRMA"
+        ).start ( this.getApplicationContext () );
         //Hooks
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );

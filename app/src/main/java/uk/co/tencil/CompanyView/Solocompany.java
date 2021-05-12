@@ -57,6 +57,7 @@ public class Solocompany extends AppCompatActivity {
         imageView = findViewById ( R.id.imageView );
 
         business_name.setText ( getIntent ().getStringExtra ( "bus_name" ) );
+        business_name.setFocusable ( true );
         bdesc.setText ( getIntent ().getStringExtra ( "bdesc" ) );
         Glide.with ( this )
                 .load ( getIntent ().getStringExtra ( "Image_URL" ) )
@@ -67,6 +68,7 @@ public class Solocompany extends AppCompatActivity {
             Toast.makeText ( mContext, "This business does not have any videos", Toast.LENGTH_SHORT ).show ();
         } else {
             videoView.setVideoPath ( getIntent ().getStringExtra ( "videos" ) );
+            videoView.setFocusableInTouchMode ( false );
             videoView.start ();
             MediaController mediaController = new MediaController ( this );
             videoView.setMediaController ( mediaController );
@@ -129,7 +131,6 @@ public class Solocompany extends AppCompatActivity {
         startActivity ( browserIntent );
 
     }
-
 
 }
 

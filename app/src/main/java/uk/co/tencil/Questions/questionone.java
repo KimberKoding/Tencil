@@ -37,7 +37,7 @@ public class questionone extends AppCompatActivity {
         btn1.setOnClickListener ( v -> {
             String location1 = spinner0.getSelectedItem ().toString ();
             System.out.println ( "This is the position of the answer " + spinner0.getSelectedItemPosition () );
-            long q1pos = spinner0.getSelectedItemId ();
+            String q1pos = String.valueOf ( spinner0.getSelectedItemId () );
             String apikey = logininfo.getString ( "userapikey" );
             String email = logininfo.getString ( "email" );
             Toast.makeText ( getApplicationContext (), "You selected " + location1, Toast.LENGTH_SHORT ).show ();

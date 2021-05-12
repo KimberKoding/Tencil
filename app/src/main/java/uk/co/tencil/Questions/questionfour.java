@@ -39,10 +39,10 @@ public class questionfour extends AppCompatActivity {
             Intent questionfour = receiveIntent.putExtra ( "ethnic1", ethnic1 );
             String apikey1 = receiveIntent.getStringExtra ( "userapikey" );
             String email1 = receiveIntent.getStringExtra ( "email" );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-            long questionfouranswer = spinner4.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+            String questionfouranswer = String.valueOf ( spinner4.getSelectedItemId () );
 
             topage5.putExtra ( "location1", questionone );
             topage5.putExtra ( "age1", questiontwo );

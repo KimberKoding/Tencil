@@ -67,7 +67,7 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         wra = new WerecommendAdapter ();
-        wra.setCid ( 2 );
+        wra.setCid ( 1 );
         System.out.println ( "OnBindview" + cid );
 
         Businesses temp = mData.get ( position );

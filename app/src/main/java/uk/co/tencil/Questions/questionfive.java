@@ -40,11 +40,11 @@ public class questionfive extends AppCompatActivity {
             String email1 = receiveIntent.getStringExtra ( "email" );
             String questionfour = receiveIntent.getStringExtra ( "ethnic1" );
             Intent questionfive = receiveIntent.putExtra ( "subjects1", subjects1 );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-            long questionfouranswer = receiveIntent.getLongExtra ( "q4pos", 0 );
-            long questionfiveanswer = spinner5.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+            String questionfouranswer = receiveIntent.getStringExtra ( "q4pos" );
+            String questionfiveanswer = String.valueOf ( spinner5.getSelectedItemId () );
             topage6.putExtra ( "location1", questionone );
             topage6.putExtra ( "age1", questiontwo );
             topage6.putExtra ( "gender1", questionthree );

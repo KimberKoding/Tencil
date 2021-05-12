@@ -49,12 +49,12 @@ public class questionsix extends AppCompatActivity {
             String questionfive = receiveIntent.getStringExtra ( "subjects1" );
             String apikey1 = receiveIntent.getStringExtra ( "userapikey" );
             String email1 = receiveIntent.getStringExtra ( "email" );
-            long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-            long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-            long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-            long questionfouranswer = receiveIntent.getLongExtra ( "q4pos", 0 );
-            long questionfiveanswer = receiveIntent.getLongExtra ( "q5pos", 0 );
-            long questionsixanswer = spinner6.getSelectedItemId ();
+            String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+            String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+            String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+            String questionfouranswer = receiveIntent.getStringExtra ( "q4pos" );
+            String questionfiveanswer = receiveIntent.getStringExtra ( "q5pos" );
+            String questionsixanswer = String.valueOf ( spinner6.getSelectedItemId () );
             Intent questionsix = receiveIntent.putExtra ( "hobbies1", hobbies1 );
             topage7.putExtra ( "location1", questionone );
             topage7.putExtra ( "age1", questiontwo );

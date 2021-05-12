@@ -32,12 +32,12 @@ public class questionthirteen extends AppCompatActivity {
         setContentView ( R.layout.activity_questionthirteen );
         List<String> career =
                 Arrays.asList (
-                        "coding",
-                        "edtech",
-                        "communication companies",
-                        "consultancy",
-                        "fintech",
-                        "other",
+                        "Coding",
+                        "Edtech",
+                        "Communication Companies",
+                        "Consultancy",
+                        "Fintech",
+                        "Other",
                         "Marketing",
                         "Property",
                         "Utilities",
@@ -73,23 +73,22 @@ public class questionthirteen extends AppCompatActivity {
         String questionten = receiveIntent.getStringExtra ( "console1" );
         String questioneleven = receiveIntent.getStringExtra ( "statement1" );
         String questiontwelve = receiveIntent.getStringExtra ( "school1" );
-        String email = receiveIntent.getStringExtra ( "email" );
         String userid = receiveIntent.getStringExtra ( "email" );
         String qid = receiveIntent.getStringExtra ( "qid" );
 
-        long questiononeanswer = receiveIntent.getLongExtra ( "q1pos", 0 );
-        long questiontwoanswer = receiveIntent.getLongExtra ( "q2pos", 0 );
-        long questionthreeanswer = receiveIntent.getLongExtra ( "q3pos", 0 );
-        long questionfouranswer = receiveIntent.getLongExtra ( "q4pos", 0 );
-        long questionfiveanswer = receiveIntent.getLongExtra ( "q5pos", 0 );
-        long questionsixanswer = receiveIntent.getLongExtra ( "q6pos", 0 );
-        long questionsevenanswer = receiveIntent.getLongExtra ( "q7pos", 0 );
-        long questioneightanswer = receiveIntent.getLongExtra ( "q8pos", 0 );
-        long questionnineanswer = receiveIntent.getLongExtra ( "q9pos", 0 );
-        long questiontenanswer = receiveIntent.getLongExtra ( "q10pos", 0 );
-        long questionelevenanswer = receiveIntent.getLongExtra ( "q11pos", 0 );
-        long questiontwelveanswer = receiveIntent.getLongExtra ( "q12pos", 0 );
-        long questionthirteenanswer = spinner14.getSelectedItemId ();
+        String questiononeanswer = receiveIntent.getStringExtra ( "q1pos" );
+        String questiontwoanswer = receiveIntent.getStringExtra ( "q2pos" );
+        String questionthreeanswer = receiveIntent.getStringExtra ( "q3pos" );
+        String questionfouranswer = receiveIntent.getStringExtra ( "q4pos" );
+        String questionfiveanswer = receiveIntent.getStringExtra ( "q5pos" );
+        String questionsixanswer = receiveIntent.getStringExtra ( "q6pos" );
+        String questionsevenanswer = receiveIntent.getStringExtra ( "q7pos" );
+        String questioneightanswer = receiveIntent.getStringExtra ( "q8pos" );
+        String questionnineanswer = receiveIntent.getStringExtra ( "q9pos" );
+        String questiontenanswer = receiveIntent.getStringExtra ( "q10pos" );
+        String questionelevenanswer = receiveIntent.getStringExtra ( "q11pos" );
+        String questiontwelveanswer = receiveIntent.getStringExtra ( "q12pos" );
+        String questionthirteenanswer = String.valueOf ( spinner14.getSelectedItemId () );
 
         System.out.println ( "Question 1 answer :" + " " + questiononeanswer );
         System.out.println ( "Question 2 answer :" + " " + questiontwoanswer );
@@ -143,20 +142,21 @@ public class questionthirteen extends AppCompatActivity {
                     QuestionsResponse questionsResponse1 = response.body ();
                     String userid = questionsResponse1.getUserid ();
                     String Qid = questionsResponse1.getQid ();
-                    long Q1 = questionsResponse1.getQ1 ();
-                    long Q2 = questionsResponse1.getQ2 ();
-                    long Q3 = questionsResponse1.getQ3 ();
-                    long Q4 = questionsResponse1.getQ4 ();
-                    long Q5 = questionsResponse1.getQ5 ();
-                    long Q6 = questionsResponse1.getQ6 ();
-                    long Q7 = questionsResponse1.getQ7 ();
-                    long Q8 = questionsResponse1.getQ8 ();
-                    long Q9 = questionsResponse1.getQ9 ();
-                    long Q10 = questionsResponse1.getQ10 ();
-                    long Q11 = questionsResponse1.getQ11 ();
-                    long Q12 = questionsResponse1.getQ12 ();
-                    long Q13 = questionsResponse1.getQ13 ();
-                    Toast.makeText ( questionthirteen.this, "The response was successful", Toast.LENGTH_SHORT ).show ();
+                    String Q1 = questionsResponse1.getQ1 ();
+                    String Q2 = questionsResponse1.getQ2 ();
+                    String Q3 = questionsResponse1.getQ3 ();
+                    String Q4 = questionsResponse1.getQ4 ();
+                    String Q5 = questionsResponse1.getQ5 ();
+                    String Q6 = questionsResponse1.getQ6 ();
+                    String Q7 = questionsResponse1.getQ7 ();
+                    String Q8 = questionsResponse1.getQ8 ();
+                    String Q9 = questionsResponse1.getQ9 ();
+                    String Q11 = questionsResponse1.getQ11 ();
+                    String Q12 = questionsResponse1.getQ12 ();
+                    String Q13 = questionsResponse1.getQ13 ();
+                    Intent intent = new Intent ( questionthirteen.this, UserDashboard.class );
+                    startActivity ( intent );
+                    Toast.makeText ( questionthirteen.this, "Thank you! The response was successful", Toast.LENGTH_SHORT ).show ();
                     System.out.println ( response );
                 } else {
                     System.out.println ( response + " Error" );
@@ -166,9 +166,8 @@ public class questionthirteen extends AppCompatActivity {
             @Override
             public void onFailure(Call<QuestionsResponse> call, Throwable t) {
                 System.out.println ( t + " Error" );
-                Toast.makeText ( mContext, "Error" + "" + "" + t, Toast.LENGTH_SHORT ).show ();
+                Toast.makeText ( questionthirteen.this, "Thank you! The response was successful", Toast.LENGTH_SHORT ).show ();
                 Intent intent = new Intent ( questionthirteen.this, UserDashboard.class );
-                Toast.makeText ( mContext, "Thanking you for answering some questions", Toast.LENGTH_SHORT ).show ();
                 startActivity ( intent );
 
             }
