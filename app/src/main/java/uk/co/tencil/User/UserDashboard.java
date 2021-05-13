@@ -51,9 +51,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     // WE WILL BUILD A PROFESSIONAL APP ;)
 
-    private static final String JSON_URL = "https://providencewebservices.co.uk/api-test/v1/tools/cats.php?c=ALL";
-    private static final String JSON_URL2 = "https://providencewebservices.co.uk/api-test/v1/tools/businesses.php?method=get&ft=true";
-    private static final String TAG = "CLICKED";
     static int cid;
 
     public int getCid() {
@@ -106,7 +103,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //RETROFIT
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .baseUrl ( "https://tencil-infra.uksouth.cloudapp.azure.com/api/v1/" )
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );
@@ -275,7 +272,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );
-            intent2.putExtra ( Intent.EXTRA_TEXT, "TENCIL APP COMING SOON " + " http://www.tencil.co.uk/" + getPackageName () );
+            intent2.putExtra ( Intent.EXTRA_TEXT, "Download the Tencil App Today!" + " http://www.tencil.co.uk/" + getPackageName () );
             intent2.setType ( "text/plain" );
             startActivity ( intent2 );
 

@@ -68,7 +68,7 @@ public class cardviewdesign extends AppCompatActivity {
         //RETROFIT
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .baseUrl ( "https://tencil-infra.uksouth.cloudapp.azure.com/api/v1/" )
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );
