@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.uk.co.providencewebservices.uk.co.providencewebservices.com.example.tencil"
+        applicationId "uk.co.tencil"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
