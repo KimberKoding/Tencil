@@ -103,9 +103,9 @@ public class questionthirteen extends AppCompatActivity {
         System.out.println ( "Question 11 answer :" + " " + questionelevenanswer );
         System.out.println ( "Question 12 answer :" + " " + questiontwelveanswer );
         System.out.println ( "Question 13 answer :" + " " + questionthirteenanswer );
+
         btn12.setOnClickListener ( v -> {
             String careers1 = spinner14.getSelectedItem ().toString ();
-
             QuestionsResponse questionsResponse = new QuestionsResponse ();
             questionsResponse.setUserid ( userid );
             questionsResponse.setQid ( qid );
@@ -123,6 +123,7 @@ public class questionthirteen extends AppCompatActivity {
             questionsResponse.setQ12 ( questiontwelveanswer );
             questionsResponse.setQ13 ( questionthirteenanswer );
             questionsResponse ( questionsResponse );
+            System.out.println ( careers1 );
 
         } );
 
@@ -155,6 +156,7 @@ public class questionthirteen extends AppCompatActivity {
                     String Q12 = questionsResponse1.getQ12 ();
                     String Q13 = questionsResponse1.getQ13 ();
                     Intent intent = new Intent ( questionthirteen.this, UserDashboard.class );
+                    intent.putExtra ( "q13Answer", Q13 );
                     startActivity ( intent );
                     Toast.makeText ( questionthirteen.this, "Thank you! The response was successful", Toast.LENGTH_SHORT ).show ();
                     System.out.println ( response );

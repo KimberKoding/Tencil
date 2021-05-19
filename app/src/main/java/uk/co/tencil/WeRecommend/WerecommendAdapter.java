@@ -68,7 +68,8 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         wra = new WerecommendAdapter ();
         wra.setCid ( 1 );
-        System.out.println ( "OnBindview" + cid );
+        wra.getCid ();
+
 
         Businesses temp = mData.get ( position );
         // Dymamically Generating card background colours

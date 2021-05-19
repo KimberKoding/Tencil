@@ -86,8 +86,8 @@ public class FeaturedSolocompany extends AppCompatActivity {
     }
 
     public void socialmedia(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website_social" ) ) );
-        startActivity ( browserIntent );
+        Intent intent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website_social" ) ) );
+        startActivity ( intent );
     }
 
     public void backtoUser(View view) {

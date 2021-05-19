@@ -96,11 +96,11 @@ public class login extends AppCompatActivity {
 
                         }, 400 );
                     } else {
-                        Toast.makeText ( login.this, "Credentials are incorrect or Account is not active", Toast.LENGTH_LONG ).show ();
+                        Toast.makeText ( login.this, "Credentials are incorrect or Account is not active or you have not made an account", Toast.LENGTH_LONG ).show ();
                     }
 
                 } else {
-                    Toast.makeText ( login.this, "Login Failed", Toast.LENGTH_LONG ).show ();
+                    Toast.makeText ( login.this, "Credentials are incorrect or Account is not active or you have not made an account", Toast.LENGTH_LONG ).show ();
 
                 }
 
@@ -108,8 +108,7 @@ public class login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText ( login.this, "Throwable " + t.getLocalizedMessage (), Toast.LENGTH_LONG ).show ();
-
+                System.out.println ( "ERROR :" + "" + "" + t );
             }
         } );
 

@@ -106,7 +106,7 @@ public class register extends AppCompatActivity {
                     startActivity ( new Intent ( register.this, Activate.class ) );
                 } else {
 
-                    Toast.makeText ( register.this, "An Error occurred, please try again", Toast.LENGTH_LONG ).show ();
+                    Toast.makeText ( register.this, "It looks like an account already exists. Please Try the Forgotten Password button", Toast.LENGTH_LONG ).show ();
                     System.out.println ( "RESPONSE:" + response );
                     loading.setVisibility ( View.GONE );
                 }

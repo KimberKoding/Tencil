@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -53,11 +52,13 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     static int cid;
 
+
     public int getCid() {
         System.out.println ( "getCid() method was called! CID is: " + cid );
-        cid = (39);
+        cid = (1);
         return cid;
     }
+
 
     //Variables + Widgets
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
@@ -155,6 +156,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 werecommendList = new ArrayList<>
                         ( Arrays.asList ( werecommendResponse.werecommend () ) );
                 PutDataIntoWeRecommend ( werecommendList );
+
+
             }
 
             @Override
@@ -263,16 +266,18 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
 
         } else if (id == R.id.nav_profile) {
-            Intent recieveIntent = getIntent ();
-            Bundle bundle = recieveIntent.getExtras ();
+            Intent receiveIntent = getIntent ();
+            Bundle bundle = receiveIntent.getExtras ();
+            System.out.println ( "Intents" + receiveIntent.getExtras () );
             Intent toUserProfile = new Intent ( UserDashboard.this, user_profile.class );
             toUserProfile.putExtra ( "logininfo", bundle );
+
             startActivity ( toUserProfile );
 
 
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );
-            intent2.putExtra ( Intent.EXTRA_TEXT, "Download the Tencil App Today!" + " http://www.tencil.co.uk/" + getPackageName () );
+            intent2.putExtra ( Intent.EXTRA_TEXT, "Download the Tencil App Today!" + "https://play.google.com/store/apps/details?id=uk.co.tencil.app" + getPackageName () );
             intent2.setType ( "text/plain" );
             startActivity ( intent2 );
 
@@ -289,7 +294,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_technical) {
             Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( "https://manage.statuspage.io/pages/sgndqzkndcf7/incidents" ) );
             startActivity ( browserIntent );
-            Toast.makeText ( this, "Taking you to privacy policy", Toast.LENGTH_SHORT ).show ();
         }
 
 

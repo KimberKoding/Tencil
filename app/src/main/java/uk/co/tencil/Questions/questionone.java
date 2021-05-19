@@ -22,8 +22,6 @@ public class questionone extends AppCompatActivity {
         setContentView ( R.layout.activity_questionone );
         Intent receiveIntent = getIntent ();
         Bundle logininfo = receiveIntent.getBundleExtra ( "logininfo" );
-        System.out.println ( logininfo.getString ( "userapikey" ) );
-        System.out.println ( logininfo.getString ( "email" ) );
         List<String> location =
                 Arrays.asList ( "Wales", "England", "Scotland", "Northern Ireland", "Other" );
 
