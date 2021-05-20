@@ -1,6 +1,5 @@
 package uk.co.tencil.Questions;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -17,13 +16,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.tencil.API.APiClient;
-import uk.co.tencil.Categories.Categories;
 import uk.co.tencil.R;
 import uk.co.tencil.User.UserDashboard;
 
 public class questionthirteen extends AppCompatActivity {
-    Context mContext;
-    List<Categories> categoriesList;
 
 
     @Override
