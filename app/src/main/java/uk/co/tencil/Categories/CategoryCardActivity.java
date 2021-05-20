@@ -55,7 +55,7 @@ public class CategoryCardActivity extends AppCompatActivity {
 
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://tencil-infra.uksouth.cloudapp.azure.com/api/v1/" )
+                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );

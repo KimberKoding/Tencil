@@ -42,6 +42,7 @@ public class user_profile extends AppCompatActivity {
 
         for (String key : logininfo.keySet ()) {
             result += logininfo.get ( key ) + "\n";
+            System.out.println ( result );
         }
         System.out.println ( logininfo.get ( "fname" ) );
         nameuser.setText ( logininfo.getString ( "fname" ) );
