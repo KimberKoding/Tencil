@@ -32,7 +32,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.tencil.API.APiClient;
 import uk.co.tencil.Activation.Activate;
-import uk.co.tencil.Questions.questionone;
 import uk.co.tencil.R;
 import uk.co.tencil.User.Login.login;
 
@@ -121,7 +120,7 @@ public class register extends AppCompatActivity {
             public void onFailure(@NotNull Call<RegisterResponse> call, @NotNull Throwable t) {
                 Toast.makeText ( register.this, "Check your Emails for an Activation Code!!", Toast.LENGTH_SHORT ).show ();
                 loading.setVisibility ( View.GONE );
-                startActivity ( new Intent ( register.this, questionone.class ) );
+                startActivity ( new Intent ( register.this, Activate.class ) );
             }
         } );
     }

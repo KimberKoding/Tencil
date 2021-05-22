@@ -104,7 +104,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //RETROFIT
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .baseUrl ( "https://tencil-infra.co.uk/api/v1/" )
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );

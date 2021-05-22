@@ -65,7 +65,9 @@ public class ForgetPassword extends AppCompatActivity {
 
                 } else {
                     System.out.println ( response + " Error" );
-                    Toast.makeText ( ForgetPassword.this, "Oops", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( ForgetPassword.this,
+                            "Password reset request was not sent. Please Try Again",
+                            Toast.LENGTH_SHORT ).show ();
                 }
             }
 

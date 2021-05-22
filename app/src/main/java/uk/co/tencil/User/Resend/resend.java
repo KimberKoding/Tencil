@@ -49,15 +49,18 @@ public class resend extends AppCompatActivity {
     private void activate(ResendResponse resendMe) {
         ResendRequest resendRequest = new ResendRequest ();
         resendRequest.setEmail ( activateyouremail.getText ().toString () );
-        Call<ResendRequest> resendRequestCall = APiClient.getUserService ().resendemail ( resendMe );
+        Call<ResendRequest> resendRequestCall = APiClient.getUserService ().resendemail
+                ( resendMe );
         resendRequestCall.enqueue ( new Callback<ResendRequest> () {
             @Override
             public void onResponse(Call<ResendRequest> call, Response<ResendRequest> response) {
                 if (response.isSuccessful ()) {
                     ResendRequest resendResponse = response.body ();
-                    Toast.makeText ( resend.this, "Code has Been Sent", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( resend.this, "Code has Been Sent",
+                            Toast.LENGTH_SHORT ).show ();
                 } else {
-                    Toast.makeText ( resend.this, "No Code is being sent ", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( resend.this, "No Code has been sent please retry ",
+                            Toast.LENGTH_SHORT ).show ();
                 }
             }
 
