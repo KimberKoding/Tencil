@@ -30,6 +30,7 @@ public class SplashScreen extends AppCompatActivity {
     SharedPreferences onBoardingScreen;
 
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.splash_screen );
 
@@ -51,24 +52,12 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 onBoardingScreen = getSharedPreferences ( "onBoardingScreen", MODE_PRIVATE );
-                boolean isFirstTime = onBoardingScreen.getBoolean ( "firstTime", true );
-
-                if (isFirstTime) {
-                    SharedPreferences.Editor editor = onBoardingScreen.edit ();
-                    editor.putBoolean ( "firstTime", false );
-                    editor.commit ();
-                    Intent intent = new Intent ( getApplicationContext (), login.class );
-                    startActivity ( intent );
-                    finish ();
-
-                } else {
-                    Intent intent = new Intent ( getApplicationContext (), login.class );
-                    startActivity ( intent );
-                    finish ();
-                }
-
+                Intent intent = new Intent ( getApplicationContext (), login.class );
+                startActivity ( intent );
+                finish ();
 
             }
+
         }, SPLASH_TIMER );
 
 
