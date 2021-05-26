@@ -46,4 +46,6 @@ public class Categories extends JSONResponse implements Parcelable {
         dest.writeInt ( cid );
         dest.writeString ( name );
     }
+
+
 }

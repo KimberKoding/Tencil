@@ -1,17 +1,17 @@
 package uk.co.tencil.User;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.newrelic.agent.android.NewRelic;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,7 +48,8 @@ import uk.co.tencil.User.Login.login;
 import uk.co.tencil.WeRecommend.WerecommendAdapter;
 import uk.co.tencil.WeRecommend.WerecommendResponse;
 
-public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class UserDashboard extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     // WE WILL BUILD A PROFESSIONAL APP ;)
 
@@ -54,15 +57,20 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
     public int getCid() {
+        Intent intent = getIntent ();
+        intent.getExtras ();
+        intent.getStringExtra ( "q13Answer" );
+        String questionanswer = intent.getStringExtra ( "q13Answer" );
+        System.out.println ( questionanswer );
         System.out.println ( "getCid() method was called! CID is: " + cid );
+        System.out.println ( "Category Loaded" );
         cid = (1);
         return cid;
     }
 
 
+
     //Variables + Widgets
-    String shareBody = "This is a Great App, TENCIL APP COMING SOON";
-    Button btnShare;
     ImageView menuIcon;
     TextView welcomeuserdash;
     LinearLayout contentView;
@@ -71,14 +79,13 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    Context mContext;
     List<Categories> categoriesList;
     List<Businesses> businessesList;
     List<Businesses> werecommendList;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.userdashboard );
         NewRelic.withApplicationToken (
@@ -95,6 +102,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         businessesList = new ArrayList<> ();
         welcomeuserdash = findViewById ( R.id.welcomeuserdash );
         SessionManager sessionManager = new SessionManager ( this );
+
+        //WerecommendAdapter werecommendAdapter = new WerecommendAdapter ();
+        //werecommendAdapter.setCid (  );
         HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession ();
 
         String email = userDetails.get ( SessionManager.KEY_EMAIL );
@@ -104,7 +114,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         //RETROFIT
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .baseUrl ( "https://tencil-infra.co.uk/api/v1/" )
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );
@@ -112,10 +122,13 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         call.enqueue ( new Callback<JSONResponse> () {
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+            public void onResponse
+                    (@NotNull Call<JSONResponse> call, @NotNull Response<JSONResponse> response) {
 
                 JSONResponse jsonResponse = response.body ();
-                categoriesList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
+                assert jsonResponse != null;
+                categoriesList = new ArrayList<> ( Arrays.asList
+                        ( jsonResponse.getCategories () ) );
 
                 PutDataIntoRecyclerView ( categoriesList );
 
@@ -123,7 +136,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<JSONResponse> call, @NotNull Throwable t) {
                 System.out.println ( t );
 
             }
@@ -132,16 +145,21 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         Call<BusinessesResponse> call1 = userService.getBusinesses ();
         call1.enqueue ( new Callback<BusinessesResponse> () {
             @Override
-            public void onResponse(Call<BusinessesResponse> call, Response<BusinessesResponse> response) {
+            public void onResponse(
+                    @NotNull Call<BusinessesResponse> call,
+                    @NotNull Response<BusinessesResponse> response) {
                 BusinessesResponse businessesResponse = response.body ();
-                businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
+                if (businessesResponse != null) {
+                    businessesList = new ArrayList<> ( Arrays.asList
+                            ( businessesResponse.getBusinesses () ) );
+                }
                 PutDataIntoView ( businessesList );
 
             }
 
             @Override
-            public void onFailure(Call<BusinessesResponse> call, Throwable t) {
-                System.out.println ( t + "FUUCK" );
+            public void onFailure(@NotNull Call<BusinessesResponse> call, @NotNull Throwable t) {
+                System.out.println ( t + "Error in response" );
 
             }
         } );
@@ -149,19 +167,23 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         Call<WerecommendResponse> call2 = userService.werecommend ( getCid () );
         call2.enqueue ( new Callback<WerecommendResponse> () {
             @Override
-            public void onResponse(Call<WerecommendResponse> call,
-                                   Response<WerecommendResponse> response) {
+            public void onResponse(@NotNull Call<WerecommendResponse> call,
+                                   @NotNull Response<WerecommendResponse> response) {
                 System.out.println ( response + "We Recommend Feature Loaded" );
                 WerecommendResponse werecommendResponse = response.body ();
-                werecommendList = new ArrayList<>
-                        ( Arrays.asList ( werecommendResponse.werecommend () ) );
+                if (werecommendResponse != null) {
+                    werecommendList = new ArrayList<>
+                            ( Arrays.asList ( werecommendResponse.werecommend () ) );
+                } else {
+                    System.out.println ( "Could not load we Category" );
+                }
                 PutDataIntoWeRecommend ( werecommendList );
 
 
             }
 
             @Override
-            public void onFailure(Call<WerecommendResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<WerecommendResponse> call, @NotNull Throwable t) {
 
             }
         } );
@@ -180,7 +202,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
 
-    private void PutDataIntoWeRecommend(List<Businesses> werecommendList) {
+    void PutDataIntoWeRecommend(List<Businesses> werecommendList) {
         WerecommendAdapter werecommendAdapter = new WerecommendAdapter ( this,
                 werecommendList );
         werecommendRecycler.setLayoutManager ( new LinearLayoutManager ( this,
@@ -190,15 +212,16 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-    private void PutDataIntoView(List<Businesses> businessesList) {
+    void PutDataIntoView(List<Businesses> businessesList) {
         BusinessesAdapter businessesAdapter = new BusinessesAdapter ( this, businessesList );
         featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this,
                 LinearLayoutManager.HORIZONTAL, false ) );
         featuredRecycler.setAdapter ( businessesAdapter );
     }
 
-    private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, businessesList );
+    void PutDataIntoRecyclerView(List<Categories> categoriesList) {
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter
+                ( this, categoriesList, businessesList );
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this,
                 LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
@@ -215,13 +238,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         navigationView.setNavigationItemSelectedListener ( this );
         navigationView.setCheckedItem ( R.id.nav_home );
 
-        menuIcon.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerVisible ( GravityCompat.START ))
-                    drawerLayout.closeDrawer ( GravityCompat.START );
-                else drawerLayout.openDrawer ( GravityCompat.START );
-            }
+        menuIcon.setOnClickListener ( v -> {
+            if (drawerLayout.isDrawerVisible ( GravityCompat.START ))
+                drawerLayout.closeDrawer ( GravityCompat.START );
+            else drawerLayout.openDrawer ( GravityCompat.START );
         } );
         animateNavigationDrawer ();
     }
@@ -257,7 +277,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId ();
         if (id == R.id.nav_home) {
@@ -277,7 +297,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );
-            intent2.putExtra ( Intent.EXTRA_TEXT, "Download the Tencil App Today!" + "https://play.google.com/store/apps/details?id=uk.co.tencil.app" + getPackageName () );
+            intent2.putExtra ( Intent.EXTRA_TEXT,
+                    "Download the Tencil App Today!" +
+                            "https://play.google.com/store/apps/details?id=uk.co.tencil.app" +
+                            getPackageName () );
             intent2.setType ( "text/plain" );
             startActivity ( intent2 );
 
@@ -292,7 +315,8 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             toqs.putExtra ( "logininfo", bundle );
             startActivity ( toqs );
         } else if (id == R.id.nav_technical) {
-            Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( "https://manage.statuspage.io/pages/sgndqzkndcf7/incidents" ) );
+            Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                    ( "https://manage.statuspage.io/pages/sgndqzkndcf7/incidents" ) );
             startActivity ( browserIntent );
         }
 

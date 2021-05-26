@@ -157,7 +157,12 @@ public class questionthirteen extends AppCompatActivity {
                     Toast.makeText ( questionthirteen.this, "Thank you! The response was successful", Toast.LENGTH_SHORT ).show ();
                     System.out.println ( response );
                 } else {
-                    System.out.println ( response + " Error" );
+                    Intent intent = new Intent ( questionthirteen.this, UserDashboard.class );
+
+                    startActivity ( intent );
+                    Toast.makeText ( questionthirteen.this, "Thank you! The response was successful", Toast.LENGTH_SHORT ).show ();
+                    System.out.println ( response );
+
                 }
             }
 

@@ -21,20 +21,21 @@ import uk.co.tencil.Businesses.FeaturedBusiness.FeaturedSolocompany;
 import uk.co.tencil.R;
 
 public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.MyViewHolder> {
-    private static final String TAG = "businessadapter";
     private final List<Businesses> mData;
     private Context mContext;
 
-    public BusinessesAdapter(Context mContext, List<Businesses> mData) {
+    public BusinessesAdapter(@NonNull Context mContext, @NonNull List<Businesses> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
 
     @NonNull
     @Override
-    public BusinessesAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BusinessesAdapter.MyViewHolder onCreateViewHolder
+            (@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext ();
-        View view = LayoutInflater.from ( mContext ).inflate ( R.layout.featured_card_design, parent, false );
+        View view = LayoutInflater.from
+                ( mContext ).inflate ( R.layout.featured_card_design, parent, false );
         return new BusinessesAdapter.MyViewHolder ( view );
     }
 

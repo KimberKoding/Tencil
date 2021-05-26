@@ -55,7 +55,6 @@ public class Solocompany extends AppCompatActivity {
         videoView = findViewById ( R.id.videoview );
         news = findViewById ( R.id.news_card );
         imageView = findViewById ( R.id.imageView );
-
         business_name.setText ( getIntent ().getStringExtra ( "bus_name" ) );
         business_name.setFocusable ( true );
         bdesc.setText ( getIntent ().getStringExtra ( "bdesc" ) );

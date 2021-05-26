@@ -48,7 +48,7 @@ public class APiClient {
 
         Retrofit retrofit = new Retrofit.Builder ()
                 .addConverterFactory ( GsonConverterFactory.create () )
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .baseUrl ( "https://tencil-infra.co.uk/api/v1/" )
                 .client ( okHttpClient )
                 .build ();
 

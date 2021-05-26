@@ -1,5 +1,6 @@
 package uk.co.tencil.Designs;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -16,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +51,7 @@ public class cardviewdesign extends AppCompatActivity {
     LinearLayout contentView;
     TextView welcomeuser;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -55,7 +60,10 @@ public class cardviewdesign extends AppCompatActivity {
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         categoriesList = new ArrayList<> ();
-        welcomeuser.setText ( "Welcome to Tencil " + "\n" + getIntent ().getStringExtra ( "email" ) );
+        welcomeuser.setText
+                ( getString ( R.string.welcometotencil ) + "\n" +
+                        getIntent ().getStringExtra ( "email" ) );
+
 
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
@@ -76,10 +84,13 @@ public class cardviewdesign extends AppCompatActivity {
 
         call.enqueue ( new Callback<JSONResponse> () {
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+            public void onResponse(@NotNull Call<JSONResponse> call,
+                                   @NotNull Response<JSONResponse> response) {
 
                 JSONResponse jsonResponse = response.body ();
-                categoriesList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
+                assert jsonResponse != null;
+                categoriesList = new ArrayList<> ( Arrays.asList
+                        ( jsonResponse.getCategories () ) );
 
                 PutDataIntoRecyclerView ( categoriesList );
 
@@ -87,16 +98,21 @@ public class cardviewdesign extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<JSONResponse> call, @NotNull Throwable t) {
                 System.out.println ( t );
 
             }
         } );
 
     }
-    private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, businessesList );
-        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+
+    void PutDataIntoRecyclerView(List<Categories> categoriesList) {
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList,
+                businessesList );
+        categoriesRecycler.setLayoutManager
+                ( new LinearLayoutManager ( this,
+                        LinearLayoutManager.HORIZONTAL,
+                        false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
 
     }
@@ -109,13 +125,10 @@ public class cardviewdesign extends AppCompatActivity {
         navigationView.bringToFront ();
         navigationView.setCheckedItem ( R.id.nav_home );
 
-        menuIcon.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerVisible ( GravityCompat.START ))
-                    drawerLayout.closeDrawer ( GravityCompat.START );
-                else drawerLayout.openDrawer ( GravityCompat.START );
-            }
+        menuIcon.setOnClickListener ( v -> {
+            if (drawerLayout.isDrawerVisible ( GravityCompat.START ))
+                drawerLayout.closeDrawer ( GravityCompat.START );
+            else drawerLayout.openDrawer ( GravityCompat.START );
         } );
         animateNavigationDrawer ();
     }
@@ -151,7 +164,7 @@ public class cardviewdesign extends AppCompatActivity {
     }
 
 
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id = item.getItemId ();
         if (id == R.id.nav_home) {
@@ -161,7 +174,9 @@ public class cardviewdesign extends AppCompatActivity {
 
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );
-            intent2.putExtra ( Intent.EXTRA_TEXT, "TENCIL APP COMING SOON " + " http://www.tencil.co.uk/" + getPackageName () );
+            intent2.putExtra
+                    ( Intent.EXTRA_TEXT, "TENCIL APP COMING SOON " + " http://www.tencil.co.uk/"
+                            + getPackageName () );
             intent2.setType ( "text/plain" );
             startActivity ( intent2 );
 
@@ -173,7 +188,7 @@ public class cardviewdesign extends AppCompatActivity {
 
     }
 
-    public void card1(View view) {
+    public void card1(@NonNull View view) {
         Intent intent = new Intent ( cardviewdesign.this, Solocompany.class );
         startActivity ( intent );
     }

@@ -135,7 +135,6 @@
     <string name="category_proptech">Proptech</string>
     <string name="business1">Business #1</string>
     <string name="goback">GoBack</string>
-    <string name="business_name">Business Name</string>
     <string name="we_are_a_small_business">We Are a Small Business</string>
     <string name="resources">Resources</string>
     <string name="left">Left</string>
@@ -200,7 +199,6 @@
     </string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="more_coming_soon">More Coming Soon!</string>
-    <string name="careers">Careers</string>
     <string name="version_1_0_16">Version 1.0.16</string>
     <string name="reset_password">Reset Password</string>
     <string name="version_1_0_19">Version 1.1.19</string>
@@ -208,5 +206,9 @@
     <string name="logo">Logo</string>
     <string name="activatelogin">Activate</string>
     <string name="name">Name</string>
+    <string name="welcometotencil">\“Welcome to Tencil \”</string>
+    <string name="featured_business">FEATURED BUSINESS</string>
+    <string name="careers">Careers</string>
+    <string name="business_name">Business Name</string>
 
 </resources>

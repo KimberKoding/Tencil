@@ -1,5 +1,6 @@
 package uk.co.tencil.WeRecommend;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -31,50 +32,50 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
     static int cid;
     private Context mcontext;
     TextView category;
-    private CategoryCardActivity cca;
     private List<Businesses> mData;
-    private WerecommendAdapter wra;
 
     public WerecommendAdapter() {
 
     }
 
-    public int getCid() {
-        System.out.println ( "getCid() method was called! CID is: " + cid );
-        return cid;
+    public WerecommendAdapter(@NonNull Context mcontext, @NonNull List<Businesses> mData) {
+        this.mData = mData;
+        this.mcontext = mcontext;
     }
 
+    @SuppressLint("KotlinPropertyAccess")
+    public void getCid() {
+        System.out.println ( "getCid() method was called! CID is: " + cid );
+    }
+
+    @SuppressLint("KotlinPropertyAccess")
     public void setCid(int cid) {
         WerecommendAdapter.cid = cid;
         System.out.println ( "setCid() method was called! CID is now: " + WerecommendAdapter.cid );
     }
 
-
-    public WerecommendAdapter(Context mcontext, List<Businesses> mData) {
-        this.mData = mData;
-        this.mcontext = mcontext;
-    }
-
+    @NonNull
     public WerecommendAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mcontext = parent.getContext ();
         View view = LayoutInflater.from ( mcontext ).inflate ( R.layout.recommend_card_design,
                 parent, false );
 
 
-        return new WerecommendAdapter.MyHolder ( view );
+        return new MyHolder ( view );
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
-        wra = new WerecommendAdapter ();
-        wra.setCid ( 1 );
+        WerecommendAdapter wra = new WerecommendAdapter ();
+        wra.setCid ( 3 );
         wra.getCid ();
 
 
         Businesses temp = mData.get ( position );
-        // Dymamically Generating card background colours
+        // Dynamically Generating card background colours
         Random rnd = new Random ();
-        int currentColour = Color.argb ( 255, rnd.nextInt ( 256 ), rnd.nextInt ( 256 ), rnd.nextInt ( 256 ) );
+        int currentColour = Color.argb ( 255, rnd.nextInt ( 256 ), rnd.nextInt
+                ( 256 ), rnd.nextInt ( 256 ) );
         holder.cardview.setBackgroundColor ( currentColour );
         System.out.println ( category );
         holder.businessname.setText ( mData.get ( position ).getBusiness_name () );
@@ -103,14 +104,15 @@ public class WerecommendAdapter extends RecyclerView.Adapter<WerecommendAdapter.
 
     @Override
     public int getItemCount() {
-        cca = new CategoryCardActivity ();
+        CategoryCardActivity cca = new CategoryCardActivity ();
+        System.out.println ( cca );
         return mData.size ();
     }
 
 
-    public class MyHolder extends RecyclerView.ViewHolder {
+    public static class MyHolder extends RecyclerView.ViewHolder {
 
-        TextView category;
+
         RelativeLayout werecommend;
         TextView businessname;
         ImageView businesslogo;

@@ -21,33 +21,40 @@ import java.util.Random;
 import uk.co.tencil.CompanyView.Solocompany;
 import uk.co.tencil.R;
 
-public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBusinessesByCidAdapter.MyHolder> {
+public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter
+        <GetAllBusinessesByCidAdapter.MyHolder> {
 
     private final List<Businesses> allData;
     private Context mContext;
 
 
-    public GetAllBusinessesByCidAdapter(Context mContext, List<Businesses> allData) {
+    public GetAllBusinessesByCidAdapter
+            (@NonNull Context mContext, @NonNull List<Businesses> allData) {
         this.mContext = mContext;
         this.allData = allData;
     }
 
     @NonNull
     @Override
-    public GetAllBusinessesByCidAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public GetAllBusinessesByCidAdapter.MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int
+            viewType) {
         mContext = parent.getContext ();
-        View v = LayoutInflater.from ( mContext ).inflate ( R.layout.categoriesallbusinesses, parent, false );
+        View v = LayoutInflater.from ( mContext ).inflate ( R.layout.categoriesallbusinesses,
+                parent, false );
 
 
-
-        return new GetAllBusinessesByCidAdapter.MyHolder ( v );
+        return new MyHolder ( v );
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GetAllBusinessesByCidAdapter.MyHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GetAllBusinessesByCidAdapter.MyHolder holder,
+                                 int position) {
         Businesses temp = allData.get ( position );
         Random rnd = new Random ();
-        int currentColour = Color.argb ( 255, rnd.nextInt ( 256 ), rnd.nextInt ( 256 ), rnd.nextInt ( 256 ) );
+        int currentColour = Color.argb ( 255,
+                rnd.nextInt ( 256 ),
+                rnd.nextInt ( 256 ),
+                rnd.nextInt ( 256 ) );
         holder.allcatCard.setBackgroundColor ( currentColour );
         holder.business_name.setText ( allData.get ( position ).getBusiness_name () );
         System.out.println ( allData.size () );
@@ -74,7 +81,8 @@ public class GetAllBusinessesByCidAdapter extends RecyclerView.Adapter<GetAllBus
         return allData.size ();
 
     }
-    public class MyHolder extends RecyclerView.ViewHolder {
+
+    public static class MyHolder extends RecyclerView.ViewHolder {
 
         RelativeLayout allcatCard;
         TextView business_name;
