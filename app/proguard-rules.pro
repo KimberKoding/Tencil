@@ -22,5 +22,4 @@
 #noinspection ShrinkerUnresolvedReference
 -keep class com.newrelic.** { *; }
 -dontwarn com.newrelic.**
--keepattributes Exceptions, Signature, InnerClasses, LineNumberTable
-
+-keepattributes Exceptions, Signature, InnerClasses, LineNumberTable, SourceFile

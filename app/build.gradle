@@ -3,6 +3,7 @@ plugins {
     id 'newrelic'
 }
 
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -11,17 +12,22 @@ android {
         applicationId "uk.co.tencil.app"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 11
-        versionName "1.0.20"
-
+        versionCode 15
+        versionName "1.0.22"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        android.defaultConfig.ndk.debugSymbolLevel = 'SYMBOL_TABLE'
     }
 
     buildTypes {
+        debug {
+            debuggable false
+        }
+
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
         }
         'dev-rel' {
             debuggable true
@@ -37,14 +43,15 @@ android {
     }
 }
 
+
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     testImplementation 'junit:junit:4.13.2'
@@ -61,7 +68,7 @@ dependencies {
     //Circle Imageview
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    //Times Formater
+    //Times Formatter
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     implementation 'com.github.danylovolokh:list-visibility-utils:0.2.0'
     implementation 'com.github.danylovolokh:video-player-manager:0.2.0'
