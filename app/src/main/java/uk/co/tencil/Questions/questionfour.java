@@ -21,7 +21,7 @@ public class questionfour extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_questionfour );
         List<String> ethnic =
-                Arrays.asList ( "White", "Asian", "Black", "Mixed Race", "Other", "Prefer Not To Say" );
+                Arrays.asList ( "White", "Asian", "Black", "Mixed Race", "Other", "Prefer not to say" );
         Spinner spinner4 = findViewById ( R.id.spinner4 );
         ArrayAdapter adapter = new ArrayAdapter ( getApplicationContext (),
                 android.R.layout.simple_spinner_item, ethnic );

@@ -22,12 +22,12 @@ public class questioneleven extends AppCompatActivity {
         setContentView ( R.layout.activity_questioneleven );
         List<String> statement =
                 Arrays.asList (
-                        "I Am Passionate About My Work",
-                        "I Am Highly Organised.",
-                        "I Am Ambitious And Driven",
-                        "I am a People Person",
-                        "Im a Natural Leader",
-                        "I am Results Orientated"
+                        "I am passionate about my work",
+                        "I am highly organised.",
+                        "I am ambitious and driven",
+                        "I am a people person",
+                        "Im a natural leader",
+                        "I am results orientated"
 
                 );
 

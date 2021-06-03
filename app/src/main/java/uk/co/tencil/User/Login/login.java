@@ -35,21 +35,21 @@ public class login extends AppCompatActivity {
 
 
 
-        btnLogin.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View view) {
+        btnLogin.setOnClickListener ( view -> {
 
-                if (TextUtils.isEmpty ( email.getText ().toString () ) || TextUtils.isEmpty ( password.getText ().toString () )) {
-                    Toast.makeText ( login.this, "Email / Password Required", Toast.LENGTH_LONG ).show ();
-                } else {
-                    //proceed to login
-                    LoginResponse res = new LoginResponse();
-                    res.setEmail(email.getText().toString());
-                    res.setPassword(password.getText().toString());
-                    login (res);
-                }
-
+            if (TextUtils.isEmpty ( email.getText ().toString () )
+                    || TextUtils.isEmpty ( password.getText ().toString () )) {
+                Toast.makeText
+                        ( login.this, "Email / Password Required",
+                                Toast.LENGTH_LONG ).show ();
+            } else {
+                //proceed to login
+                LoginResponse res = new LoginResponse ();
+                res.setEmail ( email.getText ().toString () );
+                res.setPassword ( password.getText ().toString () );
+                login ( res );
             }
+
         } );
     }
 
@@ -76,11 +76,6 @@ public class login extends AppCompatActivity {
 
 
                     if (passMatch && userActive) {
-
-                        //Create a Session
-                        SessionManager sessionManager = new SessionManager ( login.this );
-                        sessionManager.createLoginSession ( email, password );
-
 
                         Toast.makeText ( login.this, "Login Successful", Toast.LENGTH_LONG ).show ();
                         new Handler ().postDelayed ( new Runnable () {

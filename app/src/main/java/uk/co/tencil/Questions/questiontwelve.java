@@ -29,8 +29,7 @@ public class questiontwelve extends AppCompatActivity {
                         "Apprenticeship",
                         "Full-Time Work",
                         "Part-Time Work",
-                        "Travelling",
-                        "I am Results Orientated"
+                        "Travelling"
 
                 );
 
