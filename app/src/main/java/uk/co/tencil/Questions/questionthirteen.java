@@ -117,7 +117,7 @@ public class questionthirteen extends AppCompatActivity {
             questionsResponse.setQ10 ( questiontenanswer );
             questionsResponse.setQ11 ( questionelevenanswer );
             questionsResponse.setQ12 ( questiontwelveanswer );
-            questionsResponse.setQ13 ( questionthirteenanswer );
+            questionsResponse.setQ13 ( careers1 );
             questionsResponse ( questionsResponse );
             System.out.println ( careers1 );
 
