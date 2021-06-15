@@ -36,7 +36,7 @@
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
-        android:text="@string/version_1_0_19"
+        android:text="@string/testingforbugs"
         android:textAlignment="center"
         android:textColor="#000"
         android:textStyle="bold"

@@ -3,7 +3,6 @@ package uk.co.tencil.User;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.jetbrains.annotations.NotNull;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,12 +38,8 @@ public class user_profile extends AppCompatActivity {
         emailuser = findViewById ( R.id.emailuser );
         Intent receiveIntent = getIntent ();
         Bundle logininfo = receiveIntent.getBundleExtra ( "logininfo" );
+        if (logininfo == null) {
 
-        String result = "";
-
-        for (String key : logininfo.keySet ()) {
-            result += logininfo.get ( key ) + "\n";
-            System.out.println ( result );
         }
         System.out.println ( logininfo.get ( "fname" ) );
         nameuser.setText ( logininfo.getString ( "fname" ) );
@@ -51,23 +48,22 @@ public class user_profile extends AppCompatActivity {
         email.setText ( logininfo.getString ( "email" ) );
 
 
-        buttonupdate.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty ( name.getText ().toString () ) ||
-                        TextUtils.isEmpty ( password.getText ().toString () )) {
-                    Toast.makeText ( user_profile.this,
-                            "Name & Password must not be empty.", Toast.LENGTH_SHORT ).show ();
+        buttonupdate.setOnClickListener ( v -> {
+            if (TextUtils.isEmpty ( name.getText ().toString () ) ||
+                    TextUtils.isEmpty ( password.getText ().toString () )) {
+                Toast.makeText ( user_profile.this,
+                        "Name & Password must not be empty.", Toast.LENGTH_SHORT ).show ();
 
-                } else {
+            } else {
 
-                    EditResponse editdetails = new EditResponse ();
-                    editdetails.setEmail ( email.getText ().toString () );
-                    editdetails.setName ( name.getText ().toString () );
-                    editdetails.setPassword ( password.getText ().toString () );
-                    editdetails ( editdetails );
-                }
+                EditResponse editdetails = new EditResponse ();
+                editdetails.setEmail ( email.getText ().toString () );
+                editdetails.setName ( name.getText ().toString () );
+                editdetails.setPassword ( password.getText ().toString () );
+                editdetails ( editdetails );
             }
+
+
         } );
 
 
@@ -84,26 +80,29 @@ public class user_profile extends AppCompatActivity {
         System.out.println ( logininfo.getString ( "userapikey" ) );
 
 
-        Call<EditResponse> editResponseCall = APiClient.getUserService ().editdetails ( logininfo.getString ( "userapikey" ), editdetails );
+        Call<EditResponse> editResponseCall = APiClient.getUserService ().editdetails
+                ( logininfo.getString ( "userapikey" ), editdetails );
         editResponseCall.enqueue ( new Callback<EditResponse> () {
             @Override
-            public void onResponse(Call<EditResponse> call, Response<EditResponse> response) {
+            public void onResponse(@NotNull Call<EditResponse> call,
+                                   @NotNull Response<EditResponse> response) {
                 if (response.isSuccessful ()) {
                     EditResponse editResponse1 = response.body ();
-                    String email = editResponse1.getEmail ();
-                    String name = editResponse1.getName ();
-                    String password = editResponse1.getPassword ();
+                    assert editResponse1 != null;
 
 
-                    Toast.makeText ( user_profile.this, "Thank you for changing your details", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( user_profile.this,
+                            "Thank you for changing your details", Toast.LENGTH_SHORT ).show ();
                 } else {
                     System.out.println ( response + " Error" );
-                    Toast.makeText ( user_profile.this, "Error, see logs!", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText
+                            ( user_profile.this,
+                                    "Error, see logs!", Toast.LENGTH_SHORT ).show ();
                 }
             }
 
             @Override
-            public void onFailure(Call<EditResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<EditResponse> call, @NotNull Throwable t) {
                 System.out.println ( t + " Error" );
                 Toast.makeText (
                         user_profile.this,
