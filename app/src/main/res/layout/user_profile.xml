@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="user_profile">
+    tools:context=".User.user_profile">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,42 +14,33 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:background="@color/colorPrimary"
+            android:background="#1A1C3A"
             android:padding="20dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/profile"
-                app:civ_border_color="#000"
-                app:civ_border_width="4dp" />
+
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/nameuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/profile_image"
                 android:fontFamily="@font/raleway_bold"
                 android:includeFontPadding="false"
-                android:text="@string/ryan_kimber"
+                android:text="@string/test"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/email"
+                android:id="@+id/emailuser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/name"
+                android:layout_below="@+id/nameuser"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/profile_image"
                 android:fontFamily="@font/raleway"
                 android:includeFontPadding="false"
-                android:text="@string/ryan_kimber97_gmail_com"
+                android:text="@string/test"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -71,7 +62,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
+                    android:background="#1A1C3A"
                     android:elevation="40dp"
                     android:padding="5dp">
 
@@ -108,6 +99,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
+                    android:id="@+id/name"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="10dp"
@@ -122,6 +114,7 @@
                 android:hint="@string/e_mail">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/field_email_icon"
@@ -137,27 +130,31 @@
                 android:hint="@string/password">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/padlock"
                     android:drawablePadding="10dp"
-                    android:text="********" />
+                    android:text="@string/passwordDefault" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+
                 android:id="@+id/buttonupdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:background="@color/colorPrimary"
+                android:background="#1A1C3A"
+                android:textColor="@color/white"
+
                 android:fontFamily="@font/raleway_bold"
-                android:onClick="buttonupdate"
                 android:text="@string/update_details"
-                android:textColor="@color/white" />
+                app:backgroundTint="#1a1c3a" />
 
 
         </LinearLayout>
+
 
     </LinearLayout>
 </ScrollView>

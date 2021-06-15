@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#fff"
-        android:theme="@style/navigationTheme"
+        android:theme="@style/AppTheme"
         app:headerLayout="@layout/menu_header"
         app:menu="@menu/main_menu" />
 
@@ -80,139 +80,14 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/werecommend"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="FINANCE"
-                    android:textColor="#000"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
 
 
             </LinearLayout>
 
-            <androidx.cardview.widget.CardView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/werecommendrecycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/card_1"
-                android:onClick="card001"
-                app:cardCornerRadius="0dp"
-                app:cardElevation="50dp"
-                app:cardPreventCornerOverlap="false">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:background="@color/card1"
-                    android:onClick="card001"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Starling Bank"
-                        android:textColor="@color/white"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/profile_image"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/starling"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="2dp" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_green"
-                android:onClick="card002"
-                app:cardCornerRadius="0dp"
-                app:cardElevation="50dp"
-                app:cardPreventCornerOverlap="false">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:background="@drawable/bg_green"
-                    android:onClick="card002"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Monzo"
-                        android:textColor="@color/white"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/profile_image2"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:layout_gravity="center"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/monzo"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="2dp" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_green"
-                android:onClick="card003"
-                app:cardCornerRadius="0dp"
-                app:cardElevation="50dp"
-                app:cardPreventCornerOverlap="false">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:background="@drawable/card_2"
-                    android:onClick="card003"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/MoneyFarm"
-                        android:textColor="@color/white"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
-                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                        android:id="@+id/profile_image3"
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:layout_gravity="center"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/moneyfarmlogo"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="2dp" />
-
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent" />
 
 
             <RelativeLayout
@@ -259,7 +134,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/featured_recycler"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="290dp"
                     android:layout_marginStart="10dp"
                     android:layout_toEndOf="@+id/featured_background"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.co.tencil.Activate">
+    tools:context="uk.co.tencil.Activation.Activate">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:onClick="activate_dash"
             android:padding="15dp"
+            android:contentDescription="@string/back_button"
             android:src="@drawable/general_back_icon" />
     </RelativeLayout>
 
@@ -46,17 +47,18 @@
         android:id="@+id/activateemail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_above="@id/activatecode"
+        android:layout_above="@+id/activatecode"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:autofillHints=""
+        android:autofillHints="@string/e_mail"
         android:background="@drawable/et_custom"
-        android:drawableEnd="@drawable/ic_user"
+        android:drawableEnd="@drawable/field_email_icon"
         android:fontFamily="@font/roboto_regular"
         android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textSize="15sp" />
+
 
     <EditText
         android:id="@+id/activatecode"
@@ -91,7 +93,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:backgroundTint="#14b9d5"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/activate"
         android:textColor="@android:color/white" />
@@ -104,7 +106,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:onClick="resendTO"
         android:text="@string/resend_code"
@@ -113,5 +115,6 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="20dp" />
+
 
 </RelativeLayout>

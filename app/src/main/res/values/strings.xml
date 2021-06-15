@@ -1,13 +1,9 @@
-<resources>
-    <string name="app_name">TENCIL</string>
-
-
-    <string name="swipe_left_for_register">Swipe Left for Register</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Tencil</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="e_mail">Email</string>
     <string name="tag">Register &amp; Control Your Future Today!</string>
-    <string name="swipe_right_for_login">Swipe Right for Login</string>
     <string name="register">Register</string>
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
@@ -15,135 +11,6 @@
     <string name="prompt_email" />
     <string name="prompt_password" />
     <string name="action_sign_in_short" />
-
-    <string-array name="location">
-        <item>Wales</item>
-        <item>England</item>
-        <item>Scotland</item>
-        <item>Northern Ireland</item>
-        <item>Other</item>
-    </string-array>
-
-
-    <string-array name="age">
-        <item>14 – 15</item>
-        <item>15 – 16</item>
-        <item>16 – 17</item>
-        <item>18+</item>
-        <item>Prefer Not To Say</item>
-    </string-array>
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Transgender</item>
-        <item>Non-Binary</item>
-        <item>Prefer Not To Say</item>
-
-    </string-array>
-    <string-array name="ethnic">
-        <item>White</item>
-        <item>Gypsy</item>
-        <item>Asian</item>
-        <item>Black</item>
-        <item>Mixed Race</item>
-        <item>Other</item>
-        <item>Prefer Not To Say</item>
-
-    </string-array>
-
-    <string-array name="subjects">
-        <item>Humanities</item>
-        <item>Sciences</item>
-        <item>Social Sciences</item>
-        <item>Languages</item>
-        <item>Mathematics</item>
-
-    </string-array>
-
-    <string-array name="hobbies">
-        <item>Sports</item>
-        <item>Social Media</item>
-        <item>Music</item>
-        <item>Gaming</item>
-        <item>Technology</item>
-        <item>Arts and Design</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="sports">
-        <item>Rugby</item>
-        <item>Football</item>
-        <item>Cricket</item>
-        <item>Golf</item>
-        <item>Hiking</item>
-        <item>Swimming</item>
-        <item>Ballet</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="smedia">
-        <item>Facebook</item>
-        <item>Twitter</item>
-        <item>TikTok</item>
-        <item>Instagram</item>
-        <item>Snapchat</item>
-        <item>Youtube</item>
-        <item>Linkedin</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="genre">
-        <item>Hip Hop</item>
-        <item>Pop Music</item>
-        <item>House Music</item>
-        <item>Techno</item>
-        <item>Jazz</item>
-        <item>Rock</item>
-        <item>Heavy Metal</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="console">
-        <item>Playstation</item>
-        <item>Xbox</item>
-        <item>PC (No RTX 3070 here)</item>
-        <item>Nintendo</item>
-        <item>Other</item>
-        <item>None</item>
-
-
-    </string-array>
-    <string-array name="statement">
-        <item>I Am Passionate About My Work.</item>
-        <item>I Am Highly Organised.</item>
-        <item>I Am Ambitious And Driven</item>
-        <item>I am a People Person</item>
-        <item>Im a Natural Leader</item>
-        <item>I am Results Orientated</item>
-
-
-    </string-array>
-    <string-array name="school">
-        <item>University</item>
-        <item>Apprenticeship </item>
-        <item>Full-Time Work</item>
-        <item>Part-Time Work</item>
-        <item>Travelling</item>
-        <item>Other</item>
-
-    </string-array>
-
-    <string-array name="career">
-        <item>Marketing</item>
-        <item>Law</item>
-        <item>Finance</item>
-        <item>Real-Estate</item>
-        <item>Coding</item>
-        <item>Other</item>
-
-
-    </string-array>
-
     <string name="tencil">Welcome To Tencil</string>
     <string name="textview">TextView</string>
 
@@ -156,11 +23,6 @@
     <string name="third_slide_title">Add Missing Place</string>
     <string name="fourth_slide_title">Sit Back And Enjoy</string>
 
-    <!--Descriptions-->
-    <string name="first_slide_desc">You can search any place nearby or with-in the specified city. We will display specific or all related shops to match your search. </string>
-    <string name="second_slide_desc">We provide almost all the numbers of all departments and shops registered with us. You can perform bookings as well.</string>
-    <string name="third_slide_desc">If you have a shop or somethings and want to be a part of our growing industry then add your place by follwing simple steps.</string>
-    <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you dont have to worry about anything.  </string>
 
 
     <!--Buttons-->
@@ -188,7 +50,8 @@
     <string name="where_do_you_live">Where Do You Live?</string>
     <string name="how_old_are_you">How Old Are You?</string>
     <string name="what_gender_are_you">What Gender Are You?</string>
-    <string name="what_ethnic_group_best_describes_you">What Ethic Group Best Describes You? </string>
+    <string name="what_ethnic_group_best_describes_you"> Which Ethic Group Best Describes You?
+    </string>
     <string name="what_is_your_favourite_subjects">What Is Your Favourite Subjects</string>
     <string name="what_is_your_hobbies">What Is Your Favourite Hobby?</string>
     <string name="what_is_your_sport">What Is Your Favourite Sport?</string>
@@ -219,7 +82,7 @@
     <string name="category_nine">Category Nine</string>
     <string name="category_ten">Category Ten</string>
     <!-- END of Categories -->
-    <string name="company1">Company1</string>
+    <string name="company1" tools:ignore="Typos">Company1</string>
     <string name="expand_all">Expand All</string>
     <string name="providence_web_services">Providence Web Services</string>
     <string name="businesses">Businesses</string>
@@ -252,7 +115,8 @@
 
     <!--Titles & Descriptions -->
     <string name="featured_companies">All Featured Companies</string>
-    <string name="featured_companies_description">All the featured companies have a top demand in your area!</string>
+    <string name="featured_companies_description">
+        All the featured companies have a top demand in your area!</string>
     <string name="most_viewed_companies">Most Viewed</string>
     <string name="categories">Categories</string>
     <string name="view_all">View all</string>
@@ -269,12 +133,9 @@
     <string name="category_lawtech">Lawtech</string>
     <string name="category_other">Other</string>
     <string name="category_proptech">Proptech</string>
-    <!-- uk.co.providencewebservices.tencilprovidencewebservices.uk.co.providencewebservices.com.example.tencil.Businesses -->
     <string name="business1">Business #1</string>
     <string name="goback">GoBack</string>
-    <string name="business_name">Business Name</string>
     <string name="we_are_a_small_business">We Are a Small Business</string>
-    <string name="provide_desc">We are a local and budget friendly business that provides unique websites, up to date social media advertising to attract new customers and we also offer unique media packages that will suit your business needs.</string>
     <string name="resources">Resources</string>
     <string name="left">Left</string>
     <string name="right">Right</string>
@@ -297,12 +158,15 @@
     <string name="category_tech">Tech Category</string>
     <string name="test">Test Company</string>
     <string name="MoneyFarm">Money Farm</string>
-    <string name="moneyfarm_desc">"We are a pan-European digital wealth manager with 50,000 active investors and over £1 billion invested on our platform.</string>
-    <string name="forget_password_desc">Provide Your Account Email  \n To Reset Your Password</string>
+    <string name="moneyfarm_desc">"We are a pan-European digital wealth manager with 50,000 active
+        investors and over £1 billion invested on our platform.</string>
+    <string name="forget_password_desc">Provide Your Account Email
+        \n To Reset Your Password</string>
     <string name="next_forgotten_password">Next</string>
     <string name="verification_method">Please Select a <br />Method of Verification</string>
     <string name="new_credentials">New Credentials</string>
-    <string name="new_credentials_detail">Your Identity Has Been Verified.<br /> Set Your New Password</string>
+    <string name="new_credentials_detail">Your Identity Has Been Verified.<br />
+        Set Your New Password</string>
     <string name="update">Update</string>
     <string name="back_button">back button</string>
     <string name="new_password_logo">New Password Logo</string>
@@ -317,7 +181,7 @@
     <string name="contact_us">Contact Us</string>
     <string name="homepage">Ryan\'s Home page</string>
     <string name="we_recomend">We Recommend: </string>
-    <string name="welcome_to_tencil_ryan">Welcome to Tencil \n  </string>
+    <string name="welcome_to_tencil_ryan">Welcome to Tencil </string>
     <string name="full_name">Full Name</string>
     <string name="ryan">Ryan</string>
     <string name="ryan_kimber">Ryan Kimber</string>
@@ -325,10 +189,27 @@
     <string name="want_to_edit_your_details">Want to Edit your details?</string>
     <string name="ryan_kimber97_gmail_com">ryan.kimber97@gmail.com</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="provide_your_verification_code_to_get_started">Provide your verification code to \n get started</string>
-    <string name="newpassstart">Provide Your Account Email and \n New Password to complete the reset</string>
-    <string name="news_this_feature_will_be_live_on_full_release">News \n (This feature will be live on full release)</string>
-    <string name="videos_this_feature_will_be_live_on_full_release">Videos \n (This feature will be live on full release)</string>
-    <string name="moneyfarm_is_an_online_investment_advisor_and_one_of_the_largest_digital_wealth_management_companies_in_europe">Moneyfarm is an online investment advisor and one of the largest digital wealth management companies in Europe</string>
+    <string name="provide_your_verification_code_to_get_started">Provide
+        your verification code to \n get started</string>
+    <string name="newpassstart">Provide Your Account Email and \n
+        New Password to complete the reset</string>
+    <string name="news_this_feature_will_be_live_on_full_release">News
+        \n</string>
+    <string name="videos_this_feature_will_be_live_on_full_release">Videos
+    </string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="more_coming_soon">More Coming Soon!</string>
+    <string name="version_1_0_16">Version 1.0.16</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="version_1_0_19">Version 1.1.19</string>
+    <string name="testingforbugs">Testing for bugs</string>
+    <string name="passwordDefault">********</string>
+    <string name="logo">Logo</string>
+    <string name="activatelogin">Activate</string>
+    <string name="name">Name</string>
+    <string name="welcometotencil">\“Welcome to Tencil\”</string>
+    <string name="featured_business">FEATURED BUSINESS</string>
+    <string name="careers">Careers</string>
+    <string name="business_name">Business Name</string>
 
 </resources>

@@ -6,7 +6,7 @@
     android:theme="@style/AppTheme"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="uk.co.tencil.register">
+    tools:context="uk.co.tencil.User.Register.register">
 
     <TextView
         android:id="@+id/tv_logo"
@@ -43,7 +43,8 @@
         android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
         android:padding="15dp"
-        android:drawableRight="@drawable/ic_user"
+        android:autofillHints="Email"
+        android:drawableEnd="@drawable/field_email_icon"
         android:textSize="15sp" />
 
     <EditText
@@ -54,11 +55,12 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/et_custom"
-        android:drawableRight="@drawable/ic_user"
+        android:autofillHints="@string/name"
         android:fontFamily="@font/roboto_regular"
-        android:hint="Name"
+        android:drawableEnd="@drawable/ic_user"
         android:inputType="text"
         android:padding="15dp"
+        android:hint="@string/name"
         android:textSize="15sp" />
 
     <EditText
@@ -73,7 +75,8 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:drawableRight="@drawable/ic_baseline_lock_24"
+        android:autofillHints=""
+        android:drawableEnd="@drawable/ic_baseline_lock_24"
         android:textSize="15sp" />
 
     <EditText
@@ -87,7 +90,8 @@
         android:hint="@string/re_type_password"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:drawableRight="@drawable/ic_baseline_lock_24"
+        android:autofillHints="@string/password"
+        android:drawableEnd="@drawable/ic_baseline_lock_24"
         android:textSize="15sp" />
 
     <Button
@@ -99,12 +103,13 @@
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/bg_green"
-        android:backgroundTint="#00DAFF"
+        android:backgroundTint="#1A1C3A"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/register"
         android:textColor="@android:color/white"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -115,7 +120,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#0000BCD4">
 
@@ -133,7 +138,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="60dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="#1A1C3A"
             android:fontFamily="@font/roboto_regular"
             android:onClick="loginHere"
             android:text="@string/login"
@@ -151,7 +156,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="#27C6E1"
+            android:backgroundTint="#1A1C3A"
             android:fontFamily="@font/roboto_regular"
             android:onClick="activate"
             android:text="@string/activate"
@@ -159,7 +164,8 @@
             android:textColor="#fff"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:cornerRadius="20dp" />
+            app:cornerRadius="20dp"
+            tools:ignore="RelativeOverlap" />
 
 
     </RelativeLayout>

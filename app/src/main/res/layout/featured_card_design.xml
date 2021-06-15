@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:maxLength="185"
             android:text="Description of CrewClothing" />
 
         <androidx.recyclerview.widget.RecyclerView

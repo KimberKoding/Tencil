@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
-    tools:context="uk.co.tencil.resend">
+    tools:context="uk.co.tencil.User.Resend.resend">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -80,7 +80,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
-            android:backgroundTint="#14b9d5"
+            android:backgroundTint="#1A1C3A"
             android:fontFamily="@font/roboto_regular"
             android:text="@string/resend_code"
             android:textColor="@android:color/white" />

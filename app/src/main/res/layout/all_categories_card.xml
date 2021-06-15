@@ -52,20 +52,6 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_horizontal">
 
-                <TextView
-                    android:id="@+id/feature"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:autoSizeMaxTextSize="22sp"
-                    android:autoSizeMinTextSize="12sp"
-                    android:autoSizeStepGranularity="2sp"
-                    android:autoSizeTextType="uniform"
-                    android:fontFamily="@font/raleway_bold"
-                    android:gravity="center"
-                    android:text="If you experiece issues using this page please let us know" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
