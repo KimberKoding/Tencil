@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.security.spec.KeySpec;
 import java.util.Base64;
+import java.util.regex.Matcher;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -41,6 +44,7 @@ public class register extends AppCompatActivity {
     private static final String secretKey = "a61caa1f9aa6005111c14faa323411b0";
     private Button btn_register;
     private ProgressBar loading;
+    private Matcher matcher;
     private static final String dataSend = "a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE";
     private static final String salt = "ssshhhhhhhhhhh!!!!";
     ////  Imports of components
@@ -53,8 +57,11 @@ public class register extends AppCompatActivity {
             SecureRandom.getInstanceStrong ().nextBytes ( iv );
             IvParameterSpec ivspec = new IvParameterSpec ( iv );
 
-            SecretKeyFactory factory = SecretKeyFactory.getInstance ( "PBKDF2WithHmacSHA256" );
-            KeySpec spec = new PBEKeySpec ( secretKey.toCharArray (), salt.getBytes (), 65536, 256 );
+            SecretKeyFactory factory = SecretKeyFactory.getInstance
+                    ( "PBKDF2WithHmacSHA256" );
+            KeySpec spec = new PBEKeySpec
+                    ( secretKey.toCharArray (), salt.getBytes (),
+                            65536, 256 );
             SecretKey tmp = factory.generateSecret ( spec );
             SecretKeySpec secretKey = new SecretKeySpec ( tmp.getEncoded (), "AES" );
 
@@ -62,7 +69,9 @@ public class register extends AppCompatActivity {
             cipher.init ( Cipher.ENCRYPT_MODE, secretKey, ivspec );
             String s = new String ( iv, StandardCharsets.UTF_8 );
 
-            return Base64.getEncoder ().encodeToString ( cipher.doFinal ( strToEncrypt.getBytes ( StandardCharsets.UTF_8 ) ) ) + "INITVECTOR" + Base64.getEncoder ().encodeToString ( iv );
+            return Base64.getEncoder ().encodeToString ( cipher.doFinal
+                    ( strToEncrypt.getBytes ( StandardCharsets.UTF_8 ) ) )
+                    + "INITVECTOR" + Base64.getEncoder ().encodeToString ( iv );
         } catch (Exception e) {
             System.out.println("Error while encrypting: " + e.toString());
         }
@@ -81,36 +90,61 @@ public class register extends AppCompatActivity {
         repassword = findViewById ( R.id.repassword );
         btn_register = findViewById ( R.id.btn_register );
 
+
+
         btn_register.setOnClickListener ( view -> {
-            RegisterRequest registerRequest = new RegisterRequest ();
-            registerRequest.setEmail ( email.getText ().toString () );
-            registerRequest.setPassword ( password.getText ().toString () );
-            registerRequest.setFname ( fname.getText ().toString () );
-            registerUser ( registerRequest );
-            loading.setVisibility ( View.VISIBLE );
+            if (password.getText().toString().equals(repassword.getText().toString())) {
+                RegisterRequest registerRequest = new RegisterRequest();
+                registerRequest.setEmail(email.getText().toString());
+                registerRequest.setPassword(password.getText().toString());
+                registerRequest.setFname(fname.getText().toString());
+                registerUser(registerRequest);
+                loading.setVisibility(View.VISIBLE);
+            } else {
+                Toast.makeText(this, "Passwords do not match",
+                        Toast.LENGTH_SHORT).show();
+            }
         } );
 
     }
 
+
+
     public void registerUser(RegisterRequest registerRequest) {
-        Call<RegisterResponse> registerResponseCall = APiClient.getUserService ().registerUsers ( registerRequest );
+        Call<RegisterResponse> registerResponseCall =
+                APiClient.getUserService ().registerUsers ( registerRequest );
         registerResponseCall.enqueue ( new Callback<RegisterResponse> () {
 
             @Override
-            public void onResponse(@NotNull Call<RegisterResponse> call, @NotNull Response<RegisterResponse> response) {
+            public void onResponse(@NotNull Call<RegisterResponse>
+                                           call, @NotNull Response<RegisterResponse> response) {
                 if (response.isSuccessful ()) {
-                    Toast.makeText ( register.this, "Check your Emails for an Activation Code!!", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( register.this,
+                            "Check your Emails for an Activation Code!!",
+                            Toast.LENGTH_SHORT ).show ();
                     RegisterResponse registerResponse = response.body ();
                     loading.setVisibility ( View.GONE );
                     startActivity ( new Intent ( register.this, Activate.class ) );
                 } else {
-
-                    Toast.makeText ( register.this, "It looks like an account already exists. Please Try the Forgotten Password button", Toast.LENGTH_LONG ).show ();
+                    Toast.makeText ( register.this,
+                            "It looks like an account already exists. " +
+                                    "Please Try the Forgotten Password button",
+                            Toast.LENGTH_LONG ).show ();
                     System.out.println ( "RESPONSE:" + response );
                     loading.setVisibility ( View.GONE );
-                }
-                if (TextUtils.isEmpty ( password.getText ().toString () ) || TextUtils.isEmpty ( repassword.getText ().toString () )) {
-                    Toast.makeText ( register.this, "Passwords Required", Toast.LENGTH_LONG ).show ();
+
+                    try{
+                        if (TextUtils.isEmpty(password.getText().toString())
+                                || TextUtils.isEmpty(repassword.getText().toString())) {
+                            Toast.makeText(register.this,
+                                    "Passwords Required", Toast.LENGTH_LONG).show();
+                            throw new java.lang.RuntimeException("Fields are empty");
+                        }
+
+                    } catch (Exception e) {
+                        btn_register.setEnabled(false);
+
+                    }
                 }
 
 
@@ -118,7 +152,9 @@ public class register extends AppCompatActivity {
 
             @Override
             public void onFailure(@NotNull Call<RegisterResponse> call, @NotNull Throwable t) {
-                Toast.makeText ( register.this, "Check your Emails for an Activation Code!!", Toast.LENGTH_SHORT ).show ();
+                Toast.makeText ( register.this,
+                        "Check your Emails for an Activation Code!!",
+                        Toast.LENGTH_SHORT ).show ();
                 loading.setVisibility ( View.GONE );
                 startActivity ( new Intent ( register.this, Activate.class ) );
             }

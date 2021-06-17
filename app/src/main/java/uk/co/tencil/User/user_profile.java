@@ -37,38 +37,36 @@ public class user_profile extends AppCompatActivity {
         emailuser = findViewById ( R.id.emailuser );
         Intent receiveIntent = getIntent ();
         Bundle logininfo = receiveIntent.getBundleExtra ( "logininfo" );
+        if (logininfo == null){
+         Bundle receiveLoginIntentBundleExtra = receiveIntent.getBundleExtra("NewLoginInfo");
+            System.out.println ( receiveLoginIntentBundleExtra.getString ( "fname" ) );
+            System.out.println ( receiveLoginIntentBundleExtra.getString ( "email" ) );
 
-        String result = "";
-
-        for (String key : logininfo.keySet ()) {
-            result += logininfo.get ( key ) + "\n";
-            System.out.println ( result );
+        } else{
+            System.out.println ( logininfo.getString ( "fname" ) );
+            nameuser.setText ( logininfo.getString ( "fname" ) );
+            emailuser.setText ( logininfo.getString ( "email" ) );
+            name.setText ( logininfo.getString ( "fname" ) );
+            email.setText ( logininfo.getString ( "email" ) );
         }
-        System.out.println ( logininfo.get ( "fname" ) );
-        nameuser.setText ( logininfo.getString ( "fname" ) );
-        emailuser.setText ( logininfo.getString ( "email" ) );
-        name.setText ( logininfo.getString ( "fname" ) );
-        email.setText ( logininfo.getString ( "email" ) );
 
 
-        buttonupdate.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                if (TextUtils.isEmpty ( name.getText ().toString () ) ||
-                        TextUtils.isEmpty ( password.getText ().toString () )) {
-                    Toast.makeText ( user_profile.this,
-                            "Name & Password must not be empty.", Toast.LENGTH_SHORT ).show ();
 
-                } else {
+        buttonupdate.setOnClickListener (v -> {
+            if (TextUtils.isEmpty ( name.getText ().toString () ) ||
+                    TextUtils.isEmpty ( password.getText ().toString () )) {
+                Toast.makeText ( user_profile.this,
+                        "Name & Password must not be empty.", Toast.LENGTH_SHORT ).show ();
 
-                    EditResponse editdetails = new EditResponse ();
-                    editdetails.setEmail ( email.getText ().toString () );
-                    editdetails.setName ( name.getText ().toString () );
-                    editdetails.setPassword ( password.getText ().toString () );
-                    editdetails ( editdetails );
-                }
+            } else {
+
+                EditResponse editdetails = new EditResponse ();
+                editdetails.setEmail ( email.getText ().toString () );
+                editdetails.setName ( name.getText ().toString () );
+                editdetails.setPassword ( password.getText ().toString () );
+                editdetails ( editdetails );
             }
-        } );
+        });
 
 
     }
@@ -84,7 +82,8 @@ public class user_profile extends AppCompatActivity {
         System.out.println ( logininfo.getString ( "userapikey" ) );
 
 
-        Call<EditResponse> editResponseCall = APiClient.getUserService ().editdetails ( logininfo.getString ( "userapikey" ), editdetails );
+        Call<EditResponse> editResponseCall = APiClient.getUserService ().editdetails
+                ( logininfo.getString ( "userapikey" ), editdetails );
         editResponseCall.enqueue ( new Callback<EditResponse> () {
             @Override
             public void onResponse(Call<EditResponse> call, Response<EditResponse> response) {
@@ -95,10 +94,15 @@ public class user_profile extends AppCompatActivity {
                     String password = editResponse1.getPassword ();
 
 
-                    Toast.makeText ( user_profile.this, "Thank you for changing your details", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( user_profile.this,
+                            "Thank you for changing your details, please exit page",
+                            Toast.LENGTH_SHORT ).show ();
+
                 } else {
                     System.out.println ( response + " Error" );
-                    Toast.makeText ( user_profile.this, "Error, see logs!", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( user_profile.this,
+                            "Error, see logs!",
+                            Toast.LENGTH_SHORT ).show ();
                 }
             }
 
@@ -107,8 +111,13 @@ public class user_profile extends AppCompatActivity {
                 System.out.println ( t + " Error" );
                 Toast.makeText (
                         user_profile.this,
-                        "Thank you for changing your details, Please exit the page",
+                        "Thank you for changing your details.",
                         Toast.LENGTH_SHORT ).show ();
+                Intent intent = new Intent(user_profile.this, UserDashboard.class);
+                Bundle logininfo = receiveIntent.getBundleExtra ( "logininfo" );
+                System.out.println ("Fname is:" + " " +  logininfo.getString ( "fname" ) );
+                startActivity(intent);
+                finish();
             }
         } );
 

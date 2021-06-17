@@ -204,5 +204,6 @@
     <string name="reset_password">Reset Password</string>
     <string name="version_1_0_18">Version 1.1.18</string>
     <string name="version_1_1_19">Version 1.1.19</string>
+    <string name="testingforbugs">Testing for Bugs</string>
 
 </resources>

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -19,7 +20,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.newrelic.agent.android.NewRelic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -81,9 +81,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.userdashboard );
-        NewRelic.withApplicationToken (
-                "eu01xxd3e41d94d24d89321ca1a55320c48e9681c3-NRMA"
-        ).start ( this.getApplicationContext () );
         //Hooks
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
@@ -269,10 +266,25 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
             Intent receiveIntent = getIntent ();
             Bundle bundle = receiveIntent.getExtras ();
             System.out.println ( "Intents" + receiveIntent.getExtras () );
-            Intent toUserProfile = new Intent ( UserDashboard.this, user_profile.class );
+            Intent toUserProfile = new Intent ( UserDashboard.this,
+                    user_profile.class );
             toUserProfile.putExtra ( "logininfo", bundle );
 
-            startActivity ( toUserProfile );
+            if (bundle == null){
+                Intent receiveLoginIntent = getIntent ();
+                Bundle receiveLoginIntentBundleExtra = receiveLoginIntent.getExtras ();
+                System.out.println("Logged in Intents: " + "" + receiveLoginIntent.getExtras());
+                System.out.println(receiveLoginIntentBundleExtra);
+                Intent loginexample = new Intent
+                        (UserDashboard.this, user_profile.class);
+                loginexample.putExtra("NewLoginInfo",bundle);
+                finish();
+
+            } else {
+                startActivity ( toUserProfile );
+            }
+
+           
 
 
         } else if (id == R.id.nav_share) {

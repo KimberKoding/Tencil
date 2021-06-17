@@ -2,7 +2,8 @@ package uk.co.tencil.Businesses;
 
 import uk.co.tencil.Categories.Categories;
 
-public class JSONResponse {
+public class
+JSONResponse {
 
     private Categories[] categories;
 

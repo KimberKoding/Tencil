@@ -28,7 +28,6 @@
         <activity android:name=".User.ForogttenPassword.ForgetPassword" />
         <activity android:name=".CompanyView.solo_company" />
         <activity android:name=".User.Register.register" />
-        <activity android:name=".MainActivity.OnBoarding" />
         <activity
             android:name=".User.Login.login"
             android:theme="@style/Theme.Tencil" />

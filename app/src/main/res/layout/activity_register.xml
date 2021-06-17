@@ -99,7 +99,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#1A1C3A"
+        app:backgroundTint="@color/TencilPrime"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:fontFamily="@font/roboto_regular"
