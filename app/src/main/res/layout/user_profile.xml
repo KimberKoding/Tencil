@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".User.user_profile">
 
     <LinearLayout
@@ -13,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/TencilPrime"
             android:padding="20dp">
 
 
@@ -38,7 +39,6 @@
                 android:layout_below="@+id/nameuser"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/profile_image"
                 android:fontFamily="@font/raleway"
                 android:includeFontPadding="false"
                 android:text="@string/test"
@@ -63,7 +63,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/TencilPrime"
                     android:elevation="40dp"
                     android:padding="5dp">
 
@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:background="@color/colorPrimary"
+                app:backgroundTint="@color/TencilPrime"
                 android:fontFamily="@font/raleway_bold"
                 android:text="@string/update_details"
                 android:textColor="@color/white" />
