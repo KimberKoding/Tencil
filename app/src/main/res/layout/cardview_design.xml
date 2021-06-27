@@ -9,7 +9,7 @@
     android:background="#fff"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".cardviewdesign">
+    tools:context=".Designs.cardviewdesign">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"

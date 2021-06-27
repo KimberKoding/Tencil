@@ -4,30 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.co.tencil.login">
+    tools:context="uk.co.tencil.User.Login.login">
 
-      <TextView
-          android:id="@+id/tv_title"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_above="@id/tv_subtitle"
-          android:layout_marginStart="25dp"
-          android:layout_marginBottom="10dp"
-          android:fontFamily="@font/raleway_bold"
-          android:text="@string/app_name"
-          android:textSize="50sp" />
-
-    <TextView
-        android:id="@+id/tv_subtitle"
+    <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/email"
-        android:layout_marginStart="25dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="50dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Control Your Future"
+        android:layout_above="@id/email"
+        android:src="@drawable/fullcolour" />
 
-        android:textSize="17sp" />
 
     <EditText
         android:id="@+id/email"
@@ -80,10 +65,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:backgroundTint="#14b9d5"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/login"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/white" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,15 +94,14 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:onClick="register"
         android:text="@string/register"
         android:textAllCaps="true"
         android:textColor="#fff"
         android:textSize="16sp"
-        android:textStyle="bold"
-        app:cornerRadius="20dp" />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/activate"
@@ -127,7 +111,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="#27C6E1"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:onClick="activate"
         android:text="@string/activate"

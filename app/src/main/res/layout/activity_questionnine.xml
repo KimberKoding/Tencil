@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.co.tencil.questionnine">
+    tools:context="uk.co.tencil.Questions.questionnine">
 
     <TextView
         android:id="@+id/textView3"
@@ -58,7 +58,6 @@
         android:id="@+id/spinner12"
         android:layout_width="192dp"
         android:layout_height="47dp"
-        android:entries="@array/genre"
         android:gravity="center|center_horizontal|center_vertical"
         android:spinnerMode="dropdown"
         android:textAlignment="center"
