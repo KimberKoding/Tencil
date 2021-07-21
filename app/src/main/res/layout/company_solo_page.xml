@@ -116,7 +116,7 @@
                             android:textAllCaps="true"
                             android:layout_marginStart="0dp"
                             android:textColor="#000"
-                            android:textSize="25sp" />
+                            android:textSize="22sp" />
 
 
                         <RelativeLayout
@@ -140,6 +140,7 @@
                                 android:backgroundTint="#056F98"
                                 android:onClick="websitetest"
                                 android:text="@string/website"
+                                android:textSize="10sp"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 
@@ -149,11 +150,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginStart="130dp"
+                                android:layout_marginStart="140dp"
                                 android:layout_marginTop="10dp"
                                 android:backgroundTint="#056F98"
                                 android:onClick="socialmedia"
                                 android:text="@string/socialmedis"
+                                android:textSize="10sp"
                                 android:textColor="#fff"
                                 app:cornerRadius="20dp" />
 
@@ -164,7 +166,7 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginStart="5dp"
                                 android:layout_marginTop="10dp"
-
+                                android:textSize="10sp"
                                 android:layout_marginEnd="9dp"
                                 android:backgroundTint="#16194E"
                                 android:onClick="careers"
@@ -212,7 +214,7 @@
                                 android:text="Videos"
                                 android:textAllCaps="true"
                                 android:textColor="#000"
-                                android:textSize="18sp" />
+                                android:textSize="22sp" />
 
 
                         </RelativeLayout>
@@ -232,11 +234,11 @@
                                     android:layout_height="wrap_content">
 
                                     <FrameLayout
+                                        android:id="@+id/videoframe"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content">
 
                                         <VideoView
-
                                             android:id="@+id/videoview"
                                             android:layout_width="match_parent"
                                             android:layout_height="220dp"
@@ -269,7 +271,7 @@
                                 android:text="News"
                                 android:textAllCaps="true"
                                 android:textColor="#000"
-                                android:textSize="18sp" />
+                                android:textSize="22sp" />
 
 
                         </RelativeLayout>
@@ -291,7 +293,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="80dp"
                                     android:layout_weight="1"
-                                    android:contentDescription="NewsHeadline"
+                                    android:contentDescription="@string/newsheadline"
                                     android:src="@drawable/tenlogo"
                                     android:tag="image_tag" />
 
@@ -332,11 +334,10 @@
                                 android:layout_gravity="center"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="0dp"
-                                android:text="WANT TO BE APART OF TENCIL?"
+                                android:text="@string/want_to_be_apart_of_tencil"
                                 android:textAllCaps="true"
                                 android:textColor="#000"
-
-                                android:textSize="18sp" />
+                                android:textSize="22sp" />
 
                             <Button
                                 android:id="@+id/contact_button"

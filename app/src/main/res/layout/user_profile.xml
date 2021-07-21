@@ -25,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/profile_image"
                 android:fontFamily="@font/raleway_bold"
                 android:includeFontPadding="false"
                 android:text="@string/test"

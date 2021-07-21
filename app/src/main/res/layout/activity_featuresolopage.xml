@@ -122,8 +122,7 @@
                             android:text="@string/resources"
                             android:textAllCaps="true"
                             android:textColor="#000"
-
-                            android:textSize="25sp" />
+                            android:textSize="22sp" />
 
 
                         <RelativeLayout
@@ -154,7 +153,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
-                                android:layout_marginStart="130dp"
+                                android:layout_marginStart="110dp"
                                 android:layout_marginTop="10dp"
                                 android:backgroundTint="#056F98"
                                 android:onClick="socialmedia"

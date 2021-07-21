@@ -3,8 +3,11 @@ package uk.co.tencil.Businesses.FeaturedBusiness;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -58,9 +61,17 @@ public class FeaturedSolocompany extends AppCompatActivity {
 
         videoView.setVideoPath ( getIntent ().getStringExtra ( "videos" ) );
         videoView.start ();
-        MediaController mediaController = new MediaController ( this );
-        videoView.setMediaController ( mediaController );
-        mediaController.setAnchorView ( videoView );
+        MediaController mc = new MediaController ( this );
+        videoView.setMediaController ( mc );
+
+        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams
+                ( FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT );
+        lp.gravity = Gravity.BOTTOM;
+        mc.setLayoutParams ( lp );
+
+        ((ViewGroup) mc.getParent ()).removeView ( mc );
+
+        ((FrameLayout) findViewById ( R.id.videoframe )).addView ( mc );
 
 
         news.setOnClickListener ( v -> {

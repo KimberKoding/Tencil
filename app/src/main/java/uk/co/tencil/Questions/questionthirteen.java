@@ -19,6 +19,8 @@ import uk.co.tencil.API.APiClient;
 import uk.co.tencil.R;
 import uk.co.tencil.User.UserDashboard;
 
+import static uk.co.tencil.R.string.error_answer13;
+
 public class questionthirteen extends AppCompatActivity {
 
 
@@ -158,6 +160,7 @@ public class questionthirteen extends AppCompatActivity {
                     System.out.println ( response );
                 } else {
                     System.out.println ( response + " Error" );
+                    Toast.makeText ( questionthirteen.this, getString ( error_answer13 ), Toast.LENGTH_SHORT ).show ();
                 }
             }
 

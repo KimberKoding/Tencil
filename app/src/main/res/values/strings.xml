@@ -205,5 +205,11 @@
     <string name="version_1_0_18">Version 1.1.18</string>
     <string name="version_1_1_19">Version 1.1.19</string>
     <string name="testingforbugs">Testing for Bugs</string>
+    <string name="version_1_1_23">Version 1.0.23</string>
+    <string name="version_1_1_24">Version 1.0.24</string>
+    <string name="newsheadline">NewsHeadline</string>
+    <string name="want_to_be_apart_of_tencil">WANT TO BE APART OF TENCIL?</string>
+    <string name="error_answer13">There was an error with answering this question. Please Try Again</string>
+    <string name="birthday">Date of Birth</string>
 
 </resources>

@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -48,14 +47,13 @@ import uk.co.tencil.WeRecommend.WerecommendResponse;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    // WE WILL BUILD A PROFESSIONAL APP ;)
 
     static int cid;
 
 
     public int getCid() {
         System.out.println ( "getCid() method was called! CID is: " + cid );
-        cid = (1);
+        cid = (4);
         return cid;
     }
 
