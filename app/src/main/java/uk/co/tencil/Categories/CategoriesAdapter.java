@@ -7,43 +7,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
+import java.util.Objects;
 
-import uk.co.tencil.Businesses.Businesses;
 import uk.co.tencil.R;
 
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.FeaturedViewHolder> {
 
-    private static final String TAG = "CategoriesAdapter";
     private Context mContext;
     private final List<Categories> mData;
-    private final List<Businesses> alldata;
     private CategoryCardActivity cca;
 
 
-    public CategoriesAdapter(Context mContext, List<Categories> mData, List<Businesses> alldata) {
+    public CategoriesAdapter(@Nullable Context mContext,
+                             @Nullable List<Categories> mData) {
         this.mContext = mContext;
         this.mData = mData;
-        this.alldata = alldata;
     }
 
     //Returns Categories View Dynamically
     @NotNull
-    public CategoriesAdapter.FeaturedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoriesAdapter.FeaturedViewHolder onCreateViewHolder
+    (@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext ();
-        View view = LayoutInflater.from ( mContext ).inflate ( R.layout.categories_card_design, parent, false );
-        return new CategoriesAdapter.FeaturedViewHolder ( view );
+        View view = LayoutInflater.from ( mContext ).inflate
+                (R.layout.categories_card_design, parent, false );
+        return new FeaturedViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull FeaturedViewHolder holder, int position) {
+        assert mData != null;
         Categories temp = mData.get ( position );
 
         holder.category.setText ( mData.get ( position ).getName () );
@@ -64,18 +63,19 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Fe
 
     @Override
     public int getItemCount() {
+        assert mData != null;
         return mData.size ();
     }
 
     //HOLDS VIEWS
-    public class FeaturedViewHolder extends RecyclerView.ViewHolder {
+    public static class FeaturedViewHolder extends RecyclerView.ViewHolder {
 
         RelativeLayout categoriesCard;
         TextView category;
 
 
-        public FeaturedViewHolder(View itemView) {
-            super ( itemView );
+        public FeaturedViewHolder(@Nullable View itemView) {
+            super (Objects.requireNonNull(itemView));
             //HOOKS
             categoriesCard = itemView.findViewById ( R.id.categories_card );
             category = itemView.findViewById ( R.id.categories_title );

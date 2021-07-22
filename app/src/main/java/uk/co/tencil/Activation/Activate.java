@@ -1,5 +1,6 @@
 package uk.co.tencil.Activation;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.jetbrains.annotations.NotNull;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +28,7 @@ public class Activate extends AppCompatActivity {
     Button resend;
 
 
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@SuppressLint("UnknownNullness") Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activate_users );
         email = findViewById ( R.id.activateemail );
@@ -32,22 +36,7 @@ public class Activate extends AppCompatActivity {
         btnActivate = findViewById ( R.id.btn_activate );
         resend = findViewById ( R.id.resend );
 
-        btnActivate.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View view) {
-
-                if (TextUtils.isEmpty ( email.getText ().toString () ) || TextUtils.isEmpty ( activatecode.getText ().toString () )) {
-                    Toast.makeText ( Activate.this, "Email / Activation Code Required", Toast.LENGTH_LONG ).show ();
-                } else {
-                    //proceed to activate
-                    ActivateResponse res = new ActivateResponse ();
-                    res.setEmail ( email.getText ().toString () );
-                    res.setActivation ( activatecode.getText ().toString () );
-                    activate ( res );
-                }
-
-            }
-        } );
+        btnActivate.setOnClickListener (view -> onClick());
     }
 
     private void activate(ActivateResponse res) {
@@ -55,35 +44,40 @@ public class Activate extends AppCompatActivity {
         activateRequest.setEmail ( email.getText ().toString () );
         activateRequest.setActivationCode ( activatecode.toString () );
 
-        Call<ActivateResponse> activateResponseCall = APiClient.getUserService ().activateUsers ( res );
+        Call<ActivateResponse> activateResponseCall =
+                APiClient.getUserService ().activateUsers ( res );
         activateResponseCall.enqueue ( new Callback<ActivateResponse> () {
             @Override
-            public void onResponse(Call<ActivateResponse> call, Response<ActivateResponse> response) {
+            public void onResponse(@NotNull Call<ActivateResponse> call,
+                                   @NotNull Response<ActivateResponse> response) {
                 if (response.isSuccessful ()) {
-                    ActivateResponse activateResponse = response.body ();
                     Intent intent = new Intent ( Activate.this, register.class );
-                    Toast.makeText ( Activate.this, "Verified user successfully", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( Activate.this,
+                            "Verified user successfully", Toast.LENGTH_SHORT ).show ();
                     startActivity ( intent );
 
                 } else {
-                    Toast.makeText ( Activate.this, "Glitch in the Matrix", Toast.LENGTH_SHORT ).show ();
+                    Toast.makeText ( Activate.this,
+                            "Issue with verifying user", Toast.LENGTH_SHORT ).show ();
                     System.out.println ( response + "Error" );
                 }
             }
 
             @Override
-            public void onFailure(Call<ActivateResponse> call, Throwable t) {
+            public void onFailure(@NotNull Call<ActivateResponse> call, @NotNull Throwable t) {
                 Intent intent = new Intent ( Activate.this, login.class );
-                Toast.makeText ( Activate.this, "Verified user successfully", Toast.LENGTH_SHORT ).show ();
+                Toast.makeText ( Activate.this,
+                        "Verified user successfully", Toast.LENGTH_SHORT ).show ();
                 startActivity ( intent );
             }
+
         } );
 
 
     }
 
 
-    public void activate_dash(View view) {
+    public void activate_dash(@Nullable View view) {
         Intent intent = new Intent ( this, login.class );
         startActivity ( intent );
     }
@@ -96,8 +90,24 @@ public class Activate extends AppCompatActivity {
         finish ();
     }
 
-    public void resendTO(View view) {
+    public void resendTO(@Nullable View view) {
         Intent intent = new Intent ( this, uk.co.tencil.User.Resend.resend.class );
         startActivity ( intent );
+    }
+
+    private void onClick() {
+
+        if (TextUtils.isEmpty(email.getText().toString()) ||
+                TextUtils.isEmpty(activatecode.getText().toString())) {
+            Toast.makeText(Activate.this,
+                    "Email / Activation Code Required", Toast.LENGTH_LONG).show();
+        } else {
+            //proceed to activate
+            ActivateResponse res = new ActivateResponse();
+            res.setEmail(email.getText().toString());
+            res.setActivation(activatecode.getText().toString());
+            activate(res);
+        }
+
     }
 }

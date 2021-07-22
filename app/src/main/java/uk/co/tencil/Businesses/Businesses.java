@@ -1,94 +1,90 @@
 package uk.co.tencil.Businesses;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 public class Businesses extends BusinessesResponse {
     //Model Class
-    private String business_id;
-    private String business_name;
-    private String cat_id;
-    private String business_namesolo;
-    private String bdesc;
-    private String business_website;
-    private String business_website_social;
+    private final String business_name;
+    private final String bdesc;
+    private final String business_website;
+    private final String business_website_social;
     private String careers;
-    private String business_img;
+    private final String business_img;
     private String contact;
-    private String videos;
+    private final String videos;
     private String news;
 
-
-    public String getBusiness_id() {
-        return business_id;
+    public Businesses(@Nullable String business_name,
+                      @Nullable String bdesc,
+                      @Nullable String business_website,
+                      @Nullable String business_website_social,
+                      @Nullable String business_img,
+                      @Nullable String videos) {
+        this.business_name = business_name;
+        this.bdesc = bdesc;
+        this.business_website = business_website;
+        this.business_website_social = business_website_social;
+        this.business_img = business_img;
+        this.videos = videos;
     }
 
+    @NonNull
+
     public String getBusiness_name() {
+        assert business_name != null;
         return business_name;
     }
 
-    public String getCat_id() {
-        return cat_id;
-    }
-
-    public String getBusiness_namesolo() {
-        return business_namesolo;
-    }
-
+    @Nullable
     public String getBdesc() {
         return bdesc;
     }
 
+    @Nullable
     public String getBusiness_website() {
         return business_website;
     }
 
-    public void setBusiness_website(String business_website) {
-        this.business_website = business_website;
-    }
-
+    @Nullable
     public String getBusiness_website_social() {
         return business_website_social;
     }
 
-    public void setBusiness_website_social(String business_website_social) {
-        this.business_website_social = business_website_social;
-    }
-
+    @Nullable
     public String getCareers() {
         return careers;
     }
 
-    public void setCareers(String careers) {
+    public void setCareers(@Nullable String careers) {
         this.careers = careers;
     }
 
+    @Nullable
     public String getBusiness_img() {
         return business_img;
     }
 
-    public void setBusiness_img(String business_img) {
-        this.business_img = business_img;
-    }
-
+    @Nullable
     public String getContact() {
         return contact;
     }
 
-    public void setContact(String contact) {
+    public void setContact(@Nullable String contact) {
         this.contact = contact;
     }
 
+    @Nullable
     public String getVideos() {
         return videos;
     }
 
-    public void setVideos(String videos) {
-        this.videos = videos;
-    }
-
+    @Nullable
     public String getNews() {
         return news;
     }
 
-    public void setNews(String news) {
+    public void setNews(@Nullable String news) {
         this.news = news;
     }
 }

@@ -22,7 +22,6 @@
         <activity android:name=".Businesses.FeaturedBusiness.FeaturedSolocompany" />
         <activity android:name=".Designs.cardviewdesign" />
         <activity android:name=".Activation.Activate" />
-        <activity android:name=".CompanyView.Solocompany" />
         <activity android:name=".Categories.CategoryCardActivity" />
         <activity android:name=".User.ForogttenPassword.ForgetPasswordSuccessMessage" />
         <activity android:name=".User.ForogttenPassword.ForgetPassword" />

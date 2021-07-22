@@ -40,7 +40,11 @@ public class Solocompany extends AppCompatActivity {
     CardView news;
     ImageView imageView;
 
-    private Context mContext;
+    private final Context mContext;
+
+    public Solocompany(@Nullable Context mContext) {
+        this.mContext = mContext;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,7 +71,8 @@ public class Solocompany extends AppCompatActivity {
         contact.setOnClickListener ( this::contact );
 
         if (videoView == null) {
-            Toast.makeText ( mContext, "This business does not have any videos", Toast.LENGTH_SHORT ).show ();
+            Toast.makeText ( mContext, "This business does not have any videos",
+                    Toast.LENGTH_SHORT ).show ();
         } else {
             videoView.setVideoPath ( getIntent ().getStringExtra ( "videos" ) );
             videoView.setFocusableInTouchMode ( false );
@@ -76,7 +81,7 @@ public class Solocompany extends AppCompatActivity {
             videoView.setMediaController ( mc );
 
             FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams
-                    ( FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT );
+                    (FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT );
             lp.gravity = Gravity.BOTTOM;
             mc.setLayoutParams ( lp );
 
@@ -86,7 +91,9 @@ public class Solocompany extends AppCompatActivity {
         }
 
         news.setOnClickListener ( v -> {
-            Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "news" ) ) );
+            Intent browserIntent = new Intent
+                    ( Intent.ACTION_VIEW, Uri.parse
+                            ( getIntent ().getStringExtra ( "news" ) ) );
             startActivity ( browserIntent );
         } );
         Glide.with ( this )
@@ -99,32 +106,37 @@ public class Solocompany extends AppCompatActivity {
     }
 
 
-    public void contact(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "contact" ) ) );
+    public void contact(@Nullable View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW,
+                Uri.parse ( getIntent ().getStringExtra ( "contact" ) ) );
         startActivity ( browserIntent );
 
 
     }
 
-    public void socialmedia(View view) {
-        Intent intent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website_social" ) ) );
+    public void socialmedia(@Nullable View view) {
+        Intent intent = new Intent ( Intent.ACTION_VIEW,
+
+                Uri.parse ( getIntent ().getStringExtra ( "website_social" ) ) );
         startActivity ( intent );
     }
 
-    public void backtoUser(View view) {
+    public void backtoUser(@Nullable View view) {
         Intent intent = new Intent ( this, UserDashboard.class );
         this.startActivity ( intent );
     }
 
-    public void careers(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "careers" ) ) );
+    public void careers(@Nullable View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                ( getIntent ().getStringExtra ( "careers" ) ) );
         startActivity ( browserIntent );
 
 
     }
 
-    public void websitetest(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website" ) ) );
+    public void websitetest(@Nullable View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                ( getIntent ().getStringExtra ( "website" ) ) );
         startActivity ( browserIntent );
 
     }
@@ -133,11 +145,11 @@ public class Solocompany extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent ( this, UserDashboard.class );
         startActivity ( intent );
-        return;
     }
 
-    public void contacttencil(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( "https://providencewebservices.co.uk/contact" ) );
+    public void contacttencil(@Nullable View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW,
+                Uri.parse ( getString(R.string.providecontact) ) );
         startActivity ( browserIntent );
 
     }

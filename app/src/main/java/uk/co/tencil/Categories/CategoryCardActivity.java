@@ -6,13 +6,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +48,7 @@ public class CategoryCardActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.all_categories_card );
         businessesList = new ArrayList<> ();
@@ -63,31 +67,38 @@ public class CategoryCardActivity extends AppCompatActivity {
         call.enqueue ( new Callback<GetAllBusinessesByCidResponse> () {
 
             @Override
-            public void onResponse(Call<GetAllBusinessesByCidResponse> call, Response<GetAllBusinessesByCidResponse> response) {
+            public void onResponse(@NotNull Call<GetAllBusinessesByCidResponse> call,
+                                   @NotNull Response<GetAllBusinessesByCidResponse> response) {
                 System.out.println ( response );
                 GetAllBusinessesByCidResponse getAllBusinessesByCidResponse = response.body ();
-                businessesList = new ArrayList<> ( Arrays.asList ( getAllBusinessesByCidResponse.getAllBusinessesByCid () ) );
+                assert getAllBusinessesByCidResponse != null;
+                businessesList = new ArrayList<>
+                        (Arrays.asList (Objects.requireNonNull
+                                (getAllBusinessesByCidResponse.getAllBusinessesByCid())) );
                 System.out.println ( "This is the new response!!!!" );
                 PutDataHere ( businessesList );
             }
 
             @Override
-            public void onFailure(Call<GetAllBusinessesByCidResponse> call, Throwable t) {
-                System.out.println ( t );
+            public void onFailure(
+                    @NotNull Call<GetAllBusinessesByCidResponse> call, @NotNull Throwable t) {
+                System.out.println ( "Error" );
             }
 
         } );
     }
 
-    private void PutDataHere(List<Businesses> businessesList) {
-        GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new GetAllBusinessesByCidAdapter ( this, businessesList );
-        newRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.VERTICAL, false ) );
+    void PutDataHere(List<Businesses> businessesList) {
+        GetAllBusinessesByCidAdapter getAllBusinessesByCidAdapter = new
+                GetAllBusinessesByCidAdapter ( this, businessesList );
+        newRecycler.setLayoutManager ( new LinearLayoutManager
+                (this, LinearLayoutManager.VERTICAL, false ) );
         newRecycler.setAdapter ( getAllBusinessesByCidAdapter );
 
     }
 
 
-    public void backClicked(View view) {
+    public void backClicked(@Nullable View view) {
         Intent intent = new Intent ( this, UserDashboard.class );
         startActivity ( intent );
         finish ();

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -17,13 +18,14 @@ import uk.co.tencil.R;
 public class questionfive extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_questionfive );
         List<String> subjects =
-                Arrays.asList ( "Humanities", "Sciences", "Social Sciences", "Languages", "Mathematics" );
+                Arrays.asList ( "Humanities", "Sciences", "Social Sciences", "Languages",
+                        "Mathematics" );
         Spinner spinner5 = findViewById ( R.id.spinner5 );
-        ArrayAdapter adapter = new ArrayAdapter ( getApplicationContext (),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>( getApplicationContext (),
                 android.R.layout.simple_spinner_item, subjects );
         adapter.setDropDownViewResource ( android.R.layout.simple_spinner_dropdown_item );
         spinner5.setAdapter ( adapter );
@@ -59,7 +61,8 @@ public class questionfive extends AppCompatActivity {
             topage6.putExtra ( "q5pos", questionfiveanswer );
             startActivity ( topage6 );
 
-            Toast.makeText ( getApplicationContext (), "You selected " + subjects1, Toast.LENGTH_SHORT ).show ();
+            Toast.makeText ( getApplicationContext (), "You selected " +
+                    subjects1, Toast.LENGTH_SHORT ).show ();
             System.out.println
                     ( questionone + " " + questiontwo + " " + questionthree + " "
                             + questionfour + " " + " " + subjects1 + questionfive );

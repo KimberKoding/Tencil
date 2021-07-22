@@ -51,7 +51,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     static int cid;
     public int getCid() {
         System.out.println ( "getCid() method was called! CID is: " + cid );
-        cid = (4);
+        cid = (1);
         return cid;
     }
 
@@ -134,8 +134,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
             @Override
             public void onFailure(Call<BusinessesResponse> call, Throwable t) {
-                System.out.println ( t + "FUUCK" );
-
+                System.out.println("Failure");
             }
         } );
 
@@ -191,7 +190,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, businessesList );
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList);
         categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this,
                 LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );

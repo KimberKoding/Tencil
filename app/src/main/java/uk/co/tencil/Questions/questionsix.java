@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import uk.co.tencil.R;
 public class questionsix extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_questionsix );
         List<String> hobbies =
@@ -32,7 +33,7 @@ public class questionsix extends AppCompatActivity {
                 );
 
         Spinner spinner6 = findViewById ( R.id.spinner7 );
-        ArrayAdapter adapter = new ArrayAdapter ( getApplicationContext (),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>( getApplicationContext (),
                 android.R.layout.simple_spinner_item, hobbies );
         adapter.setDropDownViewResource ( android.R.layout.simple_spinner_dropdown_item );
         spinner6.setAdapter ( adapter );

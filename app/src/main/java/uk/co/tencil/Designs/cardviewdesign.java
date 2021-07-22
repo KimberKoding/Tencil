@@ -1,5 +1,6 @@
 package uk.co.tencil.Designs;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,9 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,7 +31,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import uk.co.tencil.API.UserService;
-import uk.co.tencil.Businesses.Businesses;
 import uk.co.tencil.Businesses.JSONResponse;
 import uk.co.tencil.Categories.Categories;
 import uk.co.tencil.Categories.CategoriesAdapter;
@@ -39,7 +42,6 @@ import uk.co.tencil.User.UserDashboard;
 public class cardviewdesign extends AppCompatActivity {
     static float END_SCALE = 0.7f;
     List<Categories> categoriesList;
-    List<Businesses> businessesList;
     RecyclerView categoriesRecycler;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -47,6 +49,7 @@ public class cardviewdesign extends AppCompatActivity {
     LinearLayout contentView;
     TextView welcomeuser;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
@@ -55,7 +58,8 @@ public class cardviewdesign extends AppCompatActivity {
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         categoriesList = new ArrayList<> ();
-        welcomeuser.setText ( "Welcome to Tencil " + "\n" + getIntent ().getStringExtra ( "email" ) );
+        welcomeuser.setText ( "Welcome to Tencil " + "\n" +
+                getIntent ().getStringExtra ( "email" ) );
 
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
@@ -76,10 +80,13 @@ public class cardviewdesign extends AppCompatActivity {
 
         call.enqueue ( new Callback<JSONResponse> () {
             @Override
-            public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+            public void onResponse(@NotNull Call<JSONResponse> call,
+                                   @NotNull Response<JSONResponse> response) {
 
                 JSONResponse jsonResponse = response.body ();
-                categoriesList = new ArrayList<> ( Arrays.asList ( jsonResponse.getCategories () ) );
+                assert jsonResponse != null;
+                categoriesList = new ArrayList<> ( Arrays.asList
+                        (Objects.requireNonNull(jsonResponse.getCategories())) );
 
                 PutDataIntoRecyclerView ( categoriesList );
 
@@ -87,16 +94,18 @@ public class cardviewdesign extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<JSONResponse> call, Throwable t) {
-                System.out.println ( t );
+            public void onFailure(@NotNull Call<JSONResponse> call, @NotNull Throwable t) {
+                System.out.println ( "Error" );
 
             }
         } );
 
     }
-    private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList, businessesList );
-        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+    void PutDataIntoRecyclerView(List<Categories> categoriesList) {
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter
+                (this, categoriesList);
+        categoriesRecycler.setLayoutManager ( new LinearLayoutManager
+                (this, LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
 
     }
@@ -109,14 +118,11 @@ public class cardviewdesign extends AppCompatActivity {
         navigationView.bringToFront ();
         navigationView.setCheckedItem ( R.id.nav_home );
 
-        menuIcon.setOnClickListener ( new View.OnClickListener () {
-            @Override
-            public void onClick(View v) {
-                if (drawerLayout.isDrawerVisible ( GravityCompat.START ))
-                    drawerLayout.closeDrawer ( GravityCompat.START );
-                else drawerLayout.openDrawer ( GravityCompat.START );
-            }
-        } );
+        menuIcon.setOnClickListener (v -> {
+            if (drawerLayout.isDrawerVisible ( GravityCompat.START ))
+                drawerLayout.closeDrawer ( GravityCompat.START );
+            else drawerLayout.openDrawer ( GravityCompat.START );
+        });
         animateNavigationDrawer ();
     }
 
@@ -151,8 +157,9 @@ public class cardviewdesign extends AppCompatActivity {
     }
 
 
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@Nullable MenuItem item) {
 
+        assert item != null;
         int id = item.getItemId ();
         if (id == R.id.nav_home) {
             startActivity ( new Intent ( cardviewdesign.this, UserDashboard.class ) );
@@ -161,7 +168,10 @@ public class cardviewdesign extends AppCompatActivity {
 
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );
-            intent2.putExtra ( Intent.EXTRA_TEXT, "TENCIL APP COMING SOON " + " http://www.tencil.co.uk/" + getPackageName () );
+            intent2.putExtra ( Intent.EXTRA_TEXT,
+                    "DOWNLOAD THE TENCIL APP TODAY " +
+                            " http://www.tencil.co.uk/" +
+                            getPackageName () );
             intent2.setType ( "text/plain" );
             startActivity ( intent2 );
 
@@ -173,7 +183,7 @@ public class cardviewdesign extends AppCompatActivity {
 
     }
 
-    public void card1(View view) {
+    public void card1(@Nullable View view) {
         Intent intent = new Intent ( cardviewdesign.this, Solocompany.class );
         startActivity ( intent );
     }

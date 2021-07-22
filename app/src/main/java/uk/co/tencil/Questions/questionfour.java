@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -17,13 +18,14 @@ import uk.co.tencil.R;
 public class questionfour extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_questionfour );
         List<String> ethnic =
-                Arrays.asList ( "White", "Asian", "Black", "Mixed Race", "Other", "Prefer Not To Say" );
+                Arrays.asList ( "White", "Asian", "Black", "Mixed Race",
+                        "Other", "Prefer Not To Say" );
         Spinner spinner4 = findViewById ( R.id.spinner4 );
-        ArrayAdapter adapter = new ArrayAdapter ( getApplicationContext (),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>( getApplicationContext (),
                 android.R.layout.simple_spinner_item, ethnic );
         adapter.setDropDownViewResource ( android.R.layout.simple_spinner_dropdown_item );
         spinner4.setAdapter ( adapter );
@@ -54,8 +56,10 @@ public class questionfour extends AppCompatActivity {
             topage5.putExtra ( "q2pos", questiontwoanswer );
             topage5.putExtra ( "q3pos", questionthreeanswer );
             topage5.putExtra ( "q4pos", questionfouranswer );
-            Toast.makeText ( getApplicationContext (), "You selected " + ethnic1, Toast.LENGTH_SHORT ).show ();
-            System.out.println ( questionone + "" + questiontwo + "" + "" + questionthree + "" + ethnic1 );
+            Toast.makeText ( getApplicationContext (), "You selected " + ethnic1,
+                    Toast.LENGTH_SHORT ).show ();
+            System.out.println ( questionone + "" + questiontwo + ""
+                                + "" + questionthree + "" + ethnic1 );
             System.out.println ( "Question 1 answer :" + " " + questiononeanswer );
             System.out.println ( "Question 2 answer :" + " " + questiontwoanswer );
             System.out.println ( "Question 3 answer :" + " " + questionthreeanswer );

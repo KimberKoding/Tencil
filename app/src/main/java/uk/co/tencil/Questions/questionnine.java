@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import uk.co.tencil.R;
 public class questionnine extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_questionnine );
         List<String> genre =
@@ -34,7 +35,7 @@ public class questionnine extends AppCompatActivity {
                 );
 
         Spinner spinner11 = findViewById ( R.id.spinner12 );
-        ArrayAdapter adapter = new ArrayAdapter ( getApplicationContext (),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>( getApplicationContext (),
                 android.R.layout.simple_spinner_item, genre );
         adapter.setDropDownViewResource ( android.R.layout.simple_spinner_dropdown_item );
         spinner11.setAdapter ( adapter );
@@ -87,7 +88,8 @@ public class questionnine extends AppCompatActivity {
             topage8.putExtra ( "q9pos", questionnineanswer );
             startActivity ( topage8 );
 
-            Toast.makeText ( getApplicationContext (), "You selected " + genre1, Toast.LENGTH_SHORT ).show ();
+            Toast.makeText ( getApplicationContext (),
+                    "You selected " + genre1, Toast.LENGTH_SHORT ).show ();
             System.out.println
                     ( "QUESTION 9 : " + questionone + " " + questiontwo + " " + questionthree + " "
                             + questionfour + " " + " " + "" + questionfive + " " + questionsix

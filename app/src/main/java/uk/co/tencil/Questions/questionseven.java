@@ -34,7 +34,7 @@ public class questionseven extends AppCompatActivity {
                 );
 
         Spinner spinner10 = findViewById ( R.id.spinner10 );
-        ArrayAdapter adapter = new ArrayAdapter ( getApplicationContext (),
+        ArrayAdapter<String> adapter = new ArrayAdapter<>( getApplicationContext (),
                 android.R.layout.simple_spinner_item, sports );
         adapter.setDropDownViewResource ( android.R.layout.simple_spinner_dropdown_item );
         spinner10.setAdapter ( adapter );
@@ -79,10 +79,12 @@ public class questionseven extends AppCompatActivity {
             topage7.putExtra ( "q7pos", questionsevenanswer );
             startActivity ( topage7 );
 
-            Toast.makeText ( getApplicationContext (), "You selected " + sports1, Toast.LENGTH_SHORT ).show ();
+            Toast.makeText ( getApplicationContext (), "You selected " + sports1,
+                    Toast.LENGTH_SHORT ).show ();
             System.out.println
                     ( questionone + " " + questiontwo + " " + questionthree + " "
-                            + questionfour + " " + " " + "" + questionfive + " " + questionsix + " " + " " + sports1 );
+                            + questionfour + " " + " " + "" + questionfive + " " +
+                            questionsix + " " + " " + sports1 );
 
             System.out.println ( "Question 1 answer :" + " " + questiononeanswer );
             System.out.println ( "Question 2 answer :" + " " + questiontwoanswer );

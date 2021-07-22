@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import uk.co.tencil.R;
@@ -29,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
     //Shared Prefernces
     SharedPreferences onBoardingScreen;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.splash_screen );
 
@@ -47,28 +48,24 @@ public class SplashScreen extends AppCompatActivity {
 
         System.out.println ( "WE HAVE ANIMS" );
 
-        new Handler ( Looper.getMainLooper () ).postDelayed ( new Runnable () {
-            @Override
-            public void run() {
-                onBoardingScreen = getSharedPreferences ( "onBoardingScreen", MODE_PRIVATE );
-                boolean isFirstTime = onBoardingScreen.getBoolean ( "firstTime", true );
+        new Handler ( Looper.getMainLooper () ).postDelayed (() -> {
+            onBoardingScreen = getSharedPreferences ( "onBoardingScreen", MODE_PRIVATE );
+            boolean isFirstTime = onBoardingScreen.getBoolean ( "firstTime", true );
 
-                if (isFirstTime) {
-                    SharedPreferences.Editor editor = onBoardingScreen.edit ();
-                    editor.putBoolean ( "firstTime", false );
-                    editor.commit ();
-                    Intent intent = new Intent ( getApplicationContext (), login.class );
-                    startActivity ( intent );
-                    finish ();
+            if (isFirstTime) {
+                SharedPreferences.Editor editor = onBoardingScreen.edit ();
+                editor.putBoolean ( "firstTime", false );
+                editor.apply ();
+                Intent intent = new Intent ( getApplicationContext (), login.class );
+                startActivity ( intent );
 
-                } else {
-                    Intent intent = new Intent ( getApplicationContext (), login.class );
-                    startActivity ( intent );
-                    finish ();
-                }
-
-
+            } else {
+                Intent intent = new Intent ( getApplicationContext (), login.class );
+                startActivity ( intent );
             }
+            finish ();
+
+
         }, SPLASH_TIMER );
 
 

@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -14,10 +15,11 @@ import java.util.List;
 
 import uk.co.tencil.R;
 
+@SuppressWarnings("ALL")
 public class questioneleven extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_questioneleven );
         List<String> statement =

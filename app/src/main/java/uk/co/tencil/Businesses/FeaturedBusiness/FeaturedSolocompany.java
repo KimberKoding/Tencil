@@ -13,6 +13,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -48,7 +49,8 @@ public class FeaturedSolocompany extends AppCompatActivity {
         business_name.setText ( getIntent ().getStringExtra ( "feat_name" ) );
         bdesc.setText ( getIntent ().getStringExtra ( "feat_bdesc" ) );
         business_img.setImageResource ( R.drawable.analysis );
-        Glide.with ( this ).load ( getIntent ().getStringExtra ( "feat_image" ) ).into ( business_img );
+        Glide.with ( this ).load ( getIntent
+                ().getStringExtra ( "feat_image" ) ).into ( business_img );
         website = findViewById ( R.id.website );
         social = findViewById ( R.id.socialmedia );
         careers = findViewById ( R.id.careers );
@@ -75,7 +77,10 @@ public class FeaturedSolocompany extends AppCompatActivity {
 
 
         news.setOnClickListener ( v -> {
-            Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "news" ) ) );
+            Intent browserIntent = new Intent
+                    ( Intent.ACTION_VIEW, Uri.parse
+                            (getIntent ().getStringExtra
+                            ("news" ) ) );
             startActivity ( browserIntent );
         } );
 
@@ -89,31 +94,35 @@ public class FeaturedSolocompany extends AppCompatActivity {
     }
 
 
-    public void contact(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "contact" ) ) );
+    public void contact(@NonNull View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                (getIntent ().getStringExtra ( "contact" )));
         startActivity ( browserIntent );
 
 
     }
 
-    public void socialmedia(View view) {
-        Intent intent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website_social" ) ) );
+    public void socialmedia(@NonNull View view) {
+        Intent intent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                (getIntent ().getStringExtra ( "website_social")));
         startActivity ( intent );
     }
 
-    public void backtoUser(View view) {
+    public void backtoUser(@NonNull View view) {
         Intent intent = new Intent ( this, UserDashboard.class );
         this.startActivity ( intent );
     }
 
-    public void careers(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "careers" ) ) );
+    public void careers(@NonNull View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                (getIntent ().getStringExtra ( "careers" ) ) );
         startActivity ( browserIntent );
 
     }
 
-    public void websitetest(View view) {
-        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( getIntent ().getStringExtra ( "website" ) ) );
+    public void websitetest(@NonNull View view) {
+        Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse
+                (getIntent ().getStringExtra ( "website" ) ) );
         startActivity ( browserIntent );
 
     }
@@ -122,13 +131,13 @@ public class FeaturedSolocompany extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent ( this, UserDashboard.class );
         startActivity ( intent );
-        return;
+        finish();
     }
 
-    public void backtoDashsolo(View view) {
+    public void backtoDashsolo(@NonNull View view) {
         Intent intent = new Intent ( this, UserDashboard.class );
         startActivity ( intent );
-        return;
+        finish();
     }
 }
 

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,25 +22,27 @@ import uk.co.tencil.Businesses.FeaturedBusiness.FeaturedSolocompany;
 import uk.co.tencil.R;
 
 public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.MyViewHolder> {
-    private static final String TAG = "businessadapter";
     private final List<Businesses> mData;
     private Context mContext;
 
-    public BusinessesAdapter(Context mContext, List<Businesses> mData) {
+    public BusinessesAdapter(@Nullable Context mContext, @Nullable List<Businesses> mData) {
         this.mContext = mContext;
         this.mData = mData;
     }
 
     @NonNull
     @Override
-    public BusinessesAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BusinessesAdapter.MyViewHolder onCreateViewHolder
+            (@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext ();
-        View view = LayoutInflater.from ( mContext ).inflate ( R.layout.featured_card_design, parent, false );
+        View view = LayoutInflater.from ( mContext ).inflate
+                ( R.layout.featured_card_design, parent, false );
         return new BusinessesAdapter.MyViewHolder ( view );
     }
 
     @Override
     public void onBindViewHolder(@NonNull BusinessesAdapter.MyViewHolder holder, int position) {
+        assert mData != null;
         Businesses temp = mData.get ( position );
         holder.business_name.setText ( mData.get ( position ).getBusiness_name () );
         holder.featured_desc.setText ( mData.get ( position ).getBdesc () );
@@ -69,6 +72,7 @@ public class BusinessesAdapter extends RecyclerView.Adapter<BusinessesAdapter.My
 
     @Override
     public int getItemCount() {
+        assert mData != null;
         return mData.size ();
     }
 

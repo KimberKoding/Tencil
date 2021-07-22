@@ -56,7 +56,7 @@
     <string name="how_old_are_you">How Old Are You?</string>
     <string name="what_gender_are_you">What Gender Are You?</string>
     <string name="what_ethnic_group_best_describes_you">Which Ethic Group Best  Describes You? </string>
-    <string name="what_is_your_favourite_subjects">What Is Your Favourite Subjects</string>
+    <string name="what_is_your_favourite_subjects">What Is Your Favourite Subjects?</string>
     <string name="what_is_your_hobbies">What Is Your Favourite Hobby?</string>
     <string name="what_is_your_sport">What Is Your Favourite Sport?</string>
     <string name="what_is_your_social_media">What Is Your Favourite Social Media?</string>
@@ -211,5 +211,6 @@
     <string name="want_to_be_apart_of_tencil">WANT TO BE APART OF TENCIL?</string>
     <string name="error_answer13">There was an error with answering this question. Please Try Again</string>
     <string name="birthday">Date of Birth</string>
+    <string name="providecontact">https://providencewebservices.co.uk/contact</string>
 
 </resources>

@@ -3,6 +3,8 @@ package uk.co.tencil.Categories;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.Nullable;
+
 import uk.co.tencil.Businesses.JSONResponse;
 
 public class Categories extends JSONResponse implements Parcelable {
@@ -21,7 +23,8 @@ public class Categories extends JSONResponse implements Parcelable {
         }
     };
 
-    protected Categories(Parcel in) {
+    protected Categories(@Nullable Parcel in) {
+        assert in != null;
         cid = in.readInt ();
         name = in.readString ();
     }
@@ -31,9 +34,9 @@ public class Categories extends JSONResponse implements Parcelable {
     }
 
 
+    @Nullable
     public String getName() {
-        String str = name.substring ( 0, 1 ).toUpperCase () + name.substring ( 1 );
-        return str;
+        return name.substring ( 0, 1 ).toUpperCase () + name.substring ( 1 );
     }
 
     @Override
@@ -42,7 +45,8 @@ public class Categories extends JSONResponse implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(@Nullable Parcel dest, int flags) {
+        assert dest != null;
         dest.writeInt ( cid );
         dest.writeString ( name );
     }

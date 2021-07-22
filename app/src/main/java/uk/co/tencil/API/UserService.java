@@ -1,5 +1,8 @@
 package uk.co.tencil.API;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -25,73 +28,90 @@ import uk.co.tencil.WeRecommend.WerecommendResponse;
 
 public interface UserService {
 
+    @Nullable
     @POST("login.php?method=json")
     @Headers({
             "Content-Type: application/json",
             "Accept: application/json"})
     Call<LoginResponse> userLogin(
-            @Body LoginResponse loginResponse
+            @Body @NonNull LoginResponse loginResponse
     );
 
+    @Nullable
     @POST("registration.php?method=json")
     @Headers({"Content-Type: application/json",
             "Accept: application/json",
             "X-API-KEY: a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE"})
     Call<RegisterResponse> registerUsers(
-            @Body RegisterRequest registerRequest
+            @Body @NonNull RegisterRequest registerRequest
     );
 
 
+    @NonNull
     @GET("tools/cats.php?c=ALL")
     Call<JSONResponse> getCategories();
+
+    @NonNull
     @GET("tools/businesses.php?method=get&ft=true")
     Call<BusinessesResponse> getBusinesses();
+
+    @NonNull
     @GET("tools/businesses.php?method=get")
     Call<GetAllBusinessesByCidResponse> getAllBusinessesByCID(@Query("cid") int cid);
+
+    @NonNull
     @GET("tools/businesses.php?method=get")
     Call<SolocompanyResponse> getSolo(@Query("bname") int bname);
+
+    @NonNull
     @POST("tools/activate.php")
     Call<ActivateResponse> activateUsers(
-            @Body ActivateResponse res);
+            @Body @NonNull ActivateResponse res);
 
+    @NonNull
     @POST("tools/activate.php?func=resend")
     Call<ResendRequest> resendemail(
-            @Body ResendResponse resendMe);
+            @Body @NonNull ResendResponse resendMe);
 
+    @NonNull
     @POST("tools/pwreset.php?func=ir")
     @Headers({
             "Content-Type: application/json",
             "Accept: application/json",
             "X-API-KEY: a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE"})
     Call<PasswordResponse> resetpassword(
-            @Body PasswordResponse resetPass);
+            @Body @NonNull PasswordResponse resetPass);
 
 
+    @NonNull
     @POST("tools/pwreset.php?func=res")
     @Headers({
             "Content-Type: application/json",
             "Accept: application/json",
             "X-API-KEY: a6lNFeTgMKth2xYKnlIC0o8cO8lubqcE"})
     Call<ResetResponse> passwordreset(
-            @Body ResetResponse passreset);
+            @Body @NonNull ResetResponse passreset);
 
+    @NonNull
     @POST("tools/userdetails.php?func=edit")
     @Headers({"Content-Type: application/json",
             "Accept: application/json"
     })
     Call<EditResponse> editdetails(
-            @Header("X-USER-KEY") String xUserKey,
-            @Body EditResponse editdetails
+            @Header("X-USER-KEY") @NonNull String xUserKey,
+            @Body @NonNull EditResponse editdetails
 
     );
 
+    @NonNull
     @GET("tools/businesses.php?method=get")
     Call<WerecommendResponse> werecommend(@Query("cid") int cid);
 
+    @NonNull
     @POST("tools/questions.php?func=create")
     Call<QuestionsResponse> questions(
-            @Header("X-USER-KEY") String xUserKey,
-            @Body QuestionsResponse questionsRequest
+            @Header("X-USER-KEY") @NonNull String xUserKey,
+            @Body @NonNull QuestionsResponse questionsRequest
 
     );
 
