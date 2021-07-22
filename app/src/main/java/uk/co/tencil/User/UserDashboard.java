@@ -49,8 +49,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
 
     static int cid;
-
-
     public int getCid() {
         System.out.println ( "getCid() method was called! CID is: " + cid );
         cid = (4);
