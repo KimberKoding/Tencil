@@ -6,24 +6,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context="uk.co.tencil.Common.SplashScreen">
+    android:background="@color/white"
+    tools:context="uk.co.tencil.MainActivity.SplashScreen">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/background_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/splashscreen"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:src="@drawable/tenlogo" />
 
     <TextView
         android:id="@+id/powered_by_line"
@@ -31,7 +23,7 @@
         android:layout_height="17dp"
         android:text="@string/powered_by"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,16 +36,16 @@
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
-        android:text="Beta 18.04.2021"
+        android:text="@string/version_1_1_24"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.983" />
+        app:layout_constraintVertical_bias="0.977" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

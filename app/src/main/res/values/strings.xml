@@ -1,13 +1,9 @@
 <resources>
-    <string name="app_name">TENCIL</string>
-
-
-    <string name="swipe_left_for_register">Swipe Left for Register</string>
+    <string name="app_name">Tencil</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="e_mail">Email</string>
     <string name="tag">Register &amp; Control Your Future Today!</string>
-    <string name="swipe_right_for_login">Swipe Right for Login</string>
     <string name="register">Register</string>
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
@@ -15,135 +11,6 @@
     <string name="prompt_email" />
     <string name="prompt_password" />
     <string name="action_sign_in_short" />
-
-    <string-array name="location">
-        <item>Wales</item>
-        <item>England</item>
-        <item>Scotland</item>
-        <item>Northern Ireland</item>
-        <item>Other</item>
-    </string-array>
-
-
-    <string-array name="age">
-        <item>14 – 15</item>
-        <item>15 – 16</item>
-        <item>16 – 17</item>
-        <item>18+</item>
-        <item>Prefer Not To Say</item>
-    </string-array>
-    <string-array name="gender">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Transgender</item>
-        <item>Non-Binary</item>
-        <item>Prefer Not To Say</item>
-
-    </string-array>
-    <string-array name="ethnic">
-        <item>White</item>
-        <item>Gypsy</item>
-        <item>Asian</item>
-        <item>Black</item>
-        <item>Mixed Race</item>
-        <item>Other</item>
-        <item>Prefer Not To Say</item>
-
-    </string-array>
-
-    <string-array name="subjects">
-        <item>Humanities</item>
-        <item>Sciences</item>
-        <item>Social Sciences</item>
-        <item>Languages</item>
-        <item>Mathematics</item>
-
-    </string-array>
-
-    <string-array name="hobbies">
-        <item>Sports</item>
-        <item>Social Media</item>
-        <item>Music</item>
-        <item>Gaming</item>
-        <item>Technology</item>
-        <item>Arts and Design</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="sports">
-        <item>Rugby</item>
-        <item>Football</item>
-        <item>Cricket</item>
-        <item>Golf</item>
-        <item>Hiking</item>
-        <item>Swimming</item>
-        <item>Ballet</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="smedia">
-        <item>Facebook</item>
-        <item>Twitter</item>
-        <item>TikTok</item>
-        <item>Instagram</item>
-        <item>Snapchat</item>
-        <item>Youtube</item>
-        <item>Linkedin</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="genre">
-        <item>Hip Hop</item>
-        <item>Pop Music</item>
-        <item>House Music</item>
-        <item>Techno</item>
-        <item>Jazz</item>
-        <item>Rock</item>
-        <item>Heavy Metal</item>
-        <item>Other</item>
-
-    </string-array>
-    <string-array name="console">
-        <item>Playstation</item>
-        <item>Xbox</item>
-        <item>PC (No RTX 3070 here)</item>
-        <item>Nintendo</item>
-        <item>Other</item>
-        <item>None</item>
-
-
-    </string-array>
-    <string-array name="statement">
-        <item>I Am Passionate About My Work.</item>
-        <item>I Am Highly Organised.</item>
-        <item>I Am Ambitious And Driven</item>
-        <item>I am a People Person</item>
-        <item>Im a Natural Leader</item>
-        <item>I am Results Orientated</item>
-
-
-    </string-array>
-    <string-array name="school">
-        <item>University</item>
-        <item>Apprenticeship </item>
-        <item>Full-Time Work</item>
-        <item>Part-Time Work</item>
-        <item>Travelling</item>
-        <item>Other</item>
-
-    </string-array>
-
-    <string-array name="career">
-        <item>Marketing</item>
-        <item>Law</item>
-        <item>Finance</item>
-        <item>Real-Estate</item>
-        <item>Coding</item>
-        <item>Other</item>
-
-
-    </string-array>
-
     <string name="tencil">Welcome To Tencil</string>
     <string name="textview">TextView</string>
 
@@ -188,8 +55,8 @@
     <string name="where_do_you_live">Where Do You Live?</string>
     <string name="how_old_are_you">How Old Are You?</string>
     <string name="what_gender_are_you">What Gender Are You?</string>
-    <string name="what_ethnic_group_best_describes_you">What Ethic Group Best Describes You? </string>
-    <string name="what_is_your_favourite_subjects">What Is Your Favourite Subjects</string>
+    <string name="what_ethnic_group_best_describes_you">Which Ethic Group Best  Describes You? </string>
+    <string name="what_is_your_favourite_subjects">What Is Your Favourite Subjects?</string>
     <string name="what_is_your_hobbies">What Is Your Favourite Hobby?</string>
     <string name="what_is_your_sport">What Is Your Favourite Sport?</string>
     <string name="what_is_your_social_media">What Is Your Favourite Social Media?</string>
@@ -317,7 +184,7 @@
     <string name="contact_us">Contact Us</string>
     <string name="homepage">Ryan\'s Home page</string>
     <string name="we_recomend">We Recommend: </string>
-    <string name="welcome_to_tencil_ryan">Welcome to Tencil \n  </string>
+    <string name="welcome_to_tencil_ryan">Welcome to Tencil </string>
     <string name="full_name">Full Name</string>
     <string name="ryan">Ryan</string>
     <string name="ryan_kimber">Ryan Kimber</string>
@@ -330,5 +197,20 @@
     <string name="news_this_feature_will_be_live_on_full_release">News \n (This feature will be live on full release)</string>
     <string name="videos_this_feature_will_be_live_on_full_release">Videos \n (This feature will be live on full release)</string>
     <string name="moneyfarm_is_an_online_investment_advisor_and_one_of_the_largest_digital_wealth_management_companies_in_europe">Moneyfarm is an online investment advisor and one of the largest digital wealth management companies in Europe</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="more_coming_soon">More Coming Soon!</string>
+    <string name="careers">Careers</string>
+    <string name="version_1_0_16">Version 1.0.16</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="version_1_0_18">Version 1.1.18</string>
+    <string name="version_1_1_19">Version 1.1.19</string>
+    <string name="testingforbugs">Testing for Bugs</string>
+    <string name="version_1_1_23">Version 1.0.23</string>
+    <string name="version_1_1_24">Version 1.0.24</string>
+    <string name="newsheadline">NewsHeadline</string>
+    <string name="want_to_be_apart_of_tencil">WANT TO BE APART OF TENCIL?</string>
+    <string name="error_answer13">There was an error with answering this question. Please Try Again</string>
+    <string name="birthday">Date of Birth</string>
+    <string name="providecontact">https://providencewebservices.co.uk/contact</string>
 
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.co.tencil.questiontwo">
+    tools:context="uk.co.tencil.Questions.questiontwo">
 
     <TextView
         android:id="@+id/textView9"
@@ -58,7 +58,6 @@
         android:id="@+id/spinner1"
         android:layout_width="192dp"
         android:layout_height="47dp"
-        android:entries="@array/age"
         android:gravity="center|center_horizontal|center_vertical"
         android:spinnerMode="dropdown"
         android:textAlignment="center"

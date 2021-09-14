@@ -6,7 +6,7 @@
     android:theme="@style/AppTheme"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="uk.co.tencil.register">
+    tools:context="uk.co.tencil.User.Register.register">
 
     <TextView
         android:id="@+id/tv_logo"
@@ -62,6 +62,24 @@
         android:textSize="15sp" />
 
     <EditText
+        android:id="@+id/Birthday"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/et_custom"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:drawableRight="@drawable/ic_date"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="Date of Birth"
+        android:padding="15dp"
+        android:textSize="15sp" />
+
+    <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -99,12 +117,13 @@
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/bg_green"
-        android:backgroundTint="#00DAFF"
+        app:backgroundTint="@color/TencilPrime"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/register"
         android:textColor="@android:color/white"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <ProgressBar
         android:id="@+id/loading"
@@ -133,7 +152,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="60dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="#1A1C3A"
             android:fontFamily="@font/roboto_regular"
             android:onClick="loginHere"
             android:text="@string/login"
@@ -151,7 +170,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="#27C6E1"
+            android:backgroundTint="#1A1C3A"
             android:fontFamily="@font/roboto_regular"
             android:onClick="activate"
             android:text="@string/activate"

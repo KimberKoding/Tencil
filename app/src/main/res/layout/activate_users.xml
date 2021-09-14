@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="uk.co.tencil.Activate">
+    tools:context="uk.co.tencil.Activation.Activate">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -91,7 +91,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:backgroundTint="#14b9d5"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/activate"
         android:textColor="@android:color/white" />
@@ -104,7 +104,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="#1A1C3A"
         android:fontFamily="@font/roboto_regular"
         android:onClick="resendTO"
         android:text="@string/resend_code"

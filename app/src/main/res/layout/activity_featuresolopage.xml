@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="uk.co.tencil.featuresolopage">
+    tools:context="uk.co.tencil.Businesses.FeaturedBusiness.featuresolopage">
 
     <LinearLayout
         android:id="@+id/content"
@@ -122,8 +122,7 @@
                             android:text="@string/resources"
                             android:textAllCaps="true"
                             android:textColor="#000"
-
-                            android:textSize="25sp" />
+                            android:textSize="22sp" />
 
 
                         <RelativeLayout
@@ -154,7 +153,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
-                                android:layout_marginStart="130dp"
+                                android:layout_marginStart="110dp"
                                 android:layout_marginTop="10dp"
                                 android:backgroundTint="#056F98"
                                 android:onClick="socialmedia"

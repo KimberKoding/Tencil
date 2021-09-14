@@ -1,8 +1,9 @@
 package uk.co.tencil.User;
 
-import android.annotation.SuppressLint;
+
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,26 +30,32 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import uk.co.tencil.Businesses;
-import uk.co.tencil.BusinessesAdapter;
-import uk.co.tencil.BusinessesResponse;
-import uk.co.tencil.Categories;
-import uk.co.tencil.CategoriesAdapter;
-import uk.co.tencil.JSONResponse;
+import uk.co.tencil.API.UserService;
+import uk.co.tencil.Businesses.Businesses;
+import uk.co.tencil.Businesses.BusinessesAdapter;
+import uk.co.tencil.Businesses.BusinessesResponse;
+import uk.co.tencil.Businesses.JSONResponse;
+import uk.co.tencil.Categories.Categories;
+import uk.co.tencil.Categories.CategoriesAdapter;
+import uk.co.tencil.Legal.privacy_policy;
+import uk.co.tencil.Questions.questionone;
 import uk.co.tencil.R;
-import uk.co.tencil.SessionManager;
-import uk.co.tencil.UserService;
-import uk.co.tencil.login;
-import uk.co.tencil.soloCompanyFinance;
-import uk.co.tencil.solocompany_monzo;
+import uk.co.tencil.User.Login.SessionManager;
+import uk.co.tencil.User.Login.login;
+import uk.co.tencil.WeRecommend.WerecommendAdapter;
+import uk.co.tencil.WeRecommend.WerecommendResponse;
 
 public class UserDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    // WE WILL BUILD A PROFESSIONAL APP ;)
 
-    private static final String JSON_URL = "https://providencewebservices.co.uk/api-test/v1/tools/cats.php?c=ALL";
-    private static final String JSON_URL2 = "https://providencewebservices.co.uk/api-test/v1/tools/businesses.php?method=get&ft=true";
-    private static final String TAG = "CLICKED";
+    static int cid;
+    public int getCid() {
+        System.out.println ( "getCid() method was called! CID is: " + cid );
+        cid = (1);
+        return cid;
+    }
+
+
     //Variables + Widgets
     String shareBody = "This is a Great App, TENCIL APP COMING SOON";
     Button btnShare;
@@ -56,34 +63,30 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     TextView welcomeuserdash;
     LinearLayout contentView;
     static float END_SCALE = 0.7f;
-    RecyclerView featuredRecycler, categoriesRecycler;
+    RecyclerView featuredRecycler, categoriesRecycler, werecommendRecycler;
     //Drawer Menu
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Context mContext;
     List<Categories> categoriesList;
     List<Businesses> businessesList;
+    List<Businesses> werecommendList;
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate ( savedInstanceState );
-
-
         setContentView ( R.layout.userdashboard );
-
         //Hooks
         menuIcon = findViewById ( R.id.menu_icon );
         contentView = findViewById ( R.id.content );
         featuredRecycler = findViewById ( R.id.featured_recycler );
         categoriesRecycler = findViewById ( R.id.categories_recycler );
+        werecommendRecycler = findViewById ( R.id.werecommendrecycler );
+        werecommendList = new ArrayList<> ();
         categoriesList = new ArrayList<> ();
         businessesList = new ArrayList<> ();
         welcomeuserdash = findViewById ( R.id.welcomeuserdash );
-        welcomeuserdash.setText ( "Welcome To Tencil, " + getIntent ().getStringExtra ( "email" ) );
-
-
         SessionManager sessionManager = new SessionManager ( this );
         HashMap<String, String> userDetails = sessionManager.getUsersDetailFromSession ();
 
@@ -91,11 +94,10 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         String password = userDetails.get ( SessionManager.KEY_PASSWORD );
         System.out.println ( email + password + "Printed to console" );
 
-
         //RETROFIT
 
         Retrofit retrofit = new Retrofit.Builder ()
-                .baseUrl ( "https://providencewebservices.co.uk/api-test/v1/" )
+                .baseUrl ( "https://tencil-infra.co.uk/api/v1/" )
                 .addConverterFactory ( GsonConverterFactory.create () )
                 .build ();
         UserService userService = retrofit.create ( UserService.class );
@@ -124,18 +126,39 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         call1.enqueue ( new Callback<BusinessesResponse> () {
             @Override
             public void onResponse(Call<BusinessesResponse> call, Response<BusinessesResponse> response) {
-                System.out.println ( response + "Businesses BITCH" );
                 BusinessesResponse businessesResponse = response.body ();
                 businessesList = new ArrayList<> ( Arrays.asList ( businessesResponse.getBusinesses () ) );
                 PutDataIntoView ( businessesList );
+
             }
 
             @Override
             public void onFailure(Call<BusinessesResponse> call, Throwable t) {
-                System.out.println ( t + "FUUCK" );
+                System.out.println("Failure");
+            }
+        } );
+
+        Call<WerecommendResponse> call2 = userService.werecommend ( getCid () );
+        call2.enqueue ( new Callback<WerecommendResponse> () {
+            @Override
+            public void onResponse(Call<WerecommendResponse> call,
+                                   Response<WerecommendResponse> response) {
+                System.out.println ( response + "We Recommend Feature Loaded" );
+                WerecommendResponse werecommendResponse = response.body ();
+                werecommendList = new ArrayList<>
+                        ( Arrays.asList ( werecommendResponse.werecommend () ) );
+                PutDataIntoWeRecommend ( werecommendList );
+
+
+            }
+
+            @Override
+            public void onFailure(Call<WerecommendResponse> call, Throwable t) {
 
             }
         } );
+
+
         //Menu Hooks
         drawerLayout = findViewById ( R.id.drawer_layout );
         navigationView = findViewById ( R.id.navigation_view );
@@ -148,15 +171,28 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
+
+    private void PutDataIntoWeRecommend(List<Businesses> werecommendList) {
+        WerecommendAdapter werecommendAdapter = new WerecommendAdapter ( this,
+                werecommendList );
+        werecommendRecycler.setLayoutManager ( new LinearLayoutManager ( this,
+                LinearLayoutManager.HORIZONTAL, false ) );
+        werecommendRecycler.setAdapter ( werecommendAdapter );
+
+
+    }
+
     private void PutDataIntoView(List<Businesses> businessesList) {
         BusinessesAdapter businessesAdapter = new BusinessesAdapter ( this, businessesList );
-        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        featuredRecycler.setLayoutManager ( new LinearLayoutManager ( this,
+                LinearLayoutManager.HORIZONTAL, false ) );
         featuredRecycler.setAdapter ( businessesAdapter );
     }
 
     private void PutDataIntoRecyclerView(List<Categories> categoriesList) {
-        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList );
-        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this, LinearLayoutManager.HORIZONTAL, false ) );
+        CategoriesAdapter categoriesAdapter = new CategoriesAdapter ( this, categoriesList);
+        categoriesRecycler.setLayoutManager ( new LinearLayoutManager ( this,
+                LinearLayoutManager.HORIZONTAL, false ) );
         categoriesRecycler.setAdapter ( categoriesAdapter );
 
 
@@ -221,13 +257,50 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         } else if (id == R.id.nav_logout) {
             startActivity ( new Intent ( UserDashboard.this, login.class ) );
 
+        } else if (id == R.id.nav_profile) {
+            Intent receiveIntent = getIntent ();
+            Bundle bundle = receiveIntent.getExtras ();
+            System.out.println ( "Intents" + receiveIntent.getExtras () );
+            Intent toUserProfile = new Intent ( UserDashboard.this,
+                    user_profile.class );
+            toUserProfile.putExtra ( "logininfo", bundle );
+
+            if (bundle == null){
+                Intent receiveLoginIntent = getIntent ();
+                Bundle receiveLoginIntentBundleExtra = receiveLoginIntent.getExtras ();
+                System.out.println("Logged in Intents: " + "" + receiveLoginIntent.getExtras());
+                System.out.println(receiveLoginIntentBundleExtra);
+                Intent loginexample = new Intent
+                        (UserDashboard.this, user_profile.class);
+                loginexample.putExtra("NewLoginInfo",bundle);
+                finish();
+
+            } else {
+                startActivity ( toUserProfile );
+            }
+
+           
+
+
         } else if (id == R.id.nav_share) {
             Intent intent2 = new Intent ( Intent.ACTION_SEND );
-            intent2.putExtra ( Intent.EXTRA_TEXT, "TENCIL APP COMING SOON " + " http://www.tencil.co.uk/" + getPackageName () );
+            intent2.putExtra ( Intent.EXTRA_TEXT, "Download the Tencil App Today!" + "https://play.google.com/store/apps/details?id=uk.co.tencil.app" + getPackageName () );
             intent2.setType ( "text/plain" );
             startActivity ( intent2 );
 
 
+        } else if (id == R.id.legal) {
+            startActivity ( new Intent ( this, privacy_policy.class ) );
+            finish ();
+        } else if (id == R.id.nav_qs) {
+            Intent recieveIntent = getIntent ();
+            Bundle bundle = recieveIntent.getExtras ();
+            Intent toqs = new Intent ( UserDashboard.this, questionone.class );
+            toqs.putExtra ( "logininfo", bundle );
+            startActivity ( toqs );
+        } else if (id == R.id.nav_technical) {
+            Intent browserIntent = new Intent ( Intent.ACTION_VIEW, Uri.parse ( "https://manage.statuspage.io/pages/sgndqzkndcf7/incidents" ) );
+            startActivity ( browserIntent );
         }
 
 
@@ -235,24 +308,6 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
 
     }
 
-
-    public void card001(View view) {
-        Intent intent = new Intent ( UserDashboard.this, soloCompanyFinance.class );
-        startActivity ( intent );
-        return;
-    }
-
-    public void card002(View view) {
-        Intent intent = new Intent ( UserDashboard.this, solocompany_monzo.class );
-        startActivity ( intent );
-        return;
-    }
-
-    public void card003(View view) {
-        Intent intent = new Intent ( UserDashboard.this, solocompany_moneyfarm.class );
-        startActivity ( intent );
-        return;
-    }
 
 
 }
